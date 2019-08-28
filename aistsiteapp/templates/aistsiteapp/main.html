@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <ul>{% load menubuilder %}        
+      {% menu top_menu %}
+      {% for item in menuitems %}
+          <li {% if item.current %}class="active"{% endif %}>
+              <a href="{{ item.url }}" title="{{ item.title|escape }}">{{ item.title }}</a>
+          </li>
+      {% endfor %}
+      </ul>
+      <div class="col-lg-2 col-md-2 col-sm-2 sidebar">
+        <h2>Пример сео информации</h2>
+        <p>{{ page_info.seo_title }}</p>
+        <hr>
+        <h3>Первый блок</h3>
+        <p>{{ main_block.name }}</p>
+        <p>{{ main_block.text }}</p>
+        <img src="{{ MEDIA_URL }}{{ main_block.images.url }}" alt="" style=" width: 200px;">
+        <hr>
+        <h3>Второй блок</h3>
+        {% for blok in second_block.bloks %}
+            <h4>{{blok.name}}</h4>
+            <p>{{blok.text}}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
