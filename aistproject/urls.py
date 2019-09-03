@@ -18,9 +18,15 @@ from django.urls import path
 from aistsiteapp import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
     path('', views.home, name='home'),
     path('video-courses/', views.videocourses, name='videocourses'),
+    path('video-courses/<str:slug>', views.videocourses_item, name='videocourses_item'),
+    path('events/', views.events, name='events'),
+    path('events/<str:slug>', views.events_item, name='events_item'),
+    path('<str:slug>', views.pages, name='pages'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

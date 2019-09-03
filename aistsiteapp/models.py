@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.utils.timezone import now
 
 class Page(models.Model):
     name =models.CharField(max_length=255)
@@ -32,7 +33,7 @@ class Blocks(models.Model):
         verbose_name_plural='Блоки'
 
     def __str__(self):
-        return self.tech_name
+        return self.name
 
 class VideoCourses(models.Model):
     name=models.CharField(max_length=255)
@@ -50,14 +51,15 @@ class VideoCourses(models.Model):
 
 class Events(models.Model):
     name=models.CharField(max_length=255)
-    text=models.TextField(blank=True)
     images = models.ImageField(upload_to='images/', blank=True)
     video =  models.CharField(max_length=255,  blank=True, null=True)
     slug = models.CharField(max_length=255,  blank=True, null=True)
+    text=models.TextField(blank=True)
+    start_date=models.DateTimeField(blank=True, default=now)
 
     class Meta:
-        verbose_name='Видеокурс'
-        verbose_name_plural='Видеокурсы'
+        verbose_name='Событие'
+        verbose_name_plural='События'
 
     def __str__(self):
         return self.name

@@ -1,4 +1,4 @@
-TEST!!!!!!!!!!!!
-
-
-videocourses.html
+{% for course in videocourses %}
+    <h4>{{course.name}}</h4>
+    <p>{{course.text}}</p>
+{% endfor %}
