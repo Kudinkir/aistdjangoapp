@@ -21,8 +21,9 @@ class Page(models.Model):
 
 
 class Blocks(models.Model):
-    tech_name=models.CharField(max_length=255, blank=True, null=True, verbose_name='Техническое имя')
-    name=models.CharField(max_length=255)
+    tech_name=models.CharField(max_length=255, blank=True, null=True, unique=True,verbose_name='Техническое имя')
+    prior=models.IntegerField(verbose_name='Приоритет', default=100)
+    name=models.CharField(max_length=255, unique=True)
     block_id = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, verbose_name='id Block')
     page_id = models.ForeignKey('Page', on_delete=models.CASCADE, blank=True, null=True, verbose_name='related Page')
     text=models.TextField(blank=True)
@@ -63,3 +64,35 @@ class Events(models.Model):
 
     def __str__(self):
         return self.name
+
+class Callback(models.Model):
+    user_name=models.CharField(max_length=255, verbose_name='Имя пользователя')
+    email = models.EmailField(max_length=255)
+    text=models.TextField(blank=True)
+    personal_agree=models.BooleanField()
+
+    class Meta:
+        verbose_name='Обратная связь'
+
+    def __str__(self):
+        return self.user_name
+
+class Subscribe(models.Model):
+    STATUS = (
+       ('1-11', ('1-11 недель')),
+       ('12-19', ('12-19 недель')),
+       ('20-29', ('20-29 недель')),
+       ('30-41', ('30-41 недель')),
+       ('После родов', ('После родов'))
+    )
+    user_name=models.CharField(max_length=255, verbose_name='Имя пользователя')
+    email = models.EmailField(max_length=255)
+    text=models.TextField(blank=True, verbose_name='Неделя беременности',choices=STATUS)
+    personal_agree=models.BooleanField()
+
+    class Meta:
+        verbose_name='Подписка'
+        verbose_name_plural='Подписки'
+
+    def __str__(self):
+        return self.user_name

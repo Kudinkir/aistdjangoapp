@@ -1,11 +1,14 @@
-<p>{{ page.seo_title }}</p>
-{% for blok in blocks %}
-  <div class="col-md-3">
-      <div class="card card-tip">
-          <div class="card-body">
-              <h5 class="card-title">{{blok.name}}</h5>
-              <p class="card-text">{{blok.text}}</p>
-          </div>
-      </div>
-  </div>
-{% endfor %}
+{% extends 'aistsiteapp/base.html' %}
+{% block page %}
+  <p>{{ page.seo_title }}</p>
+  {% for blok in blocks %}
+    <div class="col-md-3">
+        <div class="card card-tip">
+            <div class="card-body">
+                <h5 class="card-title">{{blok.name}}</h5>
+                <p class="card-text">{{blok.text}}</p>
+            </div>
+        </div>
+    </div>
+  {% endfor %}
+{% endblock %}
