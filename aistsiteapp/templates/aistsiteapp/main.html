@@ -1,4 +1,5 @@
 {% extends 'aistsiteapp/base.html' %}
+{% load bootstrap4 %}
 {% block page %}
     <div class="row" style="height: calc( 100vh - 117px );">
         <div class="col-sm col-lg-6">
@@ -29,5 +30,12 @@
             </div>
           {% endfor %}
         </div>
+    </div>
+    <div class="panel-body">
+      <form action="{% url 'subscribe' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   {% endblock %}

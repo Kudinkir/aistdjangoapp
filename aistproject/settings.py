@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'aistsiteapp',
     'menu',
     'django_summernote',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

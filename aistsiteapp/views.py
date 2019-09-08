@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 from aistsiteapp.models import Blocks, Page, VideoCourses, Events
+from aistsiteapp.forms import SubscribeForm, CallbackForm
 
 # Create your views here.
 def home(request):
+    subscribe_form = SubscribeForm()
     page = Page.objects.get(tech_title='main_page')
     main_block = Blocks.objects.get(id=1)
     second_block = Blocks.objects.get(id=2)
@@ -13,7 +16,8 @@ def home(request):
         'page_info' : page,
         'main_block' : main_block,
         'second_block' : second_block,
-        'footer_block' : footer_block
+        'footer_block' : footer_block,
+        'form': subscribe_form
     })
 
 def videocourses(request):
@@ -47,3 +51,21 @@ def pages(request, slug):
         'page' : page,
         'blocks' : blocks
     })
+
+def subscribe(request):
+    if request.method == "POST":
+        form = SubscribeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'errors': 0})
+    else:
+        return JsonResponse({'errors': 'Use post method!'})
+
+def callback(request):
+    if request.method == "POST":
+        form = CallbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'errors': 0})
+    else:
+        return JsonResponse({'errors': 'Use post method!'})
