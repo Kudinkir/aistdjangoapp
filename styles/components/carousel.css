@@ -1,0 +1,35 @@
+@block carousel {
+    @element items {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    @element item {
+        padding: 0;
+        padding-right: 15px;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    @element nav {
+        padding: 0;
+        display: flex;
+        margin-left: auto;
+        margin-bottom: 40px;
+
+        @media (--viewport-tablet) {
+            display: none;
+        }
+    }
+
+    @element arrow {
+        border: none;
+        background: none;
+
+        &:not(:first-child) {
+            margin-left: 16px;
+        }
+    }
+}

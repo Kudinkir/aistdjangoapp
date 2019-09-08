@@ -1,0 +1,40 @@
+@block dropdown {
+    position: relative;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        & > .dropdown__menu {
+            display: block;
+        }
+    }
+
+    @element menu {
+        display: none;
+
+        @media (--viewport-tablet) {
+            position: absolute;
+            top: 100%;
+            background: var(--color-secondary);
+            padding: 12px 16px;
+            color: #252e5b;
+        }
+
+        &.show {
+            display: block;
+        }
+    }
+
+    @element item {
+        display: block;
+        white-space: nowrap;
+        color: var(--color-white);
+        text-decoration: none;
+        font-size: var(--font-size-base);
+        padding: 4px 0;
+
+        @media (--viewport-tablet) {
+            color: #252e5b;
+        }
+    }
+}

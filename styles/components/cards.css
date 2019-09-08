@@ -1,0 +1,25 @@
+@block cards {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (--viewport-desktop) {
+        margin: 0 -12px;
+    }
+
+    @element col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 24px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (--viewport-desktop) {
+            margin: 0;
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 12px;
+        }
+    }
+}

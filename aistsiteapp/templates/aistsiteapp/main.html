@@ -1,41 +1,49 @@
 {% extends 'aistsiteapp/base.html' %}
-{% load bootstrap4 %}
-{% block page %}
-    <div class="row" style="height: calc( 100vh - 117px );">
-        <div class="col-sm col-lg-6">
-            <h1 style="align-items: center;">{{ main_block.text }}
-            </h1>
-        </div>
-        <div class="col-sm col-lg-6">
-            <div id="main-photo" style="background-image: url('{{ MEDIA_URL }}{{ main_block.images.url }}');">
-                <img src="{{ MEDIA_URL }}{{ main_block.images.url }}" class="img-fluid" alt="24 марта Москва Марина Аист"/>
-                <div id="main-photo-sticker">
-                    <p>24 марта Москва</p></div>
-            </div>
-        </div>
-        <div class="background-decoration-leaf"></div>
-    </div>
-    <div class="row" style="position: relative;margin-top: 110px">
-        <div class="background-decoration-woman"></div>
 
-        <div class="row col-lg-9 offset-3">
-          {% for blok in second_block.bloks %}
-            <div class="col-md-3">
-                <div class="card card-tip">
-                    <div class="card-body">
-                        <h5 class="">{{blok.name}}</h5>
-                        <p class="">{{blok.text}}</p>
+{% block page %}
+    <section class="hero">
+        <div class="hero__inner">
+            <div class="hero__top hero__top--homepage">
+                <div class="container container--fluid">
+                    <div class="hero__row">
+                        <div class="hero__text hero__text--flex-end">
+                            <h1 class="hero__title hero__title--homepage">
+                                {{ main_block.name }}
+                            </h1>
+                        </div>
+                        <div class="hero__right">
+                            <div class="hero__image-wrapper">
+                                <div class="hero__circle circle">
+                                    <div class="circle__inner">
+                                        20 июля<br />
+                                        <small>Казань</small>
+                                    </div>
+                                </div>
+                                <div
+                                    class="hero__image"
+                                    style="background-image: url('{{ MEDIA_URL }}{{ main_block.images.url }}')"
+                                ></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-          {% endfor %}
+            <div class="container">
+                <div class="hero__benefits">
+                    <div class="benefits" data-component="Carousel">
+                        {% for item in second_block.bloks %}
+                        <div class="benefits__item">
+                            <h2 class="benefits__title">{{ item.name }}</h2>
+                            <div class="benefits__text">
+                                {{ item.text }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="panel-body">
-      <form action="{% url 'subscribe' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
-  {% endblock %}
+    </section>
+    {% include './components/events.html' %}
+    {% include './components/subscribe.html' %}
+{% endblock %}

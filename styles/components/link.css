@@ -1,0 +1,8 @@
+@block link {
+    text-decoration: none;
+    color: var(--color-primary);
+
+    @modifier secondary {
+        color: var(--color-secondary);
+    }
+}

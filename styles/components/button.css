@@ -1,0 +1,42 @@
+@block button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: var(--color-primary);
+    padding: 16px;
+    font-family: var(--font-serif);
+    font-size: inherit;
+    color: var(--color-secondary);
+    cursor: pointer;
+    line-height: 1.5;
+    text-shadow: none;
+    user-select: none;
+    text-decoration: none;
+
+    @modifier secondary {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+
+        &.button--arrow::after {
+            background: no-repeat url('~svgIcons/arrow-right-primary.svg') center;
+        }
+    }
+
+    @modifier full-width {
+        display: flex;
+        width: 100%;
+    }
+
+    @modifier arrow {
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: no-repeat url('~svgIcons/arrow-right-secondary.svg') center;
+            margin: 0 10px;
+        }
+    }
+}

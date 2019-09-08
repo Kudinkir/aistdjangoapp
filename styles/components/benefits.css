@@ -1,0 +1,31 @@
+@block benefits {
+    display: flex;
+    overflow-x: auto;
+
+    @media (--viewport-desktop) {
+        overflow: initial;
+    }
+
+    @element item {
+        flex: 1;
+        min-width: 190px;
+        padding: 0 15px;
+
+        @media (--viewport-desktop) {
+            padding: 0 40px;
+        }
+    }
+
+    @element title {
+        font-size: 24px;
+        line-height: 28px;
+        font-family: var(--font-serif);
+        margin-bottom: 8px;
+        white-space: nowrap;
+    }
+
+    @element text {
+        line-height: 22px;
+        opacity: 0.72;
+    }
+}

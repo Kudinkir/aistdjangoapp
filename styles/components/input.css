@@ -1,0 +1,25 @@
+@block input {
+    @modifier row {
+        display: flex;
+    }
+
+    @element label {
+        display: block;
+        font-size: var(--font-size-base);
+        color: var(--color-font);
+        margin-bottom: 11px;
+    }
+
+    @element field {
+        width: 100%;
+        background: var(--color-background);
+        padding: 14px 16px;
+        color: var(--color-font);
+        border: 2px solid var(--color-primary);
+        line-height: 1.5;
+    }
+}
+
+@block field-group {
+    margin-bottom: 32px;
+}

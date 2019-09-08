@@ -1,0 +1,19 @@
+@block hide-on {
+    @modifier mobile {
+        @media (--viewport-phone) {
+            display: none;
+        }
+    }
+
+    @modifier tablet {
+        @media (--viewport-tablet) {
+            display: none;
+        }
+    }
+
+    @modifier desktop {
+        @media (--viewport-desktop) {
+            display: none;
+        }
+    }
+}

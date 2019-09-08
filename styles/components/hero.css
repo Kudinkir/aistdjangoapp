@@ -1,0 +1,183 @@
+:root {
+    --header-height: 80px;
+}
+
+@block hero {
+    background: var(--color-primary);
+    padding: var(--header-height) 0 0;
+
+    @media (--viewport-desktop) {
+        padding: 0;
+    }
+
+    @element inner {
+    }
+
+    @element top {
+        position: relative;
+        padding: 30px 0 0;
+
+        @modifier homepage {
+            @media (--viewport-desktop) {
+                overflow: hidden;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: no-repeat url('~svgIcons/homepage.svg') center 95% / contain;
+                    pointer-events: none;
+                }
+            }
+        }
+
+        @modifier videopage {
+            padding: var(--header-height) 0;
+
+            @media (--viewport-desktop) {
+                padding: 0;
+            }
+        }
+
+        @media (--viewport-desktop) {
+            overflow: hidden;
+            padding: 0;
+            /*height: 100vh;*/
+        }
+    }
+
+    @element row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (--viewport-desktop) {
+            flex-direction: row;
+            overflow: initial;
+        }
+    }
+
+    @element circle {
+        position: absolute;
+        z-index: 1;
+        right: 6px;
+        top: -44px;
+
+        @media (--viewport-desktop) {
+            right: -48px;
+            top: 98px;
+        }
+
+        @modifier videopage {
+            top: 100%;
+            right: 6px;
+            left: auto;
+
+            @media (--viewport-desktop) {
+                top: 98px;
+                bottom: auto;
+                left: 35%;
+                right: auto;
+            }
+        }
+    }
+
+    @element text {
+        display: flex;
+        flex: 1;
+
+        @modifier center {
+            align-items: center;
+        }
+
+        @modifier flex-end {
+            align-items: flex-end;
+        }
+    }
+
+    @element title {
+        line-height: 1.2;
+        max-width: 80%;
+        font-family: var(--font-serif);
+        text-align: center;
+        color: var(--color-secondary);
+        font-size: 36px;
+        margin: 0 auto;
+
+        @modifier homepage {
+            margin-bottom: 25px;
+
+            @media (--viewport-tablet) {
+                font-size: 48px;
+            }
+
+            @media (--viewport-desktop) {
+                font-size: 80px;
+            }
+
+            @media (--viewport-wide) {
+                margin-bottom: 76px;
+            }
+        }
+
+        @media (--viewport-tablet) {
+            max-width: 100%;
+        }
+
+        @media (--viewport-desktop) {
+            font-size: 80px;
+        }
+    }
+
+    @element right {
+        flex: 1;
+
+        @modifier videopage {
+            position: relative;
+
+            @media (--viewport-desktop) {
+                padding-top: 50%;
+
+                &::after {
+                    background: no-repeat url('~svgIcons/videopage.svg') right 80px / contain;
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+
+    @element image-wrapper {
+        position: relative;
+    }
+
+    @element image {
+        background: no-repeat center / cover;
+        padding-bottom: calc(100% - var(--header-height));
+
+        @media (--viewport-desktop) {
+            padding-bottom: 100vh;
+        }
+    }
+
+    @element benefits {
+        color: var(--color-background);
+        /*display: flex; */
+        /*align-items: center;*/
+        /*justify-content: center;*/
+        /*height: 220px;*/
+        padding: 26px 0;
+
+        @media (--viewport-desktop) {
+            padding: 56px 0;
+        }
+    }
+}

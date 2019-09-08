@@ -1,0 +1,128 @@
+@block card {
+    border: 2px solid var(--color-secondary);
+    /*display: flex;*/
+    color: var(--color-primary);
+    overflow: hidden;
+
+    @media (--viewport-tablet) {
+        display: flex;
+    }
+
+    @modifier reverse {
+        display: flex;
+        flex-direction: column;
+
+        @media (--viewport-tablet) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    @modifier invert {
+        color: var(--color-background);
+    }
+
+    @element body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px;
+        flex: 1;
+    }
+
+    @element header {
+        font-size: var(--font-size-small);
+        margin-bottom: 16px;
+
+        @modifier large {
+            @media (--viewport-desktop) {
+                font-size: var(--font-size-base);
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    @element title {
+        line-height: 1.2;
+        font-family: var(--font-serif);
+        font-size: 24px;
+        color: inherit;
+        margin-bottom: 12px;
+
+        @modifier small {
+            font-size: 24px;
+        }
+
+        @modifier large {
+            font-size: 32px;
+            margin-bottom: 16px;
+
+            @media (--viewport-desktop) {
+                font-size: 48px;
+            }
+        }
+
+        @media (--viewport-desktop) {
+            font-size: 32px;
+        }
+    }
+
+    @element text {
+        font-size: var(--font-size-base);
+        flex: 1;
+        margin-bottom: 16px;
+
+        @media (--viewport-tablet) {
+            margin-bottom: 0;
+        }
+    }
+
+    @element image {
+        overflow: hidden;
+        position: relative;
+
+        & img {
+            width: 100%;
+        }
+
+        @media (--viewport-tablet) {
+            flex: 0 0 60%;
+            max-width: 60%;
+        }
+
+        @modifier bg {
+            flex: 1;
+            background: no-repeat center / cover;
+        }
+
+        @modifier hero {
+            height: 190px;
+
+            @media (--viewport-tablet) {
+                height: 430px;
+            }
+        }
+
+        @modifier small {
+            display: none;
+
+            @media (--viewport-tablet) {
+                display: inline-block;
+                flex: 0 0 35%;
+                max-width: 35%;
+            }
+        }
+
+        @modifier full-width {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    @element actions {
+        display: none;
+
+        @media (--viewport-tablet) {
+            display: block;
+        }
+    }
+}

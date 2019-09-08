@@ -1,0 +1,49 @@
+{
+    "name": "maist",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "build": "NODE_ENV=production webpack",
+        "build:analyze": "ANALYZE=true NODE_ENV=production webpack",
+        "dev": "webpack"
+    },
+    "browserslist": [
+        "last 2 versions",
+        "not op_mini all"
+    ],
+    "dependencies": {
+        "@babel/core": "^7.5.5",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+        "@babel/preset-env": "^7.5.5",
+        "autoprefixer": "^9.6.1",
+        "babel-loader": "^8.0.6",
+        "case-sensitive-paths-webpack-plugin": "^2.2.0",
+        "clean-webpack-plugin": "1.0.1",
+        "css-loader": "^3.2.0",
+        "destyle.css": "^1.0.9",
+        "file-loader": "^4.2.0",
+        "mini-css-extract-plugin": "^0.8.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "postcss-atrule-bem": "^4.0.0",
+        "postcss-color-function": "^4.1.0",
+        "postcss-easy-import": "^3.0.0",
+        "postcss-flexbugs-fixes": "^4.1.0",
+        "postcss-hexrgba": "^1.0.2",
+        "postcss-loader": "^3.0.0",
+        "postcss-mixins": "^6.2.2",
+        "postcss-normalize": "^8.0.1",
+        "postcss-preset-env": "^6.7.0",
+        "postcss-safe-parser": "^4.0.1",
+        "terser-webpack-plugin": "^1.4.1",
+        "webpack": "^4.39.2",
+        "webpack-bundle-analyzer": "^3.4.1",
+        "webpack-bundle-tracker": "^0.4.2-beta",
+        "webpack-cli": "^3.3.7"
+    },
+    "devDependencies": {
+        "css-hot-loader": "^1.4.4",
+        "webpack-dev-server": "^3.8.0"
+    }
+}

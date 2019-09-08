@@ -1,0 +1,13 @@
+@block list {
+    margin: 0;
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin-top: 17px;
+    line-height: 1.5;
+
+    @element item {
+        color: var(--color-secondary);
+        display: block;
+    }
+}

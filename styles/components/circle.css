@@ -1,0 +1,29 @@
+@block circle {
+    background: var(--color-white);
+    width: 124px;
+    height: 124px;
+    border-radius: 100%;
+    color: var(--color-black);
+    overflow: hidden;
+
+    @media (--viewport-desktop) {
+        width: 200px;
+        height: 200px;
+    }
+
+    @element inner {
+        font-family: var(--font-serif);
+        font-size: var(--font-size-large);
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-20deg);
+
+        @media (--viewport-desktop) {
+            font-size: 32px;
+            line-height: 36px;
+        }
+    }
+}

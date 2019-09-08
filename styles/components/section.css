@@ -1,0 +1,211 @@
+@block section {
+    position: relative;
+    display: block;
+    padding: 40px 0;
+    overflow: hidden;
+
+    @media (--viewport-desktop) {
+        padding: 80px 0;
+    }
+
+    @modifier bg {
+        @media (--viewport-desktop) {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: no-repeat url('~svgIcons/Group4.svg') center 90% / contain;
+                z-index: -1;
+                pointer-events: none;
+            }
+        }
+    }
+
+    @modifier bt {
+        border-top: 2px solid var(--color-secondary);
+    }
+
+    @modifier primary {
+        background: var(--color-primary);
+        color: var(--color-background);
+    }
+
+    @modifier secondary {
+        background: var(--color-secondary);
+        color: var(--color-font);
+    }
+
+    @element icon {
+        margin-bottom: 24px;
+        width: 40px;
+        height: 40px;
+    }
+
+    @element text {
+        color: rgba(var(--color-background), 0.72);
+    }
+
+    @element title {
+        font-family: var(--font-serif);
+        line-height: 1.15;
+        font-size: 24px;
+        margin-bottom: 12px;
+
+        @media (--viewport-tablet) {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+    }
+
+    @element block {
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    @element row {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media (--viewport-desktop) {
+            margin: 0 -27px;
+        }
+    }
+
+    @element col {
+        flex: 1;
+
+        @media (--viewport-desktop) {
+            flex: 0 0 50%;
+            padding: 0 27px;
+        }
+
+        @modifier large {
+            flex: 0 0 70%;
+            max-width: 70%;
+        }
+
+        @modifier align-right {
+            margin-left: auto;
+        }
+    }
+
+    @element instagram {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+
+        @media (--viewport-desktop) {
+            flex-direction: row;
+            justify-content: center;
+            margin: 0 -25%;
+        }
+    }
+
+    @element instagram-col {
+        flex: 1;
+        margin-bottom: 40px;
+
+        &:first-child {
+            order: 2;
+            margin-bottom: 0;
+
+            @media (--viewport-desktop) {
+                order: 0;
+            }
+        }
+
+        &:last-child {
+            display: none;
+        }
+
+        @media (--viewport-desktop) {
+            margin: 0;
+            padding: 0 65px;
+
+            &:first-child {
+                margin-bottom: 0;
+            }
+
+            &:last-child {
+                display: block;
+            }
+        }
+
+        @modifier center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+
+    @element youtube-col {
+        flex: 1;
+        max-width: 100%;
+        margin-bottom: 40px;
+
+        @media (--viewport-desktop) {
+            margin: 0;
+            padding: 0 27px;
+        }
+
+        @modifier center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+
+            @media (--viewport-desktop) {
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
+
+        @modifier video {
+            background: no-repeat center / cover;
+            padding-bottom: 57%;
+            justify-content: center;
+            display: flex;
+            max-width: 100%;
+            flex: 0 0 100%;
+
+            @media (--viewport-desktop) {
+                max-width: 70%;
+                flex: 0 0 70%;
+                padding-bottom: 30%;
+            }
+        }
+    }
+
+    @element align-center {
+        text-align: center;
+        margin: 0 auto;
+
+        @media (--viewport-tablet) {
+            max-width: 432px;
+        }
+    }
+
+    @element grid {
+        display: grid;
+        grid-gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+
+        @media (--viewport-desktop) {
+            grid-gap: 24px;
+        }
+
+        & > div {
+            width: 100%;
+            height: 100%;
+            padding-bottom: 113%;
+            background: no-repeat center / cover;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+html {
+    box-sizing: border-box;
+    line-height: 1.15;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    font: 400 16px/1.5 var(--font-sans-serif);
+    color: var(--color-font);
+    background: var(--color-background);
+    margin: 0;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+:--heading {
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 8px;
+}
+
+@block container {
+    padding: 0 16px;
+    margin: 0 auto;
+    width: 100%;
+
+    @media (width >= 992px) {
+        max-width: 90%;
+    }
+
+    @modifier fluid {
+        padding: 0;
+    }
+}
