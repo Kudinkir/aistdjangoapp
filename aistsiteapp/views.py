@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from aistsiteapp.models import Blocks, Page, VideoCourses, Events
 from aistsiteapp.forms import SubscribeForm, CallbackForm
+from datetime import date
 
 # Create your views here.
 def home(request):
@@ -10,6 +11,7 @@ def home(request):
     main_block = Blocks.objects.get(id=1)
     second_block = Blocks.objects.get(id=2)
     second_block.bloks = Blocks.objects.filter(block_id=2)
+    event_block = Events.objects.filter(start_date__gte=date.today())
     footer_block = Blocks.objects.get(id=7)
     footer_block.bloks = Blocks.objects.filter(block_id=7)
     return render(request, 'aistsiteapp/main.html', {
@@ -17,7 +19,8 @@ def home(request):
         'main_block' : main_block,
         'second_block' : second_block,
         'footer_block' : footer_block,
-        'form': subscribe_form
+        'form': subscribe_form,
+        'event_block': event_block
     })
 
 def videocourses(request):
