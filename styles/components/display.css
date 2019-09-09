@@ -1,0 +1,11 @@
+@block display {
+    font-family: var(--font-serif);
+    line-height: var(--headings-line-height);
+    font-size: 48px;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+
+    @modifier secondary {
+        color: var(--color-secondary);
+    }
+}

@@ -3,11 +3,13 @@ import 'fonts/CSTM-Xprmntl-02/index';
 import MobileMenu from './components/mobile-menu';
 import AddClassOnScroll from './components/add-class-on-scroll';
 import Carousel from './components/carousel/index';
+import Tabs from './components/tabs';
 
 const importedComponents = {
     MobileMenu,
     AddClassOnScroll,
     Carousel,
+    Tabs,
 };
 
 const initComponents = (rootNode = document, COMPONENT_IDENTIFIER) => {

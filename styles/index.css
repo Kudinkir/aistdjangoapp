@@ -5,6 +5,7 @@
 @import url('./components/input');
 @import url('./components/button');
 @import url('./components/link');
+@import url('./components/display');
 @import url('./components/list');
 
 @import url('./components/header');
@@ -22,6 +23,13 @@
 @import url('./components/card');
 @import url('./components/menu');
 @import url('./components/circle');
+@import url('./components/course');
+@import url('./components/courses');
+@import url('./components/sidebar');
+@import url('./components/accordion');
+
+/* pages */
+@import url('./components/course-page');
 
 /* JS */
 @import url('./components/carousel');

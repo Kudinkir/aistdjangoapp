@@ -1,13 +1,15 @@
 {% load staticfiles %}
+{% load render_bundle from webpack_loader %}
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        {% render_bundle 'main' 'css' %}
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>{{ page_info.seo_title }}</title>
-        <link rel="stylesheet" href="{% static '/css/site.css' %}">
     </head>
     <body>
         <header class="header" data-component="MobileMenu,AddClassOnScroll">
@@ -45,8 +47,7 @@
             </div>
         </header>
         <main>
-            {% block page %}
-            {% endblock %}
+            {% block page %} {% endblock %}
         </main>
         <footer class="footer">
             <div class="container container--fluid">
@@ -98,5 +99,6 @@
                 </div>
             </div>
         </footer>
+        {% render_bundle 'main' 'js' %}
     </body>
 </html>

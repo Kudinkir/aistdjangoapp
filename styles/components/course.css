@@ -1,0 +1,33 @@
+@block course {
+    border: 2px solid var(--color-secondary);
+
+    @element inner {
+        padding: 32px 24px 24px;
+        text-align: center;
+    }
+
+    @element title {
+        font-size: 24px;
+        line-height: 1.1;
+        margin-bottom: 16px;
+        font-family: var(--font-serif);
+    }
+
+    @element list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 32px;
+    }
+
+    @element item {
+        color: rgba(255, 255, 255, 0.72);
+        margin-bottom: 10px;
+        line-height: 1.1;
+    }
+
+    @element price {
+        font-size: 24px;
+        line-height: 1.1;
+        font-family: var(--font-serif);
+    }
+}

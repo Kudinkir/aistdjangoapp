@@ -1,0 +1,65 @@
+@block course-page {
+    display: flex;
+    flex-wrap: wrap;
+
+    @element sidebar {
+        border-top: 2px solid var(--color-secondary);
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        @media (--viewport-desktop) {
+            width: 30%;
+            border-right: 2px solid var(--color-secondary);
+        }
+    }
+
+    @element section {
+        width: 100%;
+        padding: 80px 110px;
+
+        &:not(:first-child) {
+            border-top: 2px solid var(--color-secondary);
+        }
+
+        @media (--viewport-desktop) {
+            border-top: 2px solid var(--color-secondary);
+        }
+
+        @modifier primary {
+            color: var(--color-background);
+            background: var(--color-primary);
+        }
+    }
+
+    @element text {
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    @element row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -27px;
+    }
+
+    @element col {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0 27px;
+
+        @modifier image {
+            flex: 0 0 40%;
+        }
+
+        @modifier text {
+            flex: 0 0 60%;
+        }
+    }
+
+    @element benefits {
+        margin-top: 64px;
+        display: grid;
+        grid-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

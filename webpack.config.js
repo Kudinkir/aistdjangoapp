@@ -16,8 +16,8 @@ const isAnalyze = process.env.ANALYZE || false;
 const cssFilename = isProd ? '[name].[contenthash:8].css' : '[name].css';
 
 const PATHS = {
-    web: path.join(__dirname, 'build'),
-    public: '/',
+    web: path.join(__dirname, 'public/build'),
+    public: '/static/build/',
 };
 
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
         path: PATHS.web,
         filename: isProd ? '[name].[contenthash:8].js' : '[name].js',
         chunkFilename: isProd ? '[name].[contenthash:8].chunk.js' : '[name].chunk.js',
-        publicPath: '/',
+        publicPath: PATHS.public,
     },
     optimization: {
         minimize: isProd,

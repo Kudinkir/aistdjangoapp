@@ -1,0 +1,25 @@
+@block courses {
+    @element row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -27px;
+    }
+
+    @element col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 27px;
+        margin-bottom: 34px;
+
+        @media (--viewport-tablet) {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+            margin: 0;
+        }
+    }
+
+    @element text {
+        margin-top: 34px;
+        max-width: 540px;
+    }
+}

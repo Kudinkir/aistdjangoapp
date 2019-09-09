@@ -7,12 +7,11 @@
                     Большой практический семинар построен с учетом запросов будущих мам и акушерской практики.
                     Понятным, простым языком о сложном процессе родов с примерами и практикой.
                 </div>
-                <div class="section__block">
-                    <a href="#" class="button button--full-width">20 июля, Казань</a>
-                </div>
-                <div class="section__block">
-                    <a href="#" class="button button--full-width">28 сент, Москва</a>
-                </div>
+                {% for item in event_block %}
+                    <div class="section__block">
+                        <a href="{{ item.url }}" class="button button--full-width">{{ item.name }}</a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

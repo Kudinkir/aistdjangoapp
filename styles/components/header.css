@@ -6,12 +6,12 @@
     right: 0;
     color: var(--color-background);
     height: 80px;
-    background: linear-gradient(180deg, #303862 0%, rgba(48, 56, 98, 0) 100%);
-    box-shadow: 0 0 0 2px var(--color-background);
+    background: linear-gradient(180deg, #252e5b 0%, rgba(37, 46, 91, 0) 95%);
+    box-shadow: 0 0 0 2px var(--color-secondary);
     transition: box-shadow 0.1s ease-in-out;
 
     &.active {
-        background: linear-gradient(180deg, #303862 0%, var(--color-primary) 100%);
+        background: linear-gradient(180deg, #252e5b 0%, var(--color-primary) 100%);
 
         & .dropdown__menu {
             display: block;
@@ -70,7 +70,7 @@
         cursor: pointer;
         width: 24px;
         height: 24px;
-        background: no-repeat url('~svgIcons/hamburger.svg') center;
+        background: no-repeat url('/src/svg/hamburger.svg') center;
         padding: 0;
         margin-left: auto;
 
@@ -79,7 +79,7 @@
         }
 
         &.active {
-            background: no-repeat url('~svgIcons/cross.svg') center;
+            background: no-repeat url('/src/svg/cross.svg') center;
         }
     }
 }

@@ -1,7 +1,7 @@
 @block card {
     border: 2px solid var(--color-secondary);
     /*display: flex;*/
-    color: var(--color-primary);
+    color: var(--color-font);
     overflow: hidden;
 
     @media (--viewport-tablet) {
@@ -69,11 +69,7 @@
     @element text {
         font-size: var(--font-size-base);
         flex: 1;
-        margin-bottom: 16px;
-
-        @media (--viewport-tablet) {
-            margin-bottom: 0;
-        }
+        margin-bottom: 48px;
     }
 
     @element image {

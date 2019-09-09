@@ -6,7 +6,7 @@
     background: var(--color-primary);
     padding: 16px;
     font-family: var(--font-serif);
-    font-size: inherit;
+    font-size: 18px;
     color: var(--color-secondary);
     cursor: pointer;
     line-height: 1.5;
@@ -14,12 +14,16 @@
     user-select: none;
     text-decoration: none;
 
+    @media (--viewport-wide) {
+        font-size: 24px;
+    }
+
     @modifier secondary {
         background: var(--color-secondary);
         color: var(--color-primary);
 
         &.button--arrow::after {
-            background: no-repeat url('~svgIcons/arrow-right-primary.svg') center;
+            background: no-repeat url('/src/svg/arrow-right-primary.svg') center;
         }
     }
 
@@ -35,8 +39,12 @@
             content: '';
             width: 24px;
             height: 24px;
-            background: no-repeat url('~svgIcons/arrow-right-secondary.svg') center;
+            background: no-repeat url('/src/svg/arrow-right-secondary.svg') center;
             margin: 0 10px;
         }
+    }
+
+    @modifier small {
+        padding: 12px 5px;
     }
 }

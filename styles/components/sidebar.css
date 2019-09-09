@@ -1,0 +1,44 @@
+@block sidebar {
+    @element list {
+        padding: 32px 16px;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        overflow-x: auto;
+
+        @media (--viewport-wide) {
+            margin-bottom: 32px;
+            overflow: initial;
+            flex-direction: column;
+        }
+    }
+
+    @element item {
+        margin-right: 24px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        @media (--viewport-wide) {
+            margin: 0 0 18px;
+        }
+    }
+
+    @element link {
+        text-decoration: none;
+        color: var(--color-primary);
+
+        &.active {
+            color: var(--color-font);
+        }
+    }
+
+    @element actions {
+        display: none;
+
+        @media (--viewport-wide) {
+            display: block;
+        }
+    }
+}

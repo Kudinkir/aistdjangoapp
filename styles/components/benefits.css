@@ -2,6 +2,11 @@
     display: flex;
     overflow-x: auto;
 
+    @modifier wrap {
+        flex-wrap: wrap;
+        overflow: initial;
+    }
+
     @media (--viewport-desktop) {
         overflow: initial;
     }

@@ -1,0 +1,42 @@
+@block accordion {
+    border-bottom: 2px solid var(--color-secondary);
+
+    @element trigger {
+        cursor: pointer;
+    }
+
+    @element header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+    }
+
+    @element subtitle {
+        color: rgba(0, 0, 0, 0.75);
+        margin-bottom: 13px;
+    }
+
+    @element button {
+        margin-left: auto;
+        padding: 0;
+        background: none;
+        border: 0;
+    }
+
+    @element title {
+        font-size: 32px;
+        line-height: var(--headings-line-height);
+        font-family: var(--headings-font);
+        margin: 0;
+    }
+
+    @element content {
+        display: none;
+        margin-bottom: 10px;
+        color: rgba(0, 0, 0, 0.72);
+
+        &.active {
+            display: block;
+        }
+    }
+}
