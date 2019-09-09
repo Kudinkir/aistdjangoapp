@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'menu',
     'django_summernote',
     'bootstrap4',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
