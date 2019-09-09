@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sys
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -71,6 +73,17 @@ TEMPLATES = [
     },
 ]
 
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': True,
+        'BUNDLE_DIR_NAME': 'build/',  # must end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
+}
+
 WSGI_APPLICATION = 'aistproject.wsgi.application'
 
 
@@ -122,7 +135,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'aistsiteapp/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'aistsiteapp/static'),  os.path.join(BASE_DIR, 'styles') ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
