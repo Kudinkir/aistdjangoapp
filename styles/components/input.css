@@ -1,3 +1,17 @@
+@keyframes shake {
+    0% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 @block input {
     @modifier row {
         display: flex;
@@ -17,9 +31,24 @@
         color: var(--color-font);
         border: 2px solid var(--color-primary);
         line-height: 1.5;
+
+        &.error {
+            position: relative;
+            animation: shake 0.2s ease;
+            border-color: red;
+        }
     }
 }
 
 @block field-group {
     margin-bottom: 32px;
+}
+
+@block amount {
+    display: flex;
+    justify-content: center;
+
+    @element input {
+        max-width: 56px;
+    }
 }

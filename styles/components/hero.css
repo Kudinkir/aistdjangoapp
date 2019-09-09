@@ -6,45 +6,51 @@
     background: var(--color-primary);
     padding: var(--header-height) 0 0;
 
-    @media (--viewport-desktop) {
+    @media (--viewport-wide) {
         padding: 0;
     }
 
     @element inner {
+        padding-bottom: 80px;
     }
 
     @element top {
         position: relative;
-        padding: 30px 0 0;
 
-        @modifier homepage {
-            @media (--viewport-desktop) {
+        @modifier bg {
+            @media (--viewport-wide) {
                 overflow: hidden;
 
                 &::after {
+                    pointer-events: none;
                     content: '';
                     position: absolute;
                     top: 0;
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    background: no-repeat url('~svgIcons/homepage.svg') center 95% / contain;
-                    pointer-events: none;
                 }
             }
         }
 
-        @modifier videopage {
-            padding: var(--header-height) 0;
-
-            @media (--viewport-desktop) {
-                padding: 0;
+        @modifier homepage {
+            @media (--viewport-wide) {
+                &::after {
+                    background: no-repeat url('~svgIcons/homepage.svg') center 95% / contain;
+                }
             }
         }
 
-        @media (--viewport-desktop) {
+        @modifier contacts {
+            @media (--viewport-wide) {
+                &::after {
+                    background: no-repeat url('~svgIcons/contacts.svg') 100% 100% / 55%;
+                }
+            }
+        }
+
+        @media (--viewport-wide) {
             overflow: hidden;
-            /*padding: 0;*/
             /*height: 100vh;*/
         }
     }
@@ -54,95 +60,105 @@
         flex-direction: column;
         justify-content: space-between;
 
-        @media (--viewport-desktop) {
+        @media (--viewport-wide) {
             flex-direction: row;
-            overflow: initial;
         }
     }
 
     @element circle {
+        display: none;
         position: absolute;
         z-index: 1;
-        right: 6px;
-        top: -44px;
 
-        @media (--viewport-desktop) {
+        @media (--viewport-wide) {
+            display: block;
             right: -48px;
             top: 98px;
-        }
-
-        @modifier videopage {
-            top: 100%;
-            right: 6px;
-            left: auto;
-
-            @media (--viewport-desktop) {
-                top: 98px;
-                bottom: auto;
-                left: 35%;
-                right: auto;
-            }
         }
     }
 
     @element text {
-        display: flex;
-        flex: 1;
+        text-align: center;
+        font-size: 20px;
 
         @modifier center {
+            display: flex;
+            flex: 1;
             align-items: center;
         }
 
         @modifier flex-end {
+            display: flex;
+            flex: 1;
             align-items: flex-end;
         }
+
+        @modifier contacts {
+            padding-top: 56px;
+            padding-bottom: 112px;
+
+            @media (--viewport-wide) {
+                padding-top: 152px;
+            }
+        }
+
+        & p {
+            margin-top: 0;
+            margin-bottom: 24px;
+        }
+    }
+
+    @element subtitle {
+        max-width: 432px;
+        margin: 0 auto;
+        color: rgba(255, 255, 255, 0.72);
+    }
+
+    @element phone {
+        font-size: 24px;
+        line-height: 28px;
+        color: var(--color-white);
+        text-decoration: none;
+        margin-bottom: 24px;
+    }
+
+    @element email {
+        text-decoration: none;
+        color: var(--color-secondary);
     }
 
     @element title {
         line-height: 1.2;
-        max-width: 80%;
         font-family: var(--font-serif);
         text-align: center;
         color: var(--color-secondary);
-        font-size: 36px;
-        margin: 0 auto;
+        font-size: 40px;
+        margin: 56px auto 40px;
 
         @modifier homepage {
-            margin-bottom: 25px;
-
-            @media (--viewport-tablet) {
-                font-size: 48px;
-            }
-
-            @media (--viewport-desktop) {
-                font-size: 80px;
-            }
+            max-width: 80%;
 
             @media (--viewport-wide) {
-                margin-bottom: 76px;
+                margin: auto;
+                font-size: 96px;
             }
         }
 
-        @media (--viewport-tablet) {
-            max-width: 100%;
-        }
-
-        @media (--viewport-desktop) {
-            font-size: 80px;
+        @media (--viewport-wide) {
+            font-size: 96px;
         }
     }
 
     @element right {
         flex: 1;
 
-        @modifier videopage {
+        @modifier bg {
             position: relative;
 
-            @media (--viewport-desktop) {
+            @media (--viewport-wide) {
                 padding-top: 50%;
 
                 &::after {
-                    background: no-repeat url('~svgIcons/videopage.svg') right 80px / contain;
                     content: '';
                     position: absolute;
                     top: 0;
@@ -150,6 +166,14 @@
                     right: 0;
                     bottom: 0;
                     pointer-events: none;
+                }
+            }
+        }
+
+        @modifier videopage {
+            @media (--viewport-wide) {
+                &::after {
+                    background: no-repeat url('~svgIcons/videopage.svg') 100% 100% / 65%;
                 }
             }
         }
@@ -163,21 +187,17 @@
         background: no-repeat center / cover;
         padding-bottom: calc(100% - var(--header-height));
 
-        @media (--viewport-desktop) {
+        @media (--viewport-wide) {
             padding-bottom: 100vh;
         }
     }
 
     @element benefits {
         color: var(--color-background);
-        /*display: flex; */
-        /*align-items: center;*/
-        /*justify-content: center;*/
-        /*height: 220px;*/
-        padding: 26px 0;
+        padding-top: 38px;
 
-        @media (--viewport-desktop) {
-            padding: 56px 0;
+        @media (--viewport-wide) {
+            padding-top: 80px;
         }
     }
 }

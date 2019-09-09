@@ -6,6 +6,7 @@
     "scripts": {
         "build": "NODE_ENV=production webpack",
         "build:analyze": "ANALYZE=true NODE_ENV=production webpack",
+        "start": "webpack-dev-server",
         "dev": "webpack"
     },
     "browserslist": [

@@ -1,0 +1,7 @@
+@block subscribe-form {
+    @element field {
+        &.hidden {
+            display: none;
+        }
+    }
+}

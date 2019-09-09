@@ -27,6 +27,7 @@
 @import url('./components/courses');
 @import url('./components/sidebar');
 @import url('./components/accordion');
+@import url('./components/subscribe-form');
 
 /* pages */
 @import url('./components/course-page');

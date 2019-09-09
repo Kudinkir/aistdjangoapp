@@ -70,7 +70,7 @@
         cursor: pointer;
         width: 24px;
         height: 24px;
-        background: no-repeat url('/src/svg/hamburger.svg') center;
+        background: no-repeat url('~svgIcons/hamburger.svg') center;
         padding: 0;
         margin-left: auto;
 
@@ -79,7 +79,7 @@
         }
 
         &.active {
-            background: no-repeat url('/src/svg/cross.svg') center;
+            background: no-repeat url('~svgIcons/cross.svg') center;
         }
     }
 }

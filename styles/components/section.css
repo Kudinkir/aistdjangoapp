@@ -17,7 +17,7 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background: no-repeat url('/src/svg/Group4.svg') center 90% / contain;
+                background: no-repeat url('~svgIcons/Group4.svg') center 90% / contain;
                 z-index: -1;
                 pointer-events: none;
             }

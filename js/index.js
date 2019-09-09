@@ -4,12 +4,15 @@ import MobileMenu from './components/mobile-menu';
 import AddClassOnScroll from './components/add-class-on-scroll';
 import Carousel from './components/carousel/index';
 import Tabs from './components/tabs';
+import SubscribeForm from './components/subscribeForm';
+import ContactForm from './components/contactForm';
 
 const importedComponents = {
     MobileMenu,
     AddClassOnScroll,
     Carousel,
-    Tabs,
+    SubscribeForm,
+    ContactForm,
 };
 
 const initComponents = (rootNode = document, COMPONENT_IDENTIFIER) => {

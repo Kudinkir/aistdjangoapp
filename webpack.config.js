@@ -172,9 +172,8 @@ module.exports = {
         },
     },
     devServer: {
-        host: '0.0.0.0',
         proxy: {
-            '*': 'http://127.0.0.1',
+            '*': 'http://127.0.0.1:8000',
         },
         compress: true,
         historyApiFallback: {
