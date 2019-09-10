@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'aistsiteapp',
     'menu',
     'django_summernote',
-    'bootstrap4',
     'webpack_loader',
 ]
 

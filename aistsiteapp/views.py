@@ -12,6 +12,7 @@ def home(request):
     second_block = Blocks.objects.get(id=2)
     second_block.bloks = Blocks.objects.filter(block_id=2)
     event_block = Events.objects.filter(start_date__gte=date.today())
+    #courses_block = VideoCourses.objects.filter()
     footer_block = Blocks.objects.get(id=7)
     footer_block.bloks = Blocks.objects.filter(block_id=7)
     return render(request, 'aistsiteapp/main.html', {
@@ -20,7 +21,8 @@ def home(request):
         'second_block' : second_block,
         'footer_block' : footer_block,
         'form': subscribe_form,
-        'event_block': event_block
+        'event_block': event_block,
+        #'courses_block': courses_block
     })
 
 def videocourses(request):
