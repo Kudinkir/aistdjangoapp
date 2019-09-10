@@ -1,0 +1,51 @@
+@block grid-section {
+    display: flex;
+    flex-wrap: wrap;
+    background: #f5f5f5;
+
+    @element item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 80px 16px;
+        /*border: 2px solid var(--color-secondary);*/
+
+        @media (--viewport-ipad) {
+            border-top: 2px solid var(--color-secondary);
+            flex: 0 0 50%;
+            max-width: 50%;
+
+            &:nth-child(2n) {
+                border-left: 2px solid var(--color-secondary);
+            }
+        }
+
+        @media (--viewport-wide) {
+            padding-left: 55px;
+            padding-right: 55px;
+        }
+    }
+
+    @element title {
+        font-size: 24px;
+        font-family: var(--headings-font);
+        margin-bottom: 24px;
+        color: var(--color-primary);
+    }
+
+    @element rte {
+        & > p {
+            margin-bottom: 15px;
+        }
+        margin-bottom: 24px;
+    }
+
+    @element author {
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.72);
+    }
+
+    @element image {
+        width: 100%;
+        border: 2px solid var(--color-secondary);
+    }
+}

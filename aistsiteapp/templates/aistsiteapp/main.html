@@ -30,16 +30,7 @@
             </div>
             <div class="container">
                 <div class="hero__benefits">
-                    <div class="benefits" data-component="Carousel">
-                        {% for item in second_block.bloks %}
-                        <div class="benefits__item">
-                            <h2 class="benefits__title">{{ item.name }}</h2>
-                            <div class="benefits__text">
-                                {{ item.text }}
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
+                    {% include './components/benefits.html' with items=second_block.bloks %}
                 </div>
             </div>
         </div>

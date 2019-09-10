@@ -1,0 +1,32 @@
+<header class="header" data-component="MobileMenu,AddClassOnScroll">
+    <div class="container header__inner">
+        <div class="header__logo">Марина Аист</div>
+        <button type="button" class="header__button" data-trigger="menu"></button>
+        <nav class="header__nav" data-content="menu">
+            <ul class="navbar">
+                {% load menubuilder %} {% menu top_menu %} {% for item in menuitems %}
+                <li
+                    class="navbar__item{% if item.childrens %} navbar__item--dropdown dropdown{% endif %}{% if item.current %} active{% endif %}"
+                >
+                    <a href="{{ item.url }}" class="navbar__link">{{ item.title }}</a>
+                    {% if item.childrens %}
+                    <div class="dropdown__menu">
+                        {% for child in item.childrens %}
+                        <a class="dropdown__item" href="{{ child.url }}">{{ child.title }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </li>
+                {% endfor %}
+                <li class="navbar__item navbar__item--dropdown hide-on--tablet">
+                    <a class="navbar__link">Cоц сети</a>
+                    <div class="dropdown__menu show hide-on--desktop">
+                        <a class="dropdown__item" href="#">Вконтакте</a>
+                        <a class="dropdown__item" href="#">Instagram</a>
+                        <a class="dropdown__item" href="#">YouTube</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

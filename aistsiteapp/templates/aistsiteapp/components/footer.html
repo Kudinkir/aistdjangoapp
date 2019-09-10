@@ -1,0 +1,50 @@
+<footer class="footer">
+    <div class="container container--fluid">
+        <div class="footer__row">
+            <div class="footer__menubar">
+                <div class="footer__menus">
+                    {% for item in footer_block.bloks %}
+                    <div class="footer__menu menu">
+                        <div class="menu__title">{{ item.name }}</div>
+                        {% if item.childrens %}
+                        <ul class="menu__list">
+                            {% for child in item.childrens %}
+                            <li class="menu__item">
+                                <a href="#" class="link">{{ child.title }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="footer__info">
+                <div class="footer__logo">Марина Аист</div>
+                <div class="footer__copyright footer__translucent">© 2019, horoshierodi.ru</div>
+                <div class="footer__translucent">
+                    ИП Чемекова Екатерина Алексеевна<br />
+                    ОГРНИП 312121526200023<br />
+                    ИНН/КПП 120302030543
+                </div>
+                <ul class="list">
+                    <li class="list__item">
+                        <a href="#" class="link link--secondary">Договор Оферты</a>
+                    </li>
+                    <li class="list__item">
+                        <a href="#" class="link link--secondary">Политика конфиденциальности</a>
+                    </li>
+                    <li class="list__item">
+                        <a href="#" class="link link--secondary">Отказ от услуги</a>
+                    </li>
+                    <li class="list__item">
+                        <a href="#" class="link link--secondary">Партнерская программа</a>
+                    </li>
+                    <li class="list__item">
+                        <a href="#" class="link link--secondary">Техническая поддержка</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

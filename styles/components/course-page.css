@@ -3,25 +3,34 @@
     flex-wrap: wrap;
 
     @element sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         border-top: 2px solid var(--color-secondary);
         flex: 0 0 100%;
         max-width: 100%;
 
         @media (--viewport-desktop) {
-            width: 30%;
+            flex: 0 0 30%;
+            max-width: 30%;
             border-right: 2px solid var(--color-secondary);
         }
     }
 
+    @element main {
+        flex: 1;
+    }
+
     @element section {
         width: 100%;
-        padding: 80px 110px;
+        padding: 80px 16px;
 
         &:not(:first-child) {
             border-top: 2px solid var(--color-secondary);
         }
 
         @media (--viewport-desktop) {
+            padding: 80px 110px;
             border-top: 2px solid var(--color-secondary);
         }
 
@@ -32,8 +41,11 @@
     }
 
     @element text {
-        font-size: 20px;
         line-height: 32px;
+
+        @media (--viewport-wide) {
+            font-size: 20px;
+        }
     }
 
     @element row {
@@ -43,23 +55,60 @@
     }
 
     @element col {
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 24px;
         padding: 0 27px;
 
+        @media (--viewport-ipad) {
+            margin: 0;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
         @modifier image {
-            flex: 0 0 40%;
+            margin-bottom: 32px;
+
+            & img {
+                width: 100%;
+            }
+
+            @media (--viweport-ipad) {
+                margin-bottom: 0;
+                flex: 0 0 40%;
+                max-width: 40%;
+            }
         }
 
         @modifier text {
-            flex: 0 0 60%;
+            @media (--viweport-ipad) {
+                flex: 0 0 60%;
+            }
         }
     }
 
     @element benefits {
+        /*display: flex;*/
+        overflow-x: auto;
         margin-top: 64px;
-        display: grid;
-        grid-gap: 40px;
-        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @element benefit {
+        flex: 1;
+        padding: 0 27px;
+    }
+
+    @element promotext {
+        max-width: 540px;
+        margin: 0 auto;
+
+        @media (--viewport-ipad) {
+            font-size: var(--font-size-large);
+        }
+    }
+
+    @element actions {
+        margin-top: 64px;
+        text-align: center;
     }
 }

@@ -8,9 +8,6 @@
 
     @media (--viewport-wide) {
         padding: 0;
-    }
-
-    @element inner {
         padding-bottom: 80px;
     }
 

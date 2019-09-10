@@ -1,14 +1,43 @@
 {% extends 'aistsiteapp/base.html' %}
+
 {% block page %}
-  <p>{{ page.seo_title }}</p>
-  {% for blok in blocks %}
-    <div class="col-md-3">
-        <div class="card card-tip">
-            <div class="card-body">
-                <h5 class="card-title">{{blok.name}}</h5>
-                <p class="card-text">{{blok.text}}</p>
+    <section class="course-hero">
+        <div class="course-hero__inner">
+            <div class="container">
+                <div class="course-hero__row">
+                    <div class="course-hero__text">
+                        <h1 class="course-hero__title">{{ page.seo_title }}</h1>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-  {% endfor %}
+    </section>
+
+    {% if page.type == "heroText" %}
+        <section class="course-hero">
+            <div class="course-hero__inner">
+                <div class="container">
+                    <div class="course-hero__row">
+                        <div class="course-hero__text">
+                            <h1 class="course-hero__title">{{ page.seo_title }}</h1>
+                        </div>
+                        <div class="course-hero__text">
+                            {{ page.seo_title }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    {% for block in blocks %}
+        <section class="section">
+            <div class="container">
+                <div class="section__title">{{ block.name }}</div>
+                <div class="section__block section__text">
+                    {{ block.text }}
+                </div>
+            </div>
+        </section>
+    {% endfor %}
 {% endblock %}

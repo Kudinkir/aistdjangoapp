@@ -22,7 +22,9 @@
                                 {{ event.name }}
                             </div>
                             <div class="card__text">
-                                {{ event.text }}
+                                {% autoescape off %}
+                                    {{ event.text }}
+                                {% endautoescape %}
                             </div>
                             <div class="card__actions">
                                 <button class="button button--secondary button--arrow button--small"></button>
@@ -43,20 +45,24 @@
                 {% for item in events %}
                     <div class="cards__col">
                         <div class="card card--reverse">
-                            <a class="card__fullLink" href="{{ item.url }}"></a>
+                            <a class="card__fullLink" href="{{ item.slug }}"></a>
                             <div class="card__body">
                                 <div class="card__header">{{ item.duration }}</div>
                                 <div class="card__title">{{ item.name }}</div>
                                 <div class="card__text">
-                                    {{ item.text }}
+                                    {% autoescape off %}
+                                        {{ item.text }}
+                                    {% endautoescape %}
                                 </div>
                                 <div class="card__actions">
                                     <button type="button" class="button button--primary button--arrow"></button>
                                 </div>
                             </div>
-                            <div class="card__image card__image--full-width">
-                                <img src="{{ item.image }}" alt="" />
-                            </div>
+                            {% if item.images %}
+                                <div class="card__image card__image--full-width">
+                                    <img src="{{ item.images.url }}" alt="" />
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

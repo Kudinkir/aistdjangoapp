@@ -11,6 +11,7 @@ const importedComponents = {
     MobileMenu,
     AddClassOnScroll,
     Carousel,
+    Tabs,
     SubscribeForm,
     ContactForm,
 };

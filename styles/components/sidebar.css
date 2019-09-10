@@ -1,26 +1,32 @@
 @block sidebar {
+    width: 100%;
+
+    @media (--viewport-desktop) {
+        width: auto;
+    }
+
     @element list {
         padding: 32px 16px;
-        list-style: none;
-        margin: 0;
         display: flex;
+        width: 100%;
         overflow-x: auto;
 
-        @media (--viewport-wide) {
-            margin-bottom: 32px;
+        @media (--viewport-desktop) {
+            padding: 85px 0 32px;
             overflow: initial;
             flex-direction: column;
         }
     }
 
     @element item {
+        white-space: nowrap;
         margin-right: 24px;
 
         &:last-child {
             margin-right: 0;
         }
 
-        @media (--viewport-wide) {
+        @media (--viewport-desktop) {
             margin: 0 0 18px;
         }
     }
@@ -37,7 +43,7 @@
     @element actions {
         display: none;
 
-        @media (--viewport-wide) {
+        @media (--viewport-desktop) {
             display: block;
         }
     }

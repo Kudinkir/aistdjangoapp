@@ -12,93 +12,12 @@
         <title>{{ page_info.seo_title }}</title>
     </head>
     <body>
-        <header class="header" data-component="MobileMenu,AddClassOnScroll">
-            <div class="container header__inner">
-                <div class="header__logo">Марина Аист</div>
-                <button type="button" class="header__button" data-trigger="menu"></button>
-                <nav class="header__nav" data-content="menu">
-                    <ul class="navbar">
-                        {% load menubuilder %}
-                        {% menu top_menu %}
-                        {% for item in menuitems %}
-                            <li
-                                class="navbar__item{% if item.childrens %} navbar__item--dropdown dropdown{% endif %}{% if item.current %} active{% endif %}"
-                            >
-                                <a href="{{ item.url }}" class="navbar__link">{{ item.title }}</a>
-                                {% if item.childrens %}
-                                <div class="dropdown__menu">
-                                    {% for child in item.childrens %}
-                                    <a class="dropdown__item" href="{{ child.url }}">{{ child.title }}</a>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                            </li>
-                        {% endfor %}
-                        <li class="navbar__item navbar__item--dropdown hide-on--tablet">
-                            <a class="navbar__link">Cоц сети</a>
-                            <div class="dropdown__menu show hide-on--desktop">
-                                <a class="dropdown__item" href="#">Вконтакте</a>
-                                <a class="dropdown__item" href="#">Instagram</a>
-                                <a class="dropdown__item" href="#">YouTube</a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        {% include './components/header.html' %}
         <main>
-            {% block page %} {% endblock %}
+            {% block page %}
+            {% endblock %}
         </main>
-        <footer class="footer">
-            <div class="container container--fluid">
-                <div class="footer__row">
-                    <div class="footer__menubar">
-                        <div class="footer__menus">
-                            {% for item in footer_block.bloks %}
-                            <div class="footer__menu menu">
-                                <div class="menu__title">{{ item.name }}</div>
-                                {% if item.childrens %}
-                                <ul class="menu__list">
-                                    {% for child in item.childrens %}
-                                    <li class="menu__item">
-                                        <a href="#" class="link">{{ child.title }}</a>
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                                {% endif %}
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="footer__info">
-                        <div class="footer__logo">Марина Аист</div>
-                        <div class="footer__copyright footer__translucent">© 2019, horoshierodi.ru</div>
-                        <div class="footer__translucent">
-                            ИП Чемекова Екатерина Алексеевна<br />
-                            ОГРНИП 312121526200023<br />
-                            ИНН/КПП 120302030543
-                        </div>
-                        <ul class="list">
-                            <li class="list__item">
-                                <a href="#" class="link link--secondary">Договор Оферты</a>
-                            </li>
-                            <li class="list__item">
-                                <a href="#" class="link link--secondary">Политика конфиденциальности</a>
-                            </li>
-                            <li class="list__item">
-                                <a href="#" class="link link--secondary">Отказ от услуги</a>
-                            </li>
-                            <li class="list__item">
-                                <a href="#" class="link link--secondary">Партнерская программа</a>
-                            </li>
-                            <li class="list__item">
-                                <a href="#" class="link link--secondary">Техническая поддержка</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        {% include './components/footer.html' %}
         {% render_bundle 'main' 'js' %}
     </body>
 </html>

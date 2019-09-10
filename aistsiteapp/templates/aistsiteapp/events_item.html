@@ -1,5 +1,251 @@
-{% autoescape off %}
-<h3>Первый блок</h3>
-<p>{{ event.name }}</p>
-<p>{{ event.text }}</p>
-{% endautoescape %}
+{% extends 'aistsiteapp/base.html' %}
+
+{% block page %}
+    <section class="course-hero">
+        <div class="course-hero__inner">
+            <div class="container">
+                <div class="course-hero__row">
+                    <div class="course-hero__text">
+                        <h1 class="course-hero__title">{{ event.name }}</h1>
+                        <div class="course-hero__subtitle">
+                            {% autoescape off %}
+                                {{ event.text }}
+                            {% endautoescape %}
+                        </div>
+                    </div>
+                    {% if event.images %}
+                    <div class="course-hero__image">
+                        <img src="{{ event.images.url }}" />
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="course-page">
+        <aside class="course-page__sidebar">
+            <div class="sidebar">
+                <ul class="sidebar__list">
+                    <li class="sidebar__item"><a href="#" class="sidebar__link active">Об авторе</a></li>
+                    <li class="sidebar__item"><a href="#" class="sidebar__link">Результаты участниц</a></li>
+                    <li class="sidebar__item"><a href="#" class="sidebar__link">О курсе</a></li>
+                </ul>
+                <div class="sidebar__actions">
+                    <a href="#" class="button button--arrow">купить курс</a>
+                </div>
+            </div>
+        </aside>
+        <div class="course-page__main">
+            <section class="course-page__section">
+                <div class="course-page__row">
+                    <div class="course-page__col course-page__col--image">
+                        <img src="https://placehold.it/324x432" alt="" />
+                    </div>
+                    <div class="course-page__col course-page__col--text">
+                        <h2 class="display">Меня зовут Марина Аист</h2>
+                        <div class="course-page__text">
+                            Я акушер с 10-летним стажем, перинатальный психолог, сертифицированный консультант
+                            по грудном вскармливанию.
+                        </div>
+                        <div class="course-page__benefits" data-component="1Carousel" hidden>
+                            <div class="course-page__benefit">
+                                <h2 class="benefits__title">10 лет</h2>
+                                <div class="benefits__text">
+                                    стаж работы акушером и перинатальным психологом
+                                </div>
+                            </div>
+                            <div class="course-page__benefit">
+                                <h2 class="benefits__title">3097 родов</h2>
+                                <div class="benefits__text">приняла за время работы в роддоме</div>
+                            </div>
+                            <div class="course-page__benefit">
+                                <h2 class="benefits__title">17 лет</h2>
+                                <div class="benefits__text">
+                                    работаю над методикой подготовки к родам, веду курсы и мастер-классы
+                                </div>
+                            </div>
+                            <div class="course-page__benefit">
+                                <h2 class="benefits__title">6730</h2>
+                                <div class="benefits__text">женщин родили по моей методике</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="course-page__section">
+                <h2 class="display">Результаты участниц</h2>
+                <div class="course-page__row">
+                    <div class="course-page__col">
+                        <ul class="rich-list">
+                            <li>рожают в пределах 6-8 часов;</li>
+                            <li>разрывов в 2 раза меньше, чем у неподготовленных женщин;</li>
+                            <li>асфиксия новорожденных отсутствует в нашей статистике;</li>
+                            <li>количество кесаревых сечений на 50% меньше среднестатистических;</li>
+                            <li>риск вакуум-экстракции плода снижается на 98%.</li>
+                        </ul>
+                    </div>
+                    <div class="course-page__col">
+                        Это прекрасные результаты для каждой семьи, и так может рожать каждая женщина из любой
+                        точки мира. Для моего обучения нужен только интернет и компьютер.
+                        <br/>
+                        <br/>
+                        Я расскажу вам, что нужно сделать, чтобы подготовиться и хорошо родить.
+                    </div>
+                </div>
+            </section>
+            <section class="course-page__section course-page__section--primary">
+                <h2 class="display display--secondary">О курсе</h2>
+                <div class="course-page__row">
+                    <div class="course-page__col">
+                        Курс «Успешно Родить» из 8 видеоуроков позволит вам пройти занятия так, как если вы будете
+                        присутствовать на них лично.
+                    </div>
+                    <div class="course-page__col">
+                        Это полностью практическое руководство, с ним вы подготовитесь к родам независимо
+                        от страны или города, где вы собираетесь рожать. Курс подходит всем, кто хочет родить
+                        максимально естественно.
+                    </div>
+                </div>
+            </section>
+            <section class="course-page__section" data-component="Tabs" active>
+                <h2 class="display">Программа обучения</h2>
+                <div class="accordion">
+                    <div class="accordion__trigger" data-handle="trigger">
+                        <div class="accordion__subtitle">Урок 1</div>
+                        <div class="accordion__header">
+                            <h3 class="accordion__title">
+                                Роды: почему это так больно? Как перестать бояться родов?
+                            </h3>
+                            <button class="accordion__button">+</button>
+                        </div>
+                    </div>
+                    <div class="accordion__content" data-handle="content">
+                        Пожалуй, ничего на свете так не боится женщина, как родов. Еще с детства девочки слышат
+                        разные устрашающие истории про них, которые напрочь отбивают желание стать мамой.
+                        А многочисленные эпизоды из фильмов о том, как страшно и мучительно рожают женщины, уже
+                        стали классикой жанра. Да, такое может быть, если неправильно думать о родах,
+                        не готовиться морально и физически к ним, и не иметь о них действительно правильной и
+                        нужной информации. Первый урок призван навсегда развеять все мифы и страхи вокруг родов. Я
+                        называю этот урок — таблетка от страхов. После его изучения у 95% женщин страх перед
+                        родами проходит и становится действительно легче.
+                    </div>
+                </div>
+                <div class="course-page__actions course-page__actions--center">
+                    <a href="#" class="button button--arrow">купить курс</a>
+                </div>
+            </section>
+            <section class="grid-section">
+                <div class="grid-section__item">
+                    <img class="grid-section__image" src="https://placehold.it/378x503" alt="" />
+                </div>
+                <div class="grid-section__item">
+                    <h3 class="grid-section__title">Кажется, что без него я бы не справилась</h3>
+                    <div class="grid-section__rte">
+                        <p>
+                            Я человек, нуждающийся в моральной помощи близкого человека, поэтому мы рожали вместе
+                            с мужем. И я уверена, что результат наших успешных родов на 50% был достигнут,
+                            благодаря помощи мужа.
+                        </p>
+                        <p>
+                            В течение родов, мы знали, что должны делать на каждой ступеньке этого процесса, но
+                            иногда боль брала свое, и, казалось бы, руки опускаются, ты слышишь голос любимого
+                            человека, его утешения, открывается второе дыхание, появляются новые силы и все
+                            получается, боль уходит.
+                        </p>
+                    </div>
+                    <div class="grid-section__author">Волкова Елена</div>
+                </div>
+                <div class="grid-section__item">
+                    <h3 class="grid-section__title">Кажется, что без него я бы не справилась</h3>
+                    <div class="grid-section__rte">
+                        <p>
+                            Для меня самым трудным периодом был период раскрытия шейки, т.е. схватки, потому что
+                            они длились очень долго и, надо сказать, очень измучили меня. Две ночи почти не спала,
+                            но схватки были нерегулярными.
+                        </p>
+                        <p>
+                            Когда схватки пошли очень ощутимые, муж все это время делал мне массаж спины, крутил
+                            на мяче и помогал дышать. Он дышал со мной и всегда подбадривал. Когда врач сказал,
+                            что открытие полное и можно идти рожать, это были самые приятные слова!
+                        </p>
+                    </div>
+                    <div class="grid-section__author">Волкова Елена</div>
+                </div>
+                <div class="grid-section__item">
+                    <img class="grid-section__image" src="https://placehold.it/377x212" alt="" />
+                </div>
+            </section>
+            <section class="course-page__section">
+                <div class="course-page__promotext">
+                    Беременность длится 9 месяцев, и в ваших силах провести это время максимально полезно. Чем
+                    раньше вы начнете изучать курс, тем меньше времени у вас останется на неуверенность, страхи и
+                    сомнения, тем более выносливой морально, и физически вы подойдете к родам
+                </div>
+            </section>
+        </div>
+    </div>
+    <section class="section section--primary">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title section__title--center">Варианты курса</h2>
+            </div>
+            <div class="courses">
+                <div class="courses__row">
+                    <div class="courses__col">
+                        <div class="course">
+                            <div class="course__inner">
+                                <div class="course__title">Стандарт</div>
+                                <ul class="course__list">
+                                    <li class="course__item">8 уроков курса «Успешно родить»</li>
+                                </ul>
+                                <div class="course__price">11 200 руб</div>
+                            </div>
+                            <a href="#" class="button button--secondary button--full-width button--arrow">
+                                купить курс
+                            </a>
+                        </div>
+                    </div>
+                    <div class="courses__col">
+                        <div class="course">
+                            <div class="course__inner">
+                                <div class="course__title">Стандарт</div>
+                                <ul class="course__list">
+                                    <li class="course__item">8 уроков курса «Успешно родить»</li>
+                                    <li class="course__item">+ курс «Грудное вскармливание»</li>
+                                    <li class="course__item">+ урок «Волшебные Точки»</li>
+                                    <li class="course__item">+ курс «Молодого Отца»</li>
+                                </ul>
+                                <div class="course__price">11 200 руб</div>
+                            </div>
+                            <a href="#" class="button button--secondary button--full-width button--arrow">
+                                купить курс
+                            </a>
+                        </div>
+                    </div>
+                    <div class="courses__col">
+                        <div class="course">
+                            <div class="course__inner">
+                                <div class="course__title">Стандарт</div>
+                                <ul class="course__list">
+                                    <li class="course__item">8 уроков курса «Успешно родить»</li>
+                                    <li class="course__item">+ курс «Грудное вскармливание»</li>
+                                    <li class="course__item">+ урок «Волшебные Точки»</li>
+                                    <li class="course__item">+ курс «Молодого Отца»</li>
+                                </ul>
+                                <div class="course__price">11 200 руб</div>
+                            </div>
+                            <a href="#" class="button button--secondary button--full-width button--arrow">
+                                купить курс
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="courses__text">
+                    Если у вас возникли проблемы с оформлением заказа, вы не нашли подходящий способ оплаты, или у
+                    вас появились вопросы, напишите нам
+                    <a class="link link--secondary" href="mailto:m.aist@yandex.ru">m.aist@yandex.ru</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

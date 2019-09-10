@@ -1,0 +1,68 @@
+:root {
+    --header-height: 80px;
+}
+
+@block course-hero {
+    display: block;
+    background: var(--color-primary);
+    padding: var(--header-height) 0 0;
+
+    @element inner {
+        padding-top: 56px;
+        padding-bottom: 24px;
+
+        @media (--viewport-desktop) {
+            padding-top: 152px;
+
+            padding-bottom: 80px;
+        }
+    }
+
+    @element row {
+        display: flex;
+        flex-direction: column;
+
+        @media (--viewport-desktop) {
+            flex-direction: row;
+        }
+    }
+
+    @element text {
+        margin: 0 auto;
+        text-align: center;
+
+        @modifier tiny {
+            @media (--viewport-desktop) {
+                max-width: 45%;
+            }
+        }
+    }
+
+    @element image {
+        text-align: center;
+    }
+
+    @element title {
+        font-size: 40px;
+        color: var(--color-secondary);
+        line-height: var(--headings-line-height);
+        font-family: var(--headings-font);
+        margin-bottom: 16px;
+
+        @media (--viewport-desktop) {
+            margin-bottom: 32px;
+            font-size: 96px;
+        }
+    }
+
+    @element subtitle {
+        color: rgba(var(--color-white), 0.7);
+        margin-bottom: 32px;
+
+        @media (--viewport-desktop) {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+    }
+}
