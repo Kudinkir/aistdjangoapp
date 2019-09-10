@@ -17,3 +17,24 @@
         }
     }
 }
+
+@block rte {
+    & p {
+        margin-bottom: 16px;
+    }
+
+    & ul {
+        margin-top: 12px;
+        position: relative;
+
+        & li {
+            margin-bottom: 15px;
+
+            &::before {
+                content: '—';
+                position: absolute;
+                left: -28px;
+            }
+        }
+    }
+}

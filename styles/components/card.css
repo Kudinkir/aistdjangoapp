@@ -30,7 +30,7 @@
     }
 
     @modifier invert {
-        color: var(--color-background);
+        color: var(--color-white);
     }
 
     @element body {

@@ -26,7 +26,7 @@
     --color-dark-blue: #252e5b;
     --color-font: var(--color-black);
     /* main colors */
-    --color-background: var(--color-white);
+    --color-background: var(--color-primary);
 
     --color-primary: var(--color-dark-blue);
     --color-secondary: #f8d2c5;

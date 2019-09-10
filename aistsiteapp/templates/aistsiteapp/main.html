@@ -3,11 +3,11 @@
 {% block page %}
     <section class="hero">
         <div class="hero__inner">
-            <div class="hero__top hero__top--bg hero__top--homepage">
+            <div class="hero__top">
                 <div class="container container--fluid">
                     <div class="hero__row">
-                        <div class="hero__text hero__text--flex-end">
-                            <h1 class="hero__title hero__title--homepage">
+                        <div class="hero__text">
+                            <h1 class="hero__title">
                                 {{ main_block.name }}
                             </h1>
                         </div>
@@ -19,10 +19,7 @@
                                         <small>Казань</small>
                                     </div>
                                 </div>
-                                <div
-                                    class="hero__image"
-                                    style="background-image: url('{{ MEDIA_URL }}{{ main_block.images.url }}')"
-                                ></div>
+                                <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" />
                             </div>
                         </div>
                     </div>

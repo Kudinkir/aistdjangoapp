@@ -18,19 +18,18 @@
                 left: 0;
                 right: 0;
                 background: no-repeat url('~svgIcons/Group4.svg') center 90% / contain;
-                z-index: -1;
                 pointer-events: none;
             }
         }
     }
 
-    @modifier primary {
-        background: var(--color-primary);
-        color: var(--color-background);
+    @modifier white {
+        background: var(--color-white);
+        color: var(--color-font);
     }
 
     @modifier secondary {
-        background: var(--color-secondary);
+        background-color: var(--color-secondary);
         color: var(--color-font);
     }
 
@@ -41,7 +40,7 @@
     }
 
     @element text {
-        color: rgba(var(--color-background), 0.72);
+        color: rgba(var(--color-white), 0.72);
     }
 
     @element header {
@@ -216,12 +215,5 @@
             padding-bottom: 113%;
             background: no-repeat center / cover;
         }
-    }
-
-    @element about-text {
-        max-width: 323px;
-        font-size: 20px;
-        line-height: 32px;
-        margin: 0 auto;
     }
 }

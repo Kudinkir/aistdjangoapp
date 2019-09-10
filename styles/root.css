@@ -11,7 +11,7 @@ html {
 
 body {
     font: 400 16px/1.5 var(--font-sans-serif);
-    color: var(--color-font);
+    color: var(--color-white);
     background: var(--color-background);
     margin: 0;
 }

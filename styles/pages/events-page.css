@@ -1,0 +1,32 @@
+@block events-page {
+    @element hero {
+        padding: 56px 0 40px;
+
+        @media (--viewport-desktop) {
+            background: no-repeat url('~svgIcons/videopage.svg') 100% 100% / contain;
+            padding: 152px 0 188px;
+        }
+    }
+
+    @element first {
+        padding-bottom: 80px;
+    }
+
+    @element title {
+        line-height: 1.2;
+        font-family: var(--font-serif);
+        text-align: center;
+        color: var(--color-secondary);
+        font-size: 40px;
+        margin-bottom: 32px;
+
+        @media (--viewport-wide) {
+            font-size: 96px;
+        }
+    }
+
+    @element section {
+        background: var(--color-white);
+        padding: 80px 0;
+    }
+}

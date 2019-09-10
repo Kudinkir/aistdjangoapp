@@ -1,19 +1,37 @@
 {% extends 'aistsiteapp/base.html' %}
 
 {% block page %}
-    <section class="course-hero">
-        <div class="course-hero__inner">
-            <div class="container">
-                <div class="course-hero__row">
-                    <div class="course-hero__text">
-                        <h1 class="course-hero__title">{{ page.seo_title }}</h1>
+    {% if page.slug == 'contacts' %}
+        <div class="contacts">
+            <section class="contacts__hero">
+                <div class="container">
+                    <div class="contacts__hero-row">
+                        <div class="contacts__hero-text">
+                            <h1 class="contacts__title">Открыты для общения</h1>
+                            <p class="contacts__hero-subtitle">Работаем с 10 до 22 по Москве</p>
+                            <p><a class="contacts__hero-phone" href="tel:89177060609">8 (917) 706-06-09</a></p>
+                            <p><a class="contacts__hero-email" href="mailto:m.aist@yandex.ru">m.aist@yandex.ru</a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+            <section class="contacts__section">
+                <div class="container">
+                    <div class="contacts__row">
+                        <div class="contacts__col">
+                            <div class="contacts__text">
+                                Если у вас возникли проблемы с оформлением заказа, вы не нашли подходящий способ
+                                оплаты, или у вас появились вопросы, напишите нам.
+                            </div>
+                        </div>
+                        <div class="contacts__col">
+                            {% include './components/contact-form.html' %}
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
-
-    {% if page.type == "heroText" %}
+    {% elif page.type == "heroText" %}
         <section class="course-hero">
             <div class="course-hero__inner">
                 <div class="container">
@@ -28,16 +46,43 @@
                 </div>
             </div>
         </section>
-    {% endif %}
-
-    {% for block in blocks %}
-        <section class="section">
-            <div class="container">
-                <div class="section__title">{{ block.name }}</div>
-                <div class="section__block section__text">
-                    {{ block.text }}
+    {% elif page.slug == "about" %}
+        {% for block in blocks %}
+            <section class="section">
+                <div class="container">
+                    <div class="section__title">{{ block.name }}</div>
+                    <div class="section__block section__text">
+                        {{ block.text }}
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    {% else %}
+        <div class="container">
+            <div class="content">
+                <div class="content__row">
+                    <h1 class="content__title">
+                        {{ page.seo_title }}
+                    </h1>
+                    <div class="content__text rte">
+                        <p>Если по каким-либо причинам Вы решили отказаться от исполнения договора о выполнении работ (оказании услуг), то можете сделать это в соответствии с Законом РФ «О защите прав потребителей» от 07.02.1992 № 2300-1.</p>
+                        <p>Потребитель вправе расторгнуть договор о выполнении работы (оказании услуги) в любое время, уплатив исполнителю часть цены пропорционально части выполненной работы (оказанной услуги) до получения извещения о расторжении указанного договора и возместив исполнителю расходы, произведенные им до этого момента в целях исполнения договора, если они не входят в указанную часть цены работы (услуги).</p>
+                        <ol>
+                            <li>Потребитель при обнаружении недостатков оказанной услуги вправе по своему выбору потребовать:
+                                <ul>
+                                    <li>безвозмездного устранения недостатков;</li>
+                                    <li>соответствующего уменьшения цены;</li>
+                                    <li>возмещения понесенных им расходов по устранению недостатков своими силами или третьими лицами.</li>
+                                </ul>
+                            </li>
+                            <li>Потребитель вправе предъявлять требования, связанные с недостатками оказанной услуги, если они обнаружены в течение гарантийного срока, а при его отсутствии в разумный срок, в пределах двух лет со дня принятия оказанной услуги.</li>
+                            <li>При отказе от исполнения договора потребитель имеет право на возврат выплаченных исполнителю денежных сумм;</li>
+                            <li>Потребитель вправе потребовать также полного возмещения убытков, причиненных ему в связи с недостатками выполненной работы (оказанной услуги);</li>
+                            <li>Исполнитель отвечает за недостатки услуги, на которую не установлен гарантийный срок, если потребитель докажет, что они возникли до ее принятия им или по причинам, возникшим до этого момента.</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
-        </section>
-    {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

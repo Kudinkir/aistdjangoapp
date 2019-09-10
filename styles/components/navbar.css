@@ -18,7 +18,7 @@
 
     @element item {
         white-space: nowrap;
-        color: var(--color-background);
+        color: var(--color-white);
 
         &:hover,
         &:focus {

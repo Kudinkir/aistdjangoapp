@@ -41,8 +41,8 @@ export default class Carousel {
             this.itemsWrapper.appendChild(item);
         });
 
-        this.context.appendChild(this.renderNavigation());
         this.context.appendChild(this.itemsWrapper);
+        this.context.appendChild(this.renderNavigation());
     }
 
     handleClick(event, type) {
@@ -81,6 +81,7 @@ export default class Carousel {
             const foo = document.createElement('button');
 
             foo.classList.add('carousel__arrow');
+            foo.setAttribute('type', 'button');
             foo.innerHTML = icon;
             foo.addEventListener('click', this.handleClick.bind(this, this, type));
 

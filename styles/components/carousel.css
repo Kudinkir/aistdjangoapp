@@ -1,4 +1,6 @@
 @block carousel {
+    position: relative;
+
     @element items {
         display: flex;
         overflow-x: auto;
@@ -14,10 +16,9 @@
     }
 
     @element nav {
+        position: absolute;
+        right: 0;
         padding: 0;
-        display: flex;
-        margin-left: auto;
-        margin-bottom: 40px;
 
         @media (--viewport-tablet) {
             display: none;
@@ -25,6 +26,11 @@
     }
 
     @element arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 48px;
         border: none;
         background: none;
 

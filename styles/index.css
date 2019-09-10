@@ -13,7 +13,6 @@
 
 @import url('./components/navbar');
 @import url('./components/dropdown');
-@import url('./components/rich-list');
 
 @import url('./components/section');
 @import url('./components/grid-section');
@@ -33,7 +32,10 @@
 @import url('./components/subscribe-form');
 
 /* pages */
-@import url('./components/course-page');
+@import url('./pages/course-page');
+@import url('./pages/contacts');
+@import url('./pages/content');
+@import url('./pages/events-page');
 
 /* JS */
 @import url('./components/carousel');

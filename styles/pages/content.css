@@ -1,0 +1,43 @@
+@block content {
+    background: var(--color-primary);
+    padding-top: 56px;
+    padding-bottom: 80px;
+    padding: 56px 16px 80px;
+
+    @media (--viewport-desktop) {
+        padding-top: 170px;
+    }
+
+    @element row {
+        @media (--viewport-desktop) {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+
+    @element title {
+        font-size: 96px;
+        line-height: var(--headings-line-height);
+        color: var(--color-secondary);
+        margin-bottom: 40px;
+    }
+
+    @element text {
+        margin-top: 30px;
+        max-width: 487px;
+        color: var(--color-white);
+
+        & ol {
+            padding-left: 25px;
+            list-style: decimal;
+        }
+
+        & li {
+            margin-bottom: 15px;
+        }
+
+        & p {
+            margin-bottom: 15px;
+        }
+    }
+}

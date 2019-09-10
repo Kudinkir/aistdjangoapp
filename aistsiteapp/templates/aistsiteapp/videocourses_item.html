@@ -2,23 +2,21 @@
 
 {% block page %}
     <section class="course-hero">
-        <div class="course-hero__inner">
-            <div class="container">
-                <div class="course-hero__row">
-                    <div class="course-hero__text course-hero__text--tiny">
-                        <h1 class="course-hero__title">{{ videocourse.name }}</h1>
-                        <p class="course-hero__subtitle">
-                            {% autoescape off %}
-                                {{ videocourse.text }}
-                            {% endautoescape %}
-                        </p>
-                    </div>
-                    {% if videocourse.images %}
-                    <div class="course-hero__image">
-                        <img src="{{ videocourse.images.url }}" />
-                    </div>
-                    {% endif %}
+        <div class="container">
+            <div class="course-hero__row">
+                <div class="course-hero__text course-hero__text--tiny">
+                    <h1 class="course-hero__title">{{ videocourse.name }}</h1>
+                    <p class="course-hero__subtitle">
+                        {% autoescape off %}
+                            {{ videocourse.text }}
+                        {% endautoescape %}
+                    </p>
                 </div>
+                {% if videocourse.images %}
+                <div class="course-hero__image">
+                    <img src="{{ videocourse.images.url }}" />
+                </div>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -107,33 +105,31 @@
                     </div>
                 </div>
             </section>
-            <section class="course-page__section" data-component="Tabs" active>
-                <h2 class="display">Программа обучения</h2>
-                <div class="accordion">
-                    <div class="accordion__trigger" data-handle="trigger">
-                        <div class="accordion__subtitle">Урок 1</div>
-                        <div class="accordion__header">
-                            <h3 class="accordion__title">
-                                Роды: почему это так больно? Как перестать бояться родов?
-                            </h3>
-                            <button class="accordion__button">+</button>
+            {% if videocourse.lessons %}
+                <section class="course-page__section" >
+                    <h2 class="display">Программа обучения</h2>
+                    {% for item in videocourse.lessons %}
+                        <div class="accordion" data-component="Tabs" active>
+                            <div class="accordion__trigger" data-handle="trigger">
+                                <div class="accordion__subtitle">Урок {{ forloop.counter }}</div>
+                                <div class="accordion__header">
+                                    <h3 class="accordion__title">
+                                        {{ item.title }}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="accordion__content rte" data-handle="content">
+                                {% autoescape off %}
+                                    {{ item.text }}
+                                {% endautoescape %}
+                            </div>
                         </div>
+                    {% endfor %}
+                    <div class="course-page__actions course-page__actions--center">
+                        <a href="#" class="button button--arrow">купить курс</a>
                     </div>
-                    <div class="accordion__content" data-handle="content">
-                        Пожалуй, ничего на свете так не боится женщина, как родов. Еще с детства девочки слышат
-                        разные устрашающие истории про них, которые напрочь отбивают желание стать мамой.
-                        А многочисленные эпизоды из фильмов о том, как страшно и мучительно рожают женщины, уже
-                        стали классикой жанра. Да, такое может быть, если неправильно думать о родах,
-                        не готовиться морально и физически к ним, и не иметь о них действительно правильной и
-                        нужной информации. Первый урок призван навсегда развеять все мифы и страхи вокруг родов. Я
-                        называю этот урок — таблетка от страхов. После его изучения у 95% женщин страх перед
-                        родами проходит и становится действительно легче.
-                    </div>
-                </div>
-                <div class="course-page__actions course-page__actions--center">
-                    <a href="#" class="button button--arrow">купить курс</a>
-                </div>
-            </section>
+                </section>
+            {% endif %}
             <section class="grid-section">
                 <div class="grid-section__item">
                     <img class="grid-section__image" src="https://placehold.it/378x503" alt="" />
@@ -184,7 +180,7 @@
             </section>
         </div>
     </div>
-    <section class="section section--primary">
+    <section class="section">
         <div class="container">
             <div class="section__header">
                 <h2 class="section__title section__title--center">Варианты курса</h2>
