@@ -17,6 +17,10 @@
         }
     }
 
+    @modifier invert {
+        color: var(--color-white);
+    }
+
     @element fullLink {
         position: absolute;
         top: 0;
@@ -27,10 +31,6 @@
         height: 100%;
         cursor: pointer;
         z-index: 1;
-    }
-
-    @modifier invert {
-        color: var(--color-white);
     }
 
     @element body {
@@ -54,28 +54,8 @@
     }
 
     @element title {
-        line-height: 1.2;
-        font-family: var(--font-serif);
-        font-size: 24px;
         color: inherit;
         margin-bottom: 12px;
-
-        @modifier small {
-            font-size: 24px;
-        }
-
-        @modifier large {
-            font-size: 32px;
-            margin-bottom: 16px;
-
-            @media (--viewport-desktop) {
-                font-size: 48px;
-            }
-        }
-
-        @media (--viewport-desktop) {
-            font-size: 32px;
-        }
     }
 
     @element text {

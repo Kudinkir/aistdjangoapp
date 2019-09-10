@@ -7,7 +7,7 @@
                 <div class="container">
                     <div class="contacts__hero-row">
                         <div class="contacts__hero-text">
-                            <h1 class="contacts__title">Открыты для общения</h1>
+                            <h1 class="display display--h1 display--secondary contacts__title">Открыты для общения</h1>
                             <p class="contacts__hero-subtitle">Работаем с 10 до 22 по Москве</p>
                             <p><a class="contacts__hero-phone" href="tel:89177060609">8 (917) 706-06-09</a></p>
                             <p><a class="contacts__hero-email" href="mailto:m.aist@yandex.ru">m.aist@yandex.ru</a></p>
@@ -31,26 +31,11 @@
                 </div>
             </section>
         </div>
-    {% elif page.type == "heroText" %}
-        <section class="course-hero">
-            <div class="course-hero__inner">
-                <div class="container">
-                    <div class="course-hero__row">
-                        <div class="course-hero__text">
-                            <h1 class="course-hero__title">{{ page.seo_title }}</h1>
-                        </div>
-                        <div class="course-hero__text">
-                            {{ page.seo_title }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     {% elif page.slug == "about" %}
         {% for block in blocks %}
             <section class="section">
                 <div class="container">
-                    <div class="section__title">{{ block.name }}</div>
+                    <div class="display display--h3 section__title">{{ block.name }}</div>
                     <div class="section__block section__text">
                         {{ block.text }}
                     </div>
@@ -61,7 +46,7 @@
         <div class="container">
             <div class="content">
                 <div class="content__row">
-                    <h1 class="content__title">
+                    <h1 class="display display--h1 display--secondary content__title">
                         {{ page.seo_title }}
                     </h1>
                     <div class="content__text rte">

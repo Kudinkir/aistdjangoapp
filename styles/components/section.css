@@ -48,9 +48,6 @@
     }
 
     @element title {
-        font-family: var(--font-serif);
-        line-height: 1.15;
-        font-size: 24px;
         margin-bottom: 12px;
 
         @modifier center {
@@ -58,12 +55,7 @@
         }
 
         @media (--viewport-tablet) {
-            font-size: 32px;
             margin-bottom: 16px;
-        }
-
-        @modifier large {
-            font-size: 48px;
         }
     }
 

@@ -6,16 +6,14 @@
             <div class="course-hero__row">
                 <div class="course-hero__text course-hero__text--tiny">
                     <h1 class="course-hero__title">{{ videocourse.name }}</h1>
-                    <p class="course-hero__subtitle">
-                        {% autoescape off %}
-                            {{ videocourse.text }}
-                        {% endautoescape %}
-                    </p>
+                    {% autoescape off %}
+                        <div class="course-hero__subtitle">{{ videocourse.text }}</div>
+                    {% endautoescape %}
                 </div>
                 {% if videocourse.images %}
-                <div class="course-hero__image">
-                    <img src="{{ videocourse.images.url }}" />
-                </div>
+                    <div class="course-hero__image">
+                        <img src="{{ videocourse.images.url }}" alt="" />
+                    </div>
                 {% endif %}
             </div>
         </div>
@@ -24,9 +22,11 @@
         <aside class="course-page__sidebar">
             <div class="sidebar">
                 <ul class="sidebar__list">
-                    <li class="sidebar__item"><a href="#" class="sidebar__link active">Об авторе</a></li>
-                    <li class="sidebar__item"><a href="#" class="sidebar__link">Результаты участниц</a></li>
-                    <li class="sidebar__item"><a href="#" class="sidebar__link">О курсе</a></li>
+                    {% for item in videocourse.menu %}
+                        <li class="sidebar__item">
+                            <a href="{{ item.url }}" class="sidebar__link active">{{ item.name }}</a>
+                        </li>
+                    {% endfor %}
                 </ul>
                 <div class="sidebar__actions">
                     <a href="#" class="button button--arrow">купить курс</a>
@@ -34,13 +34,13 @@
             </div>
         </aside>
         <div class="course-page__main">
-            <section class="course-page__section">
+            <section id="author" class="course-page__section">
                 <div class="course-page__row">
                     <div class="course-page__col course-page__col--image">
                         <img src="https://placehold.it/324x432" alt="" />
                     </div>
                     <div class="course-page__col course-page__col--text">
-                        <h2 class="display">Меня зовут Марина Аист</h2>
+                        <h2 class="display display--primary display--h2 course-page__section-title">Меня зовут Марина Аист</h2>
                         <div class="course-page__text">
                             Я акушер с 10-летним стажем, перинатальный психолог, сертифицированный консультант
                             по грудном вскармливанию.
@@ -70,11 +70,11 @@
                     </div>
                 </div>
             </section>
-            <section class="course-page__section">
-                <h2 class="display">Результаты участниц</h2>
+            <section id="result" class="course-page__section">
+                <h2 class="display display--primary display--h2 course-page__section-title">Результаты участниц</h2>
                 <div class="course-page__row">
-                    <div class="course-page__col">
-                        <ul class="rich-list">
+                    <div class="course-page__col rte">
+                        <ul>
                             <li>рожают в пределах 6-8 часов;</li>
                             <li>разрывов в 2 раза меньше, чем у неподготовленных женщин;</li>
                             <li>асфиксия новорожденных отсутствует в нашей статистике;</li>
@@ -92,7 +92,7 @@
                 </div>
             </section>
             <section class="course-page__section course-page__section--primary">
-                <h2 class="display display--secondary">О курсе</h2>
+                <h2 class="display display--h2 display--secondary course-page__section-title">О курсе</h2>
                 <div class="course-page__row">
                     <div class="course-page__col">
                         Курс «Успешно Родить» из 8 видеоуроков позволит вам пройти занятия так, как если вы будете
@@ -106,14 +106,14 @@
                 </div>
             </section>
             {% if videocourse.lessons %}
-                <section class="course-page__section" >
-                    <h2 class="display">Программа обучения</h2>
+                <section id="lessons" class="course-page__section" >
+                    <h2 class="display display--primary display--h2 course-page__section-title">Программа обучения</h2>
                     {% for item in videocourse.lessons %}
                         <div class="accordion" data-component="Tabs" active>
                             <div class="accordion__trigger" data-handle="trigger">
                                 <div class="accordion__subtitle">Урок {{ forloop.counter }}</div>
                                 <div class="accordion__header">
-                                    <h3 class="accordion__title">
+                                    <h3 class="display display--h3 accordion__title">
                                         {{ item.title }}
                                     </h3>
                                 </div>
@@ -130,45 +130,54 @@
                     </div>
                 </section>
             {% endif %}
-            <section class="grid-section">
-                <div class="grid-section__item">
-                    <img class="grid-section__image" src="https://placehold.it/378x503" alt="" />
-                </div>
-                <div class="grid-section__item">
-                    <h3 class="grid-section__title">Кажется, что без него я бы не справилась</h3>
-                    <div class="grid-section__rte">
-                        <p>
-                            Я человек, нуждающийся в моральной помощи близкого человека, поэтому мы рожали вместе
-                            с мужем. И я уверена, что результат наших успешных родов на 50% был достигнут,
-                            благодаря помощи мужа.
-                        </p>
-                        <p>
-                            В течение родов, мы знали, что должны делать на каждой ступеньке этого процесса, но
-                            иногда боль брала свое, и, казалось бы, руки опускаются, ты слышишь голос любимого
-                            человека, его утешения, открывается второе дыхание, появляются новые силы и все
-                            получается, боль уходит.
-                        </p>
+            <section id="feedback">
+                <div class="feedback">
+                    <div class="feedback__col">
+                        <img class="feedback__image" src="https://placehold.it/378x503" alt="" />
                     </div>
-                    <div class="grid-section__author">Волкова Елена</div>
-                </div>
-                <div class="grid-section__item">
-                    <h3 class="grid-section__title">Кажется, что без него я бы не справилась</h3>
-                    <div class="grid-section__rte">
-                        <p>
-                            Для меня самым трудным периодом был период раскрытия шейки, т.е. схватки, потому что
-                            они длились очень долго и, надо сказать, очень измучили меня. Две ночи почти не спала,
-                            но схватки были нерегулярными.
-                        </p>
-                        <p>
-                            Когда схватки пошли очень ощутимые, муж все это время делал мне массаж спины, крутил
-                            на мяче и помогал дышать. Он дышал со мной и всегда подбадривал. Когда врач сказал,
-                            что открытие полное и можно идти рожать, это были самые приятные слова!
-                        </p>
+                    <div class="feedback__col">
+                        <div class="feedback__header">
+                            <h4 class="display display--h4 display--primary">Счастье быть вместе в момент появления долгожданного ребеночка</h4>
+                        </div>
+                        <div class="feedback__text rte">
+                            <p>
+                                Я человек, нуждающийся в моральной помощи близкого человека, поэтому мы рожали вместе
+                                с мужем. И я уверена, что результат наших успешных родов на 50% был достигнут,
+                                благодаря помощи мужа.
+                            </p>
+                            <p>
+                                В течение родов, мы знали, что должны делать на каждой ступеньке этого процесса, но
+                                иногда боль брала свое, и, казалось бы, руки опускаются, ты слышишь голос любимого
+                                человека, его утешения, открывается второе дыхание, появляются новые силы и все
+                                получается, боль уходит.
+                            </p>
+                        </div>
+                        <div class="feedback__author">Волкова Елена</div>
                     </div>
-                    <div class="grid-section__author">Волкова Елена</div>
                 </div>
-                <div class="grid-section__item">
-                    <img class="grid-section__image" src="https://placehold.it/377x212" alt="" />
+                <div class="feedback feedback--reverse">
+                    <div class="feedback__col">
+                        <img class="feedback__image" src="https://placehold.it/378x212" alt="" />
+                    </div>
+                    <div class="feedback__col">
+                        <div class="feedback__header">
+                            <h4 class="display display--h4 display--primary">Счастье быть вместе в момент появления долгожданного ребеночка</h4>
+                        </div>
+                        <div class="feedback__text rte">
+                            <p>
+                                Я человек, нуждающийся в моральной помощи близкого человека, поэтому мы рожали вместе
+                                с мужем. И я уверена, что результат наших успешных родов на 50% был достигнут,
+                                благодаря помощи мужа.
+                            </p>
+                            <p>
+                                В течение родов, мы знали, что должны делать на каждой ступеньке этого процесса, но
+                                иногда боль брала свое, и, казалось бы, руки опускаются, ты слышишь голос любимого
+                                человека, его утешения, открывается второе дыхание, появляются новые силы и все
+                                получается, боль уходит.
+                            </p>
+                        </div>
+                        <div class="feedback__author">Волкова Елена</div>
+                    </div>
                 </div>
             </section>
             <section class="course-page__section">
@@ -180,68 +189,41 @@
             </section>
         </div>
     </div>
-    <section class="section">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title section__title--center">Варианты курса</h2>
+    {% if videocourse.variants %}
+        <section id="courses" class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="display display--h3 section__title section__title--center">Варианты курса</h2>
+                </div>
+                {% include './components/courses.html' %}
             </div>
-            <div class="courses">
-                <div class="courses__row">
-                    <div class="courses__col">
-                        <div class="course">
-                            <div class="course__inner">
-                                <div class="course__title">Стандарт</div>
-                                <ul class="course__list">
-                                    <li class="course__item">8 уроков курса «Успешно родить»</li>
-                                </ul>
-                                <div class="course__price">11 200 руб</div>
+        </section>
+    {% endif %}
+    <section class="course-page__section">
+        <div class="display display--h4 section__title--center">Другие видеокурсы</div>
+        <div class="row">
+            {% for item in videocourses %}
+                <div class="cards__col">
+                    <div class="card">
+                        <a class="card__fullLink" href="{{ item.slug }}"></a>
+                        <div class="card__body">
+                            <div class="card__header">{{ item.duration }}</div>
+                            <div class="display display--h4 card__title">{{ item.name }}</div>
+                            <div class="card__text">
+                                {% autoescape off %}
+                                    {{ item.text }}
+                                {% endautoescape %}
                             </div>
-                            <a href="#" class="button button--secondary button--full-width button--arrow">
-                                купить курс
-                            </a>
                         </div>
-                    </div>
-                    <div class="courses__col">
-                        <div class="course">
-                            <div class="course__inner">
-                                <div class="course__title">Стандарт</div>
-                                <ul class="course__list">
-                                    <li class="course__item">8 уроков курса «Успешно родить»</li>
-                                    <li class="course__item">+ курс «Грудное вскармливание»</li>
-                                    <li class="course__item">+ урок «Волшебные Точки»</li>
-                                    <li class="course__item">+ курс «Молодого Отца»</li>
-                                </ul>
-                                <div class="course__price">11 200 руб</div>
+                        {% if item.images %}
+                            <div class="card__image card__image--full-width">
+                                <img src="{{ item.image }}" alt="" />
                             </div>
-                            <a href="#" class="button button--secondary button--full-width button--arrow">
-                                купить курс
-                            </a>
-                        </div>
-                    </div>
-                    <div class="courses__col">
-                        <div class="course">
-                            <div class="course__inner">
-                                <div class="course__title">Стандарт</div>
-                                <ul class="course__list">
-                                    <li class="course__item">8 уроков курса «Успешно родить»</li>
-                                    <li class="course__item">+ курс «Грудное вскармливание»</li>
-                                    <li class="course__item">+ урок «Волшебные Точки»</li>
-                                    <li class="course__item">+ курс «Молодого Отца»</li>
-                                </ul>
-                                <div class="course__price">11 200 руб</div>
-                            </div>
-                            <a href="#" class="button button--secondary button--full-width button--arrow">
-                                купить курс
-                            </a>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
-                <div class="courses__text">
-                    Если у вас возникли проблемы с оформлением заказа, вы не нашли подходящий способ оплаты, или у
-                    вас появились вопросы, напишите нам
-                    <a class="link link--secondary" href="mailto:m.aist@yandex.ru">m.aist@yandex.ru</a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+        <button class="button button--arrow">все видеокурсы</button>
     </section>
 {% endblock %}

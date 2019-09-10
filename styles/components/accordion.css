@@ -25,7 +25,7 @@
             height: 16px;
             margin-left: auto;
             padding: 0;
-            background: no-repeat url(~svgIcons/plus.svg) 0 0 / 100%;
+            background: no-repeat url(~svgIcons/plus.svg) center / 100%;
             border: 0;
         }
     }
@@ -36,14 +36,8 @@
     }
 
     @element title {
+        margin: 0;
         flex: 1;
-        font-size: 24px;
-        line-height: var(--headings-line-height);
-        font-family: var(--headings-font);
-
-        @media (--viweport-desktop) {
-            font-size: 32px;
-        }
     }
 
     @element content {

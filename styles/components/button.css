@@ -6,7 +6,7 @@
     background: var(--color-primary);
     padding: 16px;
     font-family: var(--font-serif);
-    font-size: 18px;
+    font-size: var(--font-size-large);
     color: var(--color-secondary);
     cursor: pointer;
     line-height: 1.5;

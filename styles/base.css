@@ -14,6 +14,13 @@
     --font-size-medium: 15px;
     --font-size-large: 18px;
 
+    --display-h1: 96px;
+    --display-h2: 48px;
+    --display-h3: 32px;
+    --display-h4: 24px;
+    --display-h5: 20px;
+    --display-h6: 18px;
+
     --headings-font: var(--font-serif);
     --headings-font-weight: 400;
     --headings-line-height: 1.2;

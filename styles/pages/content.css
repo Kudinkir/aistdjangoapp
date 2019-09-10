@@ -16,9 +16,6 @@
     }
 
     @element title {
-        font-size: 96px;
-        line-height: var(--headings-line-height);
-        color: var(--color-secondary);
         margin-bottom: 40px;
     }
 

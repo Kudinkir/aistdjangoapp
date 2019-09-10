@@ -1,0 +1,25 @@
+<div class="courses">
+    <div class="courses__row">
+        {% for item in videocourse.variants %}
+            <div class="courses__col">
+                <div class="course">
+                    <div class="course__inner">
+                        <div class="course__title">{{ item.title }}</div>
+                        {% autoescape off %}
+                            <div class="course__text">{{ item.text }}</div>
+                        {% endautoescape %}
+                        <div class="course__price">{{ item.price }}</div>
+                    </div>
+                    <a href="{{ item.url }}" class="button button--secondary button--full-width button--arrow">
+                        купить курс
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="courses__text">
+        Если у вас возникли проблемы с оформлением заказа, вы не нашли подходящий способ оплаты, или у
+        вас появились вопросы, напишите нам
+        <a class="link link--secondary" href="mailto:m.aist@yandex.ru">m.aist@yandex.ru</a>
+    </div>
+</div>

@@ -15,7 +15,6 @@
 @import url('./components/dropdown');
 
 @import url('./components/section');
-@import url('./components/grid-section');
 @import url('./components/hero');
 @import url('./components/course-hero');
 @import url('./components/benefits');
@@ -30,6 +29,7 @@
 @import url('./components/sidebar');
 @import url('./components/accordion');
 @import url('./components/subscribe-form');
+@import url('./components/feedback');
 
 /* pages */
 @import url('./pages/course-page');
