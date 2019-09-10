@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
-from aistsiteapp.models import Blocks, Page, VideoCourses, Events
+from aistsiteapp.models import Blocks, Page, VideoCourses, Events, Lessons
 from aistsiteapp.forms import SubscribeForm, CallbackForm
 from datetime import date
 
@@ -12,7 +12,7 @@ def home(request):
     second_block = Blocks.objects.get(id=2)
     second_block.bloks = Blocks.objects.filter(block_id=2)
     event_block = Events.objects.filter(start_date__gte=date.today())
-    #courses_block = VideoCourses.objects.filter()
+    courses_block = VideoCourses.objects.all()
     footer_block = Blocks.objects.get(id=7)
     footer_block.bloks = Blocks.objects.filter(block_id=7)
     return render(request, 'aistsiteapp/main.html', {
@@ -38,6 +38,7 @@ def videocourses_item(request, slug):
     footer_block = Blocks.objects.get(id=7)
     footer_block.bloks = Blocks.objects.filter(block_id=7)
     videocourse = VideoCourses.objects.get(slug=slug)
+    videocourse.lessons = Lessons.objects.filter(course_id=videocourse.id)
     return render(request, 'aistsiteapp/videocourses_item.html', {
         'videocourse' : videocourse,
         'footer_block' : footer_block,

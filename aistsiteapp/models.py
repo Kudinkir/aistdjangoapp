@@ -96,3 +96,14 @@ class Subscribe(models.Model):
 
     def __str__(self):
         return self.user_name
+
+class Lessons(models.Model):
+    title=models.CharField(max_length=255, verbose_name='Название')
+    text=models.TextField(blank=True)
+    course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
+
+    class Meta:
+        verbose_name='Уроки'
+
+    def __str__(self):
+        return self.title
