@@ -73,36 +73,13 @@
             <section id="result" class="course-page__section">
                 <h2 class="display display--primary display--h2 course-page__section-title">Результаты участниц</h2>
                 <div class="course-page__row">
-                    <div class="course-page__col rte">
-                        <ul>
-                            <li>рожают в пределах 6-8 часов;</li>
-                            <li>разрывов в 2 раза меньше, чем у неподготовленных женщин;</li>
-                            <li>асфиксия новорожденных отсутствует в нашей статистике;</li>
-                            <li>количество кесаревых сечений на 50% меньше среднестатистических;</li>
-                            <li>риск вакуум-экстракции плода снижается на 98%.</li>
-                        </ul>
-                    </div>
-                    <div class="course-page__col">
-                        Это прекрасные результаты для каждой семьи, и так может рожать каждая женщина из любой
-                        точки мира. Для моего обучения нужен только интернет и компьютер.
-                        <br/>
-                        <br/>
-                        Я расскажу вам, что нужно сделать, чтобы подготовиться и хорошо родить.
-                    </div>
+                    {{ videocourse.students_results|safe }}
                 </div>
             </section>
             <section class="course-page__section course-page__section--primary">
                 <h2 class="display display--h2 display--secondary course-page__section-title">О курсе</h2>
                 <div class="course-page__row">
-                    <div class="course-page__col">
-                        Курс «Успешно Родить» из 8 видеоуроков позволит вам пройти занятия так, как если вы будете
-                        присутствовать на них лично.
-                    </div>
-                    <div class="course-page__col">
-                        Это полностью практическое руководство, с ним вы подготовитесь к родам независимо
-                        от страны или города, где вы собираетесь рожать. Курс подходит всем, кто хочет родить
-                        максимально естественно.
-                    </div>
+                    {{ videocourse.about_course|safe }}
                 </div>
             </section>
             {% if videocourse.lessons %}
