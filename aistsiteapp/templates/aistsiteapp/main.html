@@ -4,23 +4,21 @@
     <section class="hero">
         <div class="hero__inner">
             <div class="hero__top">
-                <div class="container container--fluid">
-                    <div class="hero__row">
-                        <div class="hero__text">
-                            <h1 class="hero__title">
-                                {{ main_block.name }}
-                            </h1>
-                        </div>
-                        <div class="hero__right">
-                            <div class="hero__image-wrapper">
-                                <div class="hero__circle circle">
-                                    <div class="circle__inner">
-                                        20 июля<br />
-                                        <small>Казань</small>
-                                    </div>
+                <div class="hero__row">
+                    <div class="hero__text">
+                        <h1 class="hero__title">
+                            {{ main_block.name }}
+                        </h1>
+                    </div>
+                    <div class="hero__right">
+                        <div class="hero__image-wrapper">
+                            <div class="hero__circle circle">
+                                <div class="circle__inner">
+                                    20 июля<br />
+                                    <small>Казань</small>
                                 </div>
-                                <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" alt="" />
                             </div>
+                            <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" alt="" />
                         </div>
                     </div>
                 </div>
@@ -76,7 +74,13 @@
     </section>
 
     {% include './components/events.html' %}
-    {% include './components/instagram.html' %}
-    {% include './components/youtube.html' %}
+    <section class="section">
+        <div class="section__inner">
+            {% include './components/instagram.html' %}
+        </div>
+        <div class="section__inner">
+            {% include './components/youtube.html' %}
+        </div>
+    </section>
     {% include './components/subscribe.html' %}
 {% endblock %}

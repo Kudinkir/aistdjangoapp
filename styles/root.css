@@ -36,7 +36,7 @@ img {
     margin: 0 auto;
     width: 100%;
 
-    @media (width >= 992px) {
+    @media (--viewport-ipad) {
         max-width: 90%;
     }
 

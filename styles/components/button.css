@@ -52,4 +52,8 @@
         background: none;
         color: var(--color-primary);
     }
+
+    @modifier opacity {
+        opacity: 0.5;
+    }
 }

@@ -2,7 +2,7 @@
     @element row {
         margin: 0 -27px;
 
-        @media (--viewport-ipad) {
+        @media (--viewport-desktop) {
             display: flex;
             justify-content: center;
         }
@@ -18,7 +18,7 @@
         margin-bottom: 40px;
 
         @media (min-width: 992px) {
-            margin: 0;
+            margin-bottom: 0;
             max-width: 268px;
             text-align: left;
             align-items: flex-start;
@@ -27,14 +27,8 @@
 
     @element image {
         padding: 0 27px;
-        flex: 0 0 100%;
+        flex: none;
         display: flex;
-        max-width: 100%;
         justify-content: center;
-
-        @media (--viewport-desktop) {
-            flex: none;
-            margin: 0;
-        }
     }
 }

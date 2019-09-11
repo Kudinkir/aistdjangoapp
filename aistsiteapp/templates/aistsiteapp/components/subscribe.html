@@ -1,9 +1,9 @@
 <section class="section section--secondary">
     <div class="container">
         <div class="section__row">
-            <div class="section__align-center">
-                <div class="display display--h3 section__title">Узнайте о новостях и мероприятиях</div>
-                <form class="subscribe-form" data-component="SubscribeForm">
+            <div class="subscribe-form">
+                <div class="display display--h3 subscribe-form__title">Узнайте о новостях и мероприятиях</div>
+                <form data-component="SubscribeForm">
                     {% csrf_token %}
                     <div class="subscribe-form__field" data-handle="view" data-active>
                         <div class="field-group">
@@ -35,7 +35,9 @@
                         <div class="field-group">
                             <button type="button" class="button button--arrow" data-handle="submit">отправить</button>
                         </div>
-                        <button style="opacity: 0.5;" type="button" data-type="prev">назад</button>
+                        <div class="subscribe-form__button">
+                            <button type="button" data-type="prev">назад</button>
+                        </div>
                     </div>
                 </form>
             </div>
