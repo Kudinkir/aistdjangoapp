@@ -33,8 +33,10 @@ class MenuItemInline(admin.TabularInline):
 
 
 class MenuAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'description']
+    #list_display = ['name', 'slug', 'description']
     inlines = [MenuItemInline,]
+
+
 
 admin.site.register(Blocks,BlocksAdmin)
 admin.site.register(Page,PageAdmin)
@@ -44,4 +46,5 @@ admin.site.register(Callback)
 admin.site.register(Subscribe)
 admin.site.register(Lessons)
 admin.site.register(MenuBlocks, MenuAdmin)
+admin.site.register(MenuItemBlocks, MenuAdmin)
 # Register your models here.

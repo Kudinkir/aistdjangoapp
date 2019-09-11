@@ -3,14 +3,15 @@
         <div class="footer__row">
             <div class="footer__menubar">
                 <div class="footer__menus">
-                    {% for item in footer_block.bloks %}
+                    {% for item in footer_menu.items %}
                     <div class="footer__menu menu">
-                        <div class="menu__title">{{ item.name }}</div>
+                        <div class="menu__title">{{ item.title }}</div>
                         {% if item.childrens %}
                         <ul class="menu__list">
                             {% for child in item.childrens %}
                             <li class="menu__item">
-                                <a href="#" class="link">{{ child.title }}</a>
+                                <a href="{% if child.slug %}{{ item.link_url }}{{child.slug}}{% else %}{% firstof child.url child.link_url %}{% endif %}"
+                                class="link">{% firstof child.title child.name %}</a>
                             </li>
                             {% endfor %}
                         </ul>

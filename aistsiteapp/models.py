@@ -151,11 +151,16 @@ class MenuBlocks(models.Model):
                     item.childrens = VideoCourses.objects.all()
                 elif item.display_event:
                     item.childrens = Events.objects.all()
+                childrens = MenuItemBlocks.objects.filter(menu_item_id=item.id)
+                if len(childrens):
+                    print(childrens[0].link_url)
+                    item.childrens = childrens
             return self.items
 
 
 class MenuItemBlocks(models.Model):
-        menu = models.ForeignKey(MenuBlocks,verbose_name='Имя',on_delete=models.CASCADE,)
+        menu = models.ForeignKey(MenuBlocks,verbose_name='Имя',on_delete=models.CASCADE,blank=True,null=True)
+        menu_item = models.ForeignKey('self',verbose_name='Имя',on_delete=models.CASCADE,blank=True,null=True)
         order = models.IntegerField(verbose_name='Приоритет',default=500)
         link_url = models.CharField(
             max_length=100,
@@ -170,4 +175,4 @@ class MenuItemBlocks(models.Model):
             verbose_name_plural = 'Пункты меню'
 
         def __str__(self):
-            return u"%s %s. %s" % (self.menu.slug, self.order, self.title)
+            return self.title
