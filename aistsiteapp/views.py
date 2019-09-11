@@ -32,8 +32,10 @@ def videocourses_item(request, slug):
     videocourse = VideoCourses.objects.get(slug=slug)
     videocourse.lessons = Lessons.objects.filter(course_id=videocourse.id)
     videocourse.variants = CoursesVariants.objects.filter(course_id=videocourse.id)
+    other_courses = VideoCourses.objects.exclude(id=videocourse.id)
     return render(request, 'aistsiteapp/videocourses_item.html', {
         'videocourse' : videocourse,
+        'other_courses' : other_courses,
     })
 
 def events(request):
