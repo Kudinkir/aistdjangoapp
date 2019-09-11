@@ -56,6 +56,10 @@ class VideoCourses(models.Model):
     def __str__(self):
         return self.name
 
+    def get_lessons_count(self):
+        self.lessons = Lessons.objects.filter(course_id=self.id)
+        return len(self.lessons)
+
 class Events(models.Model):
     name=models.CharField(max_length=255)
     images = models.ImageField(upload_to='images/', blank=True)
@@ -127,3 +131,51 @@ class CoursesVariants(models.Model):
 
     def __str__(self):
         return self.title
+
+class MenuBlocks(models.Model):
+        name = models.CharField(max_length=100)
+        slug = models.TextField()
+        description = models.TextField(blank=True,null=True)
+
+        class Meta:
+            verbose_name = 'Меню'
+            verbose_name_plural = 'Меню'
+
+        def __str__(self):
+            return self.name
+
+        def get_items(self):
+            self.items = MenuItemBlocks.objects.filter(menu_id=self.id)
+            for item in self.items:
+                if item.display_video:
+                    corses = VideoCourses.objects.all()
+                    for course in corses:
+                        course.url = "video-courses/%s" % (course.slug)
+                        course.title = course.name
+                    item.childrens = corses
+                if item.display_event:
+                    events = Events.objects.all()
+                    for event in events:
+                        event.url = "events/%s" % (event.slug)
+                        event.title = event.name
+                    item.childrens = events
+            return self.items
+
+
+class MenuItemBlocks(models.Model):
+        menu = models.ForeignKey(MenuBlocks,verbose_name='Имя',on_delete=models.CASCADE,)
+        order = models.IntegerField(verbose_name='Приоритет',default=500)
+        link_url = models.CharField(
+            max_length=100,
+            help_text='URL or URI to the content, eg /about/ or http://foo.com/'
+            )
+        title = models.CharField(max_length=100)
+        display_video = models.BooleanField(blank=True,default=False,)
+        display_event = models.BooleanField(blank=True,default=False,)
+
+        class Meta:
+            verbose_name = 'Пункт меню'
+            verbose_name_plural = 'Пункты меню'
+
+        def __str__(self):
+            return u"%s %s. %s" % (self.menu.slug, self.order, self.title)

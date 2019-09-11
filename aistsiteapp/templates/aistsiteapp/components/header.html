@@ -5,7 +5,7 @@
             <button type="button" class="header__button" data-trigger="menu"></button>
             <nav class="header__nav" data-content="menu">
                 <ul class="navbar">
-                    {% load menubuilder %} {% menu top_menu %} {% for item in menuitems %}
+                    {% for item in main_menu.items %}
                     <li
                         class="navbar__item{% if item.childrens %} navbar__item--dropdown dropdown{% endif %}{% if item.current %} active{% endif %}"
                     >
