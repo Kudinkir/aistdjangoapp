@@ -32,6 +32,7 @@
 @import url('./components/feedback');
 @import url('./components/instagram');
 @import url('./components/youtube');
+@import url('./components/videocourses');
 
 /* pages */
 @import url('./pages/course-page');

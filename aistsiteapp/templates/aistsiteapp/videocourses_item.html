@@ -177,10 +177,10 @@
         </section>
     {% endif %}
     <section class="course-page__section">
-        <div class="display display--h4 section__title--center">Другие видеокурсы</div>
-        <div class="row">
+        <div class="display display--h4 videocourses__title">Другие видеокурсы</div>
+        <div class="videocourses__row">
             {% for item in other_courses %}
-                <div class="cards__col">
+                <div class="videocourses__col">
                     <div class="card">
                         <a class="card__fullLink" href="{{ item.slug }}"></a>
                         <div class="card__body">
@@ -194,13 +194,16 @@
                         </div>
                         {% if item.images %}
                             <div class="card__image card__image--full-width">
-                                <img src="{{ item.image }}" alt="" />
+                                <img src="{{ item.images.url }}" alt="" />
                             </div>
                         {% endif %}
                     </div>
                 </div>
             {% endfor %}
         </div>
-        <button class="button button--arrow">все видеокурсы</button>
+        <div class="videocourses__actions">
+            <button class="button button--arrow">все видеокурсы</button>
+        </div>
     </section>
+    {% include './components/subscribe.html' %}
 {% endblock %}

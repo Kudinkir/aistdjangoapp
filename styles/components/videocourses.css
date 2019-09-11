@@ -1,0 +1,27 @@
+@block videocourses {
+    @element title {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    @element row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -27px 40px;
+    }
+
+    @element col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 27px;
+
+        @media (--viewport-ipad) {
+            flex: 0 0 33.33333%;
+            max-width: 33.33333%;
+        }
+    }
+
+    @element actions {
+        text-align: center;
+    }
+}
