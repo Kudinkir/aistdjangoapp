@@ -87,6 +87,17 @@ class MenuItem(models.Model):
         default=False,
         help_text=_(u'Should this item only be shown to non-logged-in users?')
         )
+    display_video = models.BooleanField(
+        _(u'Video course inside'),
+        blank=True,
+        default=False,
+        )
+
+    display_event = models.BooleanField(
+        _(u'Event course inside'),
+        blank=True,
+        default=False,
+        )
 
     class Meta:
         verbose_name = _(u'menu item')

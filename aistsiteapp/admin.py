@@ -18,6 +18,8 @@ class PageAdmin(admin.ModelAdmin):
 	list_filter = ['published_date', 'slug']
 	search_fields = ['name','tech_title','slug']
 
+class BlocksAdmin(admin.ModelAdmin):
+	inlines = [BlocksInline]
 
 class VideoCoursesAdmin(admin.ModelAdmin):
 	inlines = [LessonsInline, CoursesVariantsInline]
@@ -25,7 +27,7 @@ class VideoCoursesAdmin(admin.ModelAdmin):
 	# list_filter = ['published_date', 'slug']
 	# search_fields = ['name','tech_title','slug']
 
-admin.site.register(Blocks)
+admin.site.register(Blocks,BlocksAdmin)
 admin.site.register(Page,PageAdmin)
 admin.site.register(VideoCourses, VideoCoursesAdmin)
 admin.site.register(Events)

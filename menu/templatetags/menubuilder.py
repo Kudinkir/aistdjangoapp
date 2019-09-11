@@ -1,6 +1,7 @@
 from menu.models import Menu, MenuItem
 from django import template
 from django.core.cache import cache
+from aistsiteapp.models import VideoCourses, Events
 
 
 register = template.Library()
@@ -31,7 +32,7 @@ class MenuObject(template.Node):
 
         context['menuitems'] = get_items(self.menu_name, current_path, user)
         return ''
-  
+
 
 def build_sub_menu(parser, token):
     """
@@ -62,7 +63,7 @@ class SubMenuObject(template.Node):
 
 def get_items(menu_name, current_path, user):
     """
-    If possible, use a cached list of items to avoid continually re-querying 
+    If possible, use a cached list of items to avoid continually re-querying
     the database.
     The key contains the menu name, whether the user is authenticated, and the current path.
     Disable caching by setting MENU_CACHE_TIME to -1.
@@ -85,7 +86,7 @@ def get_items(menu_name, current_path, user):
             return menuitems
     else:
         menuitems = []
-        
+
 
     menu = Menu.objects.filter(slug=menu_name).first()
 
@@ -103,7 +104,7 @@ def get_items(menu_name, current_path, user):
         show_anonymous = i.anonymous_only and is_anonymous
         show_auth = i.login_required and is_authenticated
         if (not (i.login_required or i.anonymous_only)) or (i.login_required and show_auth) or (i.anonymous_only and show_anonymous):
-            menuitems.append({'url': i.link_url, 'title': i.title, 'current': current,})
+            menuitems.append({'url': i.link_url, 'title': i.title, 'current': current, 'display_video':i.display_video, 'display_event':i.display_event,})
 
     if cache_time >= 0 and not debug:
         cache.set(cache_key, menuitems, cache_time)

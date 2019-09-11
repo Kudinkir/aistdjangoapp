@@ -28,7 +28,7 @@ class Blocks(models.Model):
     name=models.CharField(max_length=255, unique=True)
     block_id = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, verbose_name='id Block')
     page_id = models.ForeignKey('Page', on_delete=models.CASCADE, blank=True, null=True, verbose_name='related Page')
-    text=HTMLField('Text')
+    text=HTMLField('Text', blank=True, null=True)
     images = models.ImageField(upload_to='images/', blank=True)
 
     class Meta:
@@ -44,6 +44,8 @@ class VideoCourses(models.Model):
     images = models.ImageField(upload_to='images/', blank=True)
     video =  models.CharField(max_length=255,  blank=True, null=True)
     slug = models.CharField(max_length=255,  blank=True, null=True)
+    on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
+    prior=models.IntegerField(verbose_name='Приоритет', default=100)
 
     class Meta:
         verbose_name='Видеокурс'
