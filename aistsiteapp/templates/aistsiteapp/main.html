@@ -36,33 +36,39 @@
                 <div class="home-cards__first">
                     <div class="card">
                         <div class="card__body">
-                            <div class="card__header">1 урок: 1,5 часа</div>
-                            <div class="card__title">Успешно родить</div>
-                            <div class="card__text">
-                                Полный курс, в котором мы, шаг за шагом, пойдём по этой дороге, которая
-                                называется беременность, чтобы счастливо дойти до конечного пункта
-                                назначения под вывеской «Роддом».
-                            </div>
+                            <div class="card__header">{{ videocourses_main.0.duration }}</div>
+                            <div class="card__title">{{ videocourses_main.0.name }}</div>
+                            {% autoescape off %}
+                                <div class="card__text">
+                                    {{ videocourses_main.0.text }}
+                                </div>
+                            {% endautoescape %}
                         </div>
-                        <div
-                            class="card__image card__image--bg"
-                            style="background-image: url('https://placehold.it/451x456')"
-                        ></div>
+                        {% if videocourses_main.0.images %}
+                            <div class="card__image card__image--bg">
+                                <img src="{{ videocourses_main.0.images.url }}" alt="">
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="home-cards__list">
-                    <div class="home-cards__item">
-                        <div class="card">
-                            <div
-                                class="card__image--small card__image--bg"
-                                style="background-image: url('https://placehold.it/451x456')"
-                            ></div>
-                            <div class="card__body">
-                                <div class="card__header">1 урок: 1,5 часа</div>
-                                <div class="card__title">Партнерские роды</div>
+                    {% for item in videocourses_main %}
+                        {% if forloop.counter != 1 %}
+                            <div class="home-cards__item">
+                                <div class="card">
+                                    {% if item.images %}
+                                        <div class="card__image--small">
+                                            <img src="{{ item.images.url  }}" alt="">
+                                        </div>
+                                    {% endif %}
+                                    <div class="card__body">
+                                        <div class="card__header">{{ item.duration }}</div>
+                                        <div class="card__title">{{ item.name }}</div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        {% endif %}
+                    {% endfor %}
                     <div class="home-cards__item">
                         <a href="/video-courses/" class="button button--full-width button--arrow">
                             Посмотреть все видеокурсы
