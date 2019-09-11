@@ -18,7 +18,7 @@
                         <div class="card card--invert">
                             <div class="card__body">
                                 <div class="card__header card__header--large">{{ event.duration }}</div>
-                                <div class="display display--h2 card__title">
+                                <div class="card__title card__title--large">
                                     {{ event.name }}
                                 </div>
                                 <div class="card__text">
@@ -48,14 +48,14 @@
                                 <a class="card__fullLink" href="{{ item.slug }}"></a>
                                 <div class="card__body">
                                     <div class="card__header">{{ item.duration }}</div>
-                                    <div class="display display--h3 card__title">{{ item.name }}</div>
+                                    <div class="card__title">{{ item.name }}</div>
                                     <div class="card__text">
                                         {% autoescape off %}
                                             {{ item.text }}
                                         {% endautoescape %}
                                     </div>
                                     <div class="card__actions">
-                                        <button type="button" class="button button--primary button--arrow"></button>
+                                        <button type="button" class="button button--primary button--arrow button--small"></button>
                                     </div>
                                 </div>
                                 {% if item.images %}

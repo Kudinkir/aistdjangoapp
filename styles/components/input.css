@@ -25,6 +25,7 @@
     }
 
     @element field {
+        text-align: left;
         width: 100%;
         background: var(--color-white);
         padding: 14px 16px;

@@ -3,10 +3,8 @@
     color: var(--color-font);
     overflow: hidden;
     position: relative;
-
-    @media (--viewport-tablet) {
-        display: flex;
-    }
+    display: flex;
+    flex-wrap: wrap;
 
     @modifier reverse {
         display: flex;
@@ -54,8 +52,24 @@
     }
 
     @element title {
+        line-height: 1.2;
+        font-family: var(--font-serif);
+        font-size: 24px;
         color: inherit;
         margin-bottom: 12px;
+
+        @modifier large {
+            font-size: 32px;
+            margin-bottom: 16px;
+
+            @media (--viewport-desktop) {
+                font-size: 48px;
+            }
+        }
+
+        @media (--viewport-desktop) {
+            font-size: 32px;
+        }
     }
 
     @element text {
@@ -81,15 +95,13 @@
         }
 
         @modifier bg {
-            flex: 1;
+            flex: 0 0 100%;
+            height: 220px;
             background: no-repeat center / cover;
-        }
 
-        @modifier hero {
-            height: 190px;
-
-            @media (--viewport-tablet) {
-                height: 430px;
+            @media (--viewport-desktop) {
+                height: auto;
+                flex: 1;
             }
         }
 

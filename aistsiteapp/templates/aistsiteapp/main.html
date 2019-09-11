@@ -4,23 +4,21 @@
     <section class="hero">
         <div class="hero__inner">
             <div class="hero__top">
-                <div class="container container--fluid">
-                    <div class="hero__row">
-                        <div class="hero__text">
-                            <h1 class="hero__title">
-                                {{ main_block.name }}
-                            </h1>
-                        </div>
-                        <div class="hero__right">
-                            <div class="hero__image-wrapper">
-                                <div class="hero__circle circle">
-                                    <div class="circle__inner">
-                                        20 июля<br />
-                                        <small>Казань</small>
-                                    </div>
+                <div class="hero__row">
+                    <div class="hero__text">
+                        <h1 class="hero__title">
+                            {{ main_block.name }}
+                        </h1>
+                    </div>
+                    <div class="hero__right">
+                        <div class="hero__image-wrapper">
+                            <div class="hero__circle circle">
+                                <div class="circle__inner">
+                                    20 июля<br />
+                                    <small>Казань</small>
                                 </div>
-                                <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" />
                             </div>
+                            <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" alt="" />
                         </div>
                     </div>
                 </div>
@@ -32,6 +30,57 @@
             </div>
         </div>
     </section>
+    <section class="section section--white">
+        <div class="container">
+            <div class="home-cards">
+                <div class="home-cards__first">
+                    <div class="card">
+                        <div class="card__body">
+                            <div class="card__header">1 урок: 1,5 часа</div>
+                            <div class="card__title">Успешно родить</div>
+                            <div class="card__text">
+                                Полный курс, в котором мы, шаг за шагом, пойдём по этой дороге, которая
+                                называется беременность, чтобы счастливо дойти до конечного пункта
+                                назначения под вывеской «Роддом».
+                            </div>
+                        </div>
+                        <div
+                            class="card__image card__image--bg"
+                            style="background-image: url('https://placehold.it/451x456')"
+                        ></div>
+                    </div>
+                </div>
+                <div class="home-cards__list">
+                    <div class="home-cards__item">
+                        <div class="card">
+                            <div
+                                class="card__image--small card__image--bg"
+                                style="background-image: url('https://placehold.it/451x456')"
+                            ></div>
+                            <div class="card__body">
+                                <div class="card__header">1 урок: 1,5 часа</div>
+                                <div class="card__title">Партнерские роды</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-cards__item">
+                        <a href="/video-courses/" class="button button--full-width button--arrow">
+                            Посмотреть все видеокурсы
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {% include './components/events.html' %}
+    <section class="section">
+        <div class="section__inner">
+            {% include './components/instagram.html' %}
+        </div>
+        <div class="section__inner">
+            {% include './components/youtube.html' %}
+        </div>
+    </section>
     {% include './components/subscribe.html' %}
 {% endblock %}

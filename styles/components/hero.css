@@ -2,16 +2,17 @@
     background: var(--color-primary);
     padding: 56px 0 80px;
 
-    @media (--viewport-desktop) {
+    @media (--viewport-ipad) {
         position: relative;
         top: -80px;
         padding-top: 0;
+        padding-bottom: 0;
     }
 
     @element top {
         position: relative;
 
-        @media (--viewport-wide) {
+        @media (--viewport-ipad) {
             overflow: hidden;
 
             &::after {
@@ -32,7 +33,7 @@
         flex-direction: column;
         justify-content: space-between;
 
-        @media (--viewport-wide) {
+        @media (--viewport-ipad) {
             flex-direction: row;
         }
     }
@@ -42,10 +43,10 @@
         position: absolute;
         z-index: 1;
 
-        @media (--viewport-wide) {
+        @media (--viewport-ipad) {
             display: block;
-            right: -48px;
-            top: 98px;
+            right: 34px;
+            top: 85px;
         }
     }
 
@@ -81,6 +82,7 @@
 
     @element right {
         flex: 1;
+        max-width: 720px;
     }
 
     @element image-wrapper {

@@ -1,7 +1,20 @@
 @block subscribe-form {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 432px;
+
+    @element title {
+        margin-bottom: 32px;
+    }
+
     @element field {
         &.hidden {
             display: none;
         }
+    }
+
+    @element subscribe-button {
+        opacity: 0.5;
+        position: absolute;
     }
 }

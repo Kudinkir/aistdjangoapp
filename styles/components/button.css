@@ -6,7 +6,7 @@
     background: var(--color-primary);
     padding: 16px;
     font-family: var(--font-serif);
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-base);
     color: var(--color-secondary);
     cursor: pointer;
     line-height: 1.5;
@@ -14,8 +14,8 @@
     user-select: none;
     text-decoration: none;
 
-    @media (--viewport-wide) {
-        font-size: 24px;
+    @media (--viewport-desktop) {
+        font-size: var(--font-size-large);
     }
 
     @modifier secondary {
@@ -51,5 +51,9 @@
     @modifier pure {
         background: none;
         color: var(--color-primary);
+    }
+
+    @modifier opacity {
+        opacity: 0.5;
     }
 }

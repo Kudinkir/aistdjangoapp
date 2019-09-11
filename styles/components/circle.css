@@ -6,7 +6,7 @@
     color: var(--color-black);
     overflow: hidden;
 
-    @media (--viewport-desktop) {
+    @media (--viewport-wide) {
         width: 200px;
         height: 200px;
     }
@@ -21,7 +21,7 @@
         left: 50%;
         transform: translate(-50%, -50%) rotate(-20deg);
 
-        @media (--viewport-desktop) {
+        @media (--viewport-wide) {
             font-size: 32px;
             line-height: 36px;
         }
