@@ -60,10 +60,6 @@
         color: inherit;
         margin-bottom: 12px;
 
-        @modifier small {
-            font-size: 24px;
-        }
-
         @modifier large {
             font-size: 32px;
             margin-bottom: 16px;

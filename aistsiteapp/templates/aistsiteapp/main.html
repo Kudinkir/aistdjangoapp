@@ -61,7 +61,7 @@
                             ></div>
                             <div class="card__body">
                                 <div class="card__header">1 урок: 1,5 часа</div>
-                                <div class="card__title card__title--small">Партнерские роды</div>
+                                <div class="card__title">Партнерские роды</div>
                             </div>
                         </div>
                     </div>
@@ -74,75 +74,9 @@
             </div>
         </div>
     </section>
-    <section class="section section--primary instagram">
-        <div class="container">
-            <div class="instagram__row">
-                <div class="instagram__col">
-                    <div class="instagram__grid">
-                        <div
-                            style="background-image: url('/static/instagram/1.png');"
-                        ></div>
-                        <div
-                            style="background-image: url('/static/instagram/2.png');"
-                        ></div>
-                        <div
-                            style="background-image: url('/static/instagram/3.png');"
-                        ></div>
-                        <div
-                            style="background-image: url('/static/instagram/4.png');"
-                        ></div>
-                    </div>
-                </div>
-                <div class="instagram__col instagram__col--center">
-                    <div class="instagram__wrapper">
-                        <div class="instagram__icon"></div>
-                        <div class="instagram__title display display--h3">Открыта для общения</div>
-                        <div class="instagram__block instagram__text">
-                            Регулярно пишу о наших друзьях, кто уже прошел курсы и мастерклассы, и рассказываю о тонкостях родов
-                        </div>
-                        <a href="https://www.instagram.com/marina.aist/" target="_blank" rel="noopener" class="button button--secondary button--full-width button--arrow"
-                            >перейти в инстаграм</a
-                        >
-                    </div>
-                </div>
-                <div class="instagram__col">
-                    <div class="instagram__grid">
-                        <div
-                            style="background-image: url('/static/instagram/5.png');"
-                        ></div>
-                        <div
-                            style="background-image: url('/static/instagram/6.png');"
-                        ></div>
-                        <div
-                            style="background-image: url('/static/instagram/7.png');"
-                        ></div>
-                        <div
-                            style="background-image: url('/static/instagram/8.png');"
-                        ></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section section--primary">
-        <div class="container">
-            <div class="section__row">
-                <div class="section__youtube-col section__youtube-col--center">
-                    <div class="section__title">Youtube</div>
-                    <div class="section__block section__text">
-                        Хотите познакомиться ближе? Тогда подписывайтесь на мой youtube канал.
-                    </div>
-                    <div class="section__block">
-                        <a href="#" class="button button--secondary button--arrow"></a>
-                    </div>
-                </div>
-                <div
-                    class="section__youtube-col section__youtube-col--video"
-                    style="background-image: url('/static/youtube.png')"
-                ></div>
-            </div>
-        </div>
-    </section>
+
     {% include './components/events.html' %}
+    {% include './components/instagram.html' %}
+    {% include './components/youtube.html' %}
     {% include './components/subscribe.html' %}
 {% endblock %}
