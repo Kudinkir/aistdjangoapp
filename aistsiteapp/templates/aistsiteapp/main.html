@@ -19,7 +19,7 @@
                                         <small>Казань</small>
                                     </div>
                                 </div>
-                                <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" />
+                                <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" alt="" />
                             </div>
                         </div>
                     </div>
@@ -29,6 +29,117 @@
                 <div class="hero__benefits">
                     {% include './components/benefits.html' with items=second_block.bloks %}
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section--white">
+        <div class="container">
+            <div class="home-cards">
+                <div class="home-cards__first">
+                    <div class="card">
+                        <div class="card__body">
+                            <div class="card__header">1 урок: 1,5 часа</div>
+                            <div class="card__title">Успешно родить</div>
+                            <div class="card__text">
+                                Полный курс, в котором мы, шаг за шагом, пойдём по этой дороге, которая
+                                называется беременность, чтобы счастливо дойти до конечного пункта
+                                назначения под вывеской «Роддом».
+                            </div>
+                        </div>
+                        <div
+                            class="card__image card__image--bg"
+                            style="background-image: url('https://placehold.it/451x456')"
+                        ></div>
+                    </div>
+                </div>
+                <div class="home-cards__list">
+                    <div class="home-cards__item">
+                        <div class="card">
+                            <div
+                                class="card__image--small card__image--bg"
+                                style="background-image: url('https://placehold.it/451x456')"
+                            ></div>
+                            <div class="card__body">
+                                <div class="card__header">1 урок: 1,5 часа</div>
+                                <div class="card__title card__title--small">Партнерские роды</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-cards__item">
+                        <a href="/video-courses/" class="button button--full-width button--arrow">
+                            Посмотреть все видеокурсы
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section--primary instagram">
+        <div class="container">
+            <div class="instagram__row">
+                <div class="instagram__col">
+                    <div class="instagram__grid">
+                        <div
+                            style="background-image: url('/static/instagram/1.png');"
+                        ></div>
+                        <div
+                            style="background-image: url('/static/instagram/2.png');"
+                        ></div>
+                        <div
+                            style="background-image: url('/static/instagram/3.png');"
+                        ></div>
+                        <div
+                            style="background-image: url('/static/instagram/4.png');"
+                        ></div>
+                    </div>
+                </div>
+                <div class="instagram__col instagram__col--center">
+                    <div class="instagram__wrapper">
+                        <div class="instagram__icon"></div>
+                        <div class="instagram__title display display--h3">Открыта для общения</div>
+                        <div class="instagram__block instagram__text">
+                            Регулярно пишу о наших друзьях, кто уже прошел курсы и мастерклассы, и рассказываю о тонкостях родов
+                        </div>
+                        <a href="https://www.instagram.com/marina.aist/" target="_blank" rel="noopener" class="button button--secondary button--full-width button--arrow"
+                            >перейти в инстаграм</a
+                        >
+                    </div>
+                </div>
+                <div class="instagram__col">
+                    <div class="instagram__grid">
+                        <div
+                            style="background-image: url('/static/instagram/5.png');"
+                        ></div>
+                        <div
+                            style="background-image: url('/static/instagram/6.png');"
+                        ></div>
+                        <div
+                            style="background-image: url('/static/instagram/7.png');"
+                        ></div>
+                        <div
+                            style="background-image: url('/static/instagram/8.png');"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section--primary">
+        <div class="container">
+            <div class="section__row">
+                <div class="section__youtube-col section__youtube-col--center">
+                    <div class="section__title">Youtube</div>
+                    <div class="section__block section__text">
+                        Хотите познакомиться ближе? Тогда подписывайтесь на мой youtube канал.
+                    </div>
+                    <div class="section__block">
+                        <a href="#" class="button button--secondary button--arrow"></a>
+                    </div>
+                </div>
+                <div
+                    class="section__youtube-col section__youtube-col--video"
+                    style="background-image: url('/static/youtube.png')"
+                ></div>
             </div>
         </div>
     </section>

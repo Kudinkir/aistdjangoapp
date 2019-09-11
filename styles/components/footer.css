@@ -19,6 +19,7 @@
     @element menubar {
         padding: 40px 15px;
         flex: 0 0 100%;
+        background: var(--color-white);
 
         @media (--viewport-tablet) {
             padding: 80px 25px;

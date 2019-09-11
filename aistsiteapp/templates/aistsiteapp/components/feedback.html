@@ -1,0 +1,16 @@
+<div class="feedback {% if reverse %}feedback--reverse{% endif %}">
+    <div class="feedback__col">
+        <img class="feedback__image" src="{{ item.image }}" alt="" />
+    </div>
+    <div class="feedback__col">
+        <div class="feedback__header">
+            <h4 class="display display--h4 display--primary">{{ item.name }}</h4>
+        </div>
+        {% autoescape off %}
+            <div class="feedback__text rte">
+                {{ item.text }}
+            </div>
+        {% endautoescape %}
+        <div class="feedback__author">{{ item.author }}</div>
+    </div>
+</div>

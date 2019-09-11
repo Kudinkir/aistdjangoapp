@@ -30,6 +30,7 @@
 @import url('./components/accordion');
 @import url('./components/subscribe-form');
 @import url('./components/feedback');
+@import url('./components/instagram');
 
 /* pages */
 @import url('./pages/course-page');
