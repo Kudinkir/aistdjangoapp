@@ -2,6 +2,8 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.utils.timezone import now
+from tinymce import HTMLField
+
 
 class Page(models.Model):
     name =models.CharField(max_length=255)
@@ -26,7 +28,7 @@ class Blocks(models.Model):
     name=models.CharField(max_length=255, unique=True)
     block_id = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, verbose_name='id Block')
     page_id = models.ForeignKey('Page', on_delete=models.CASCADE, blank=True, null=True, verbose_name='related Page')
-    text=models.TextField(blank=True)
+    text=HTMLField('Text')
     images = models.ImageField(upload_to='images/', blank=True)
 
     class Meta:
@@ -38,7 +40,7 @@ class Blocks(models.Model):
 
 class VideoCourses(models.Model):
     name=models.CharField(max_length=255)
-    text=models.TextField(blank=True)
+    text=HTMLField('Text')
     images = models.ImageField(upload_to='images/', blank=True)
     video =  models.CharField(max_length=255,  blank=True, null=True)
     slug = models.CharField(max_length=255,  blank=True, null=True)
@@ -55,7 +57,7 @@ class Events(models.Model):
     images = models.ImageField(upload_to='images/', blank=True)
     video =  models.CharField(max_length=255,  blank=True, null=True)
     slug = models.CharField(max_length=255,  blank=True, null=True)
-    text=models.TextField(blank=True)
+    text=HTMLField('Text')
     start_date=models.DateTimeField(blank=True, default=now)
 
     class Meta:
@@ -68,7 +70,7 @@ class Events(models.Model):
 class Callback(models.Model):
     user_name=models.CharField(max_length=255, verbose_name='Имя пользователя')
     email = models.EmailField(max_length=255)
-    text=models.TextField(blank=True)
+    text=HTMLField('Text')
     personal_agree=models.BooleanField()
 
     class Meta:
@@ -99,7 +101,7 @@ class Subscribe(models.Model):
 
 class Lessons(models.Model):
     title=models.CharField(max_length=255, verbose_name='Название')
-    text=models.TextField(blank=True)
+    text=HTMLField('Text')
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
@@ -110,7 +112,7 @@ class Lessons(models.Model):
 
 class CoursesVariants(models.Model):
     title=models.CharField(max_length=255, verbose_name='Название')
-    text=models.TextField(blank=True, verbose_name='Описание')
+    text=HTMLField('Text')
     price=models.CharField(max_length=255, verbose_name='Цена')
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
