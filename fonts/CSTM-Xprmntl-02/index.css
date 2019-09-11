@@ -1,4 +1,5 @@
 @font-face {
+    font-display: swap;
     font-family: 'CSTM Xprmntl 02';
     src: url('./regular.woff2') format('woff2'), url('./regular.woff') format('woff');
     font-weight: 400;

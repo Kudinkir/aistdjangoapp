@@ -1,14 +1,33 @@
 @block accordion {
     border-bottom: 2px solid var(--color-secondary);
 
+    &:not(:last-child) {
+        margin-bottom: 32px;
+    }
+
     @element trigger {
         cursor: pointer;
         margin-bottom: 32px;
+
+        &.active > .accordion__header::after {
+            background-image: url(~svgIcons/minus.svg);
+        }
     }
 
     @element header {
         display: flex;
         align-items: center;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: auto;
+            padding: 0;
+            background: no-repeat url(~svgIcons/plus.svg) center / 100%;
+            border: 0;
+        }
     }
 
     @element subtitle {
@@ -16,26 +35,14 @@
         margin-bottom: 13px;
     }
 
-    @element button {
-        margin-left: auto;
-        padding: 0;
-        background: none;
-        border: 0;
-    }
-
     @element title {
-        font-size: 24px;
-        line-height: var(--headings-line-height);
-        font-family: var(--headings-font);
-
-        @media (--viweport-desktop) {
-            font-size: 32px;
-        }
+        margin: 0;
+        flex: 1;
     }
 
     @element content {
         display: none;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
         color: rgba(0, 0, 0, 0.72);
 
         &.active {

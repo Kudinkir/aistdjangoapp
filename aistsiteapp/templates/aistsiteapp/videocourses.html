@@ -1,69 +1,74 @@
 {% extends 'aistsiteapp/base.html' %}
 
 {% block page %}
-    <section class="hero">
-        <div class="hero__inner">
-            <div class="hero__top">
+    <div class="events-page">
+        <div class="container">
+            <section class="events-page__hero">
                 <div class="container">
-                    <div class="hero__row">
-                        <div class="hero__text hero__text--center">
-                            <h1 class="hero__title">{{ page.seo_title }}</h1>
+                    <div class="events-page__hero-row">
+                        <div class="events-page__hero-text hero-text--center">
+                            <h1 class="events-page__title">{{ page.seo_title }}</h1>
                         </div>
-                        <div class="hero__right hero__right--bg hero__right--videopage"></div>
                     </div>
                 </div>
-            </div>
+            </section>
             {% if event %}
-            <div class="container">
-                <div class="card card--invert">
-                    <div class="card__body">
-                        <div class="card__header card__header--large">{{ event.duration }}</div>
-                        <div class="card__title card__title--large">
-                            {{ event.name }}
-                        </div>
-                        <div class="card__text">
-                            {% autoescape off %}
-                                {{ event.text }}
-                            {% endautoescape %}
-                        </div>
-                        <div class="card__actions">
-                            <button class="button button--secondary button--arrow button--small"></button>
+                <section class="events-page__first">
+                    <div class="container">
+                        <div class="card card--invert">
+                            <div class="card__body">
+                                <div class="card__header card__header--large">{{ event.duration }}</div>
+                                <div class="display display--h2 card__title">
+                                    {{ event.name }}
+                                </div>
+                                <div class="card__text">
+                                    {% autoescape off %}
+                                        {{ event.text }}
+                                    {% endautoescape %}
+                                </div>
+                                <div class="card__actions">
+                                    <button class="button button--secondary button--arrow button--small"></button>
+                                </div>
+                            </div>
+                            <div
+                                class="card__image card__image--bg card__image--hero"
+                                style="background-image: url('{{ event.image }}')"
+                            ></div>
                         </div>
                     </div>
-                    <div
-                        class="card__image card__image--bg card__image--hero"
-                        style="background-image: url('{{ event.image }}')"
-                    ></div>
-                </div>
-            </div>
+                </section>
             {% endif %}
         </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="cards">
-                {% for item in videocourses %}
-                <div class="cards__col">
-                    <div class="card card--reverse">
-                        <a class="card__fullLink" href="{{ item.slug }}"></a>
-                        <div class="card__body">
-                            <div class="card__header">{{ item.duration }}</div>
-                            <div class="card__title">{{ item.name }}</div>
-                            <div class="card__text">
-                                {{ item.text }}
-                            </div>
-                            <div class="card__actions">
-                                <button type="button" class="button button--primary button--arrow"></button>
+        <section class="events-page__section">
+            <div class="container">
+                <div class="cards">
+                    {% for item in videocourses %}
+                        <div class="cards__col">
+                            <div class="card card--reverse">
+                                <a class="card__fullLink" href="{{ item.slug }}"></a>
+                                <div class="card__body">
+                                    <div class="card__header">{{ item.duration }}</div>
+                                    <div class="display display--h3 card__title">{{ item.name }}</div>
+                                    <div class="card__text">
+                                        {% autoescape off %}
+                                            {{ item.text }}
+                                        {% endautoescape %}
+                                    </div>
+                                    <div class="card__actions">
+                                        <button type="button" class="button button--primary button--arrow"></button>
+                                    </div>
+                                </div>
+                                {% if item.images %}
+                                    <div class="card__image card__image--full-width">
+                                        <img src="{{ item.image }}" alt="" />
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
-                        <div class="card__image card__image--full-width">
-                            <img src="{{ item.image }}" alt="" />
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 {% endblock %}
 

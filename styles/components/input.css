@@ -26,7 +26,7 @@
 
     @element field {
         width: 100%;
-        background: var(--color-background);
+        background: var(--color-white);
         padding: 14px 16px;
         color: var(--color-font);
         border: 2px solid var(--color-primary);

@@ -5,17 +5,12 @@
 @block course-hero {
     display: block;
     background: var(--color-primary);
-    padding: var(--header-height) 0 0;
+    padding-top: 56px;
+    padding-bottom: 24px;
 
-    @element inner {
-        padding-top: 56px;
-        padding-bottom: 24px;
-
-        @media (--viewport-desktop) {
-            padding-top: 152px;
-
-            padding-bottom: 80px;
-        }
+    @media (--viewport-desktop) {
+        padding-top: 152px;
+        padding-bottom: 80px;
     }
 
     @element row {

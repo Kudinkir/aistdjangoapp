@@ -13,16 +13,10 @@
         font-family: var(--font-serif);
     }
 
-    @element list {
-        list-style: none;
-        padding: 0;
+    @element text {
         margin: 0 0 32px;
-    }
-
-    @element item {
         color: rgba(255, 255, 255, 0.72);
-        margin-bottom: 10px;
-        line-height: 1.1;
+        line-height: 1.6;
     }
 
     @element price {

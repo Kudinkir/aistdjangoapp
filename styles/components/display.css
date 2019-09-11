@@ -1,15 +1,44 @@
 @block display {
     font-family: var(--font-serif);
     line-height: var(--headings-line-height);
-    font-size: 32px;
-    color: var(--color-primary);
-    margin-bottom: 24px;
+
+    @modifier primary {
+        color: var(--color-primary);
+    }
 
     @modifier secondary {
         color: var(--color-secondary);
     }
 
-    @media (--viewport-desktop) {
-        font-size: 48px;
+    @modifier h1 {
+        font-size: 40px;
+
+        @media (--viewport-desktop) {
+            font-size: 96px;
+        }
+    }
+
+    @modifier h2 {
+        font-size: 32px;
+
+        @media (--viewport-desktop) {
+            font-size: 48px;
+        }
+    }
+
+    @modifier h3 {
+        font-size: 24px;
+
+        @media (--viewport-desktop) {
+            font-size: 32px;
+        }
+    }
+
+    @modifier h4 {
+        font-size: 20px;
+
+        @media (--viewport-desktop) {
+            font-size: 24px;
+        }
     }
 }

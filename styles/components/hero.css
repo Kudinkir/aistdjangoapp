@@ -1,54 +1,29 @@
-:root {
-    --header-height: 80px;
-}
-
 @block hero {
     background: var(--color-primary);
-    padding: var(--header-height) 0 0;
+    padding: 56px 0 80px;
 
-    @media (--viewport-wide) {
-        padding: 0;
-        padding-bottom: 80px;
+    @media (--viewport-desktop) {
+        position: relative;
+        top: -80px;
+        padding-top: 0;
     }
 
     @element top {
         position: relative;
 
-        @modifier bg {
-            @media (--viewport-wide) {
-                overflow: hidden;
-
-                &::after {
-                    pointer-events: none;
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                }
-            }
-        }
-
-        @modifier homepage {
-            @media (--viewport-wide) {
-                &::after {
-                    background: no-repeat url('~svgIcons/homepage.svg') center 95% / contain;
-                }
-            }
-        }
-
-        @modifier contacts {
-            @media (--viewport-wide) {
-                &::after {
-                    background: no-repeat url('~svgIcons/contacts.svg') 100% 100% / 55%;
-                }
-            }
-        }
-
         @media (--viewport-wide) {
             overflow: hidden;
-            /*height: 100vh;*/
+
+            &::after {
+                pointer-events: none;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: no-repeat url('~svgIcons/homepage.svg') center 95% / contain;
+            }
         }
     }
 
@@ -77,32 +52,9 @@
     @element text {
         text-align: center;
         font-size: 20px;
-
-        @modifier center {
-            display: flex;
-            flex: 1;
-            align-items: center;
-        }
-
-        @modifier flex-end {
-            display: flex;
-            flex: 1;
-            align-items: flex-end;
-        }
-
-        @modifier contacts {
-            padding-top: 56px;
-            padding-bottom: 112px;
-
-            @media (--viewport-wide) {
-                padding-top: 152px;
-            }
-        }
-
-        & p {
-            margin-top: 0;
-            margin-bottom: 24px;
-        }
+        display: flex;
+        flex: 1;
+        align-items: flex-end;
     }
 
     @element subtitle {
@@ -111,69 +63,24 @@
         color: rgba(255, 255, 255, 0.72);
     }
 
-    @element phone {
-        font-size: 24px;
-        line-height: 28px;
-        color: var(--color-white);
-        text-decoration: none;
-        margin-bottom: 24px;
-    }
-
-    @element email {
-        text-decoration: none;
-        color: var(--color-secondary);
-    }
-
     @element title {
         line-height: 1.2;
         font-family: var(--font-serif);
         text-align: center;
         color: var(--color-secondary);
         font-size: 40px;
-        margin: 56px auto 40px;
-
-        @modifier homepage {
-            max-width: 80%;
-
-            @media (--viewport-wide) {
-                margin: auto;
-                font-size: 96px;
-            }
-        }
+        max-width: 80%;
+        margin: 0 auto 40px;
 
         @media (--viewport-wide) {
+            margin: auto;
+            font-size: 96px;
             font-size: 96px;
         }
     }
 
     @element right {
         flex: 1;
-
-        @modifier bg {
-            position: relative;
-
-            @media (--viewport-wide) {
-                padding-top: 50%;
-
-                &::after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    pointer-events: none;
-                }
-            }
-        }
-
-        @modifier videopage {
-            @media (--viewport-wide) {
-                &::after {
-                    background: no-repeat url('~svgIcons/videopage.svg') 100% 100% / 65%;
-                }
-            }
-        }
     }
 
     @element image-wrapper {
@@ -181,16 +88,11 @@
     }
 
     @element image {
-        background: no-repeat center / cover;
-        padding-bottom: calc(100% - var(--header-height));
-
-        @media (--viewport-wide) {
-            padding-bottom: 100vh;
-        }
+        width: 100%;
     }
 
     @element benefits {
-        color: var(--color-background);
+        color: var(--color-white);
         padding-top: 38px;
 
         @media (--viewport-wide) {

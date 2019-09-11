@@ -1,12 +1,14 @@
 @block course-page {
     display: flex;
     flex-wrap: wrap;
+    border-top: 2px solid var(--color-secondary);
+    border-bottom: 2px solid var(--color-secondary);
 
     @element sidebar {
+        background: var(--color-white);
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-top: 2px solid var(--color-secondary);
         flex: 0 0 100%;
         max-width: 100%;
 
@@ -22,6 +24,8 @@
     }
 
     @element section {
+        color: var(--color-font);
+        background: var(--color-white);
         width: 100%;
         padding: 80px 16px;
 
@@ -31,12 +35,19 @@
 
         @media (--viewport-desktop) {
             padding: 80px 110px;
-            border-top: 2px solid var(--color-secondary);
         }
 
         @modifier primary {
-            color: var(--color-background);
+            color: var(--color-white);
             background: var(--color-primary);
+        }
+    }
+
+    @element section-title {
+        margin-bottom: 24px;
+
+        @media (--viewport-desktop) {
+            margin-bottom: 40px;
         }
     }
 

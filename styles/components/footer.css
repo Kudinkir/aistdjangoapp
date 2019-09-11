@@ -51,6 +51,7 @@
     }
 
     @element menu {
+        color: var(--color-font);
         position: relative;
         z-index: 2;
         flex: 0 0 100%;
@@ -93,6 +94,6 @@
     }
 
     @element translucent {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(var(--color-white), 0.5);
     }
 }

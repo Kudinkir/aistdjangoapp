@@ -1,25 +1,33 @@
 @block header {
-    z-index: 999;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    color: var(--color-background);
     height: 80px;
-    background: linear-gradient(180deg, #252e5b 0%, rgba(37, 46, 91, 0) 95%);
-    box-shadow: 0 0 0 2px var(--color-secondary);
-    transition: box-shadow 0.1s ease-in-out;
+    background: var(--color-primary);
+    transition: background-color 1s linear;
 
     &.active {
-        background: linear-gradient(180deg, #252e5b 0%, var(--color-primary) 100%);
+        & > .header__fixed {
+            background: linear-gradient(180deg, #252e5b 0%, var(--color-primary) 100%);
+        }
 
         & .dropdown__menu {
             display: block;
         }
     }
 
-    &:not(.active).sticky {
+    &:not(.active).sticky > .header__fixed {
         box-shadow: none;
+    }
+
+    @element fixed {
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        color: var(--color-white);
+        height: 80px;
+        background: linear-gradient(180deg, #252e5b 0%, rgba(37, 46, 91, 0) 95%);
+        box-shadow: 0 0 0 2px var(--color-secondary);
+        transition: box-shadow 0.1s ease-in-out;
     }
 
     @element inner {
@@ -70,7 +78,7 @@
         cursor: pointer;
         width: 24px;
         height: 24px;
-        background: no-repeat url('~svgIcons/hamburger.svg') center;
+        background: no-repeat url('~svgIcons/hamburger.svg') center / 100%;
         padding: 0;
         margin-left: auto;
 
@@ -79,7 +87,7 @@
         }
 
         &.active {
-            background: no-repeat url('~svgIcons/cross.svg') center;
+            background-image: url('~svgIcons/cross.svg');
         }
     }
 }
