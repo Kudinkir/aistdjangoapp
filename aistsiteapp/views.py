@@ -23,52 +23,37 @@ def home(request):
     })
 
 def videocourses(request):
-    footer_block = Blocks.objects.get(id=7)
-    footer_block.bloks = Blocks.objects.filter(block_id=7)
     videocourses = VideoCourses.objects.all()
     return render(request, 'aistsiteapp/videocourses.html', {
         'videocourses' : videocourses,
-        'footer_block' : footer_block,
     })
 
 def videocourses_item(request, slug):
-    footer_block = Blocks.objects.get(id=7)
-    footer_block.bloks = Blocks.objects.filter(block_id=7)
     videocourse = VideoCourses.objects.get(slug=slug)
     videocourse.lessons = Lessons.objects.filter(course_id=videocourse.id)
     videocourse.variants = CoursesVariants.objects.filter(course_id=videocourse.id)
     return render(request, 'aistsiteapp/videocourses_item.html', {
         'videocourse' : videocourse,
-        'footer_block' : footer_block,
     })
 
 def events(request):
-    footer_block = Blocks.objects.get(id=7)
-    footer_block.bloks = Blocks.objects.filter(block_id=7)
     events = Events.objects.all()
     return render(request, 'aistsiteapp/events.html', {
         'events' : events,
-        'footer_block' : footer_block,
     })
 
 def events_item(request, slug):
-    footer_block = Blocks.objects.get(id=7)
-    footer_block.bloks = Blocks.objects.filter(block_id=7)
     event = get_object_or_404(Events, slug=slug)
     return render(request, 'aistsiteapp/events_item.html', {
         'event' : event,
-        'footer_block' : footer_block,
     })
 
 def pages(request, slug):
-    footer_block = Blocks.objects.get(id=7)
-    footer_block.bloks = Blocks.objects.filter(block_id=7)
     page = get_object_or_404(Page, slug=slug)
     blocks = Blocks.objects.filter(page_id=page.id)
     return render(request, 'aistsiteapp/page.html', {
         'page' : page,
         'blocks' : blocks,
-        'footer_block' : footer_block,
     })
 
 def subscribe(request):

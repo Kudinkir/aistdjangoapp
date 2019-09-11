@@ -44,6 +44,8 @@ class VideoCourses(models.Model):
     images = models.ImageField(upload_to='images/', blank=True)
     video =  models.CharField(max_length=255,  blank=True, null=True)
     slug = models.CharField(max_length=255,  blank=True, null=True)
+    about_course  = HTMLField('about_course', blank=True, null=True)
+    students_results  = HTMLField('students_results', blank=True, null=True)
     on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
     prior=models.IntegerField(verbose_name='Приоритет', default=100)
 
