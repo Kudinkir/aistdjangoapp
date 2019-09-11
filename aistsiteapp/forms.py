@@ -6,7 +6,7 @@ class SubscribeForm(forms.ModelForm):
     # email = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Subscribe
-        fields = ('user_name', 'email', 'text', 'personal_agree')
+        fields = ('email', 'amount')
 
 class CallbackForm(forms.ModelForm):
     # user_name = forms.CharField(max_length=100, required=True)

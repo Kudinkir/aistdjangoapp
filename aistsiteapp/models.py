@@ -91,17 +91,18 @@ class Subscribe(models.Model):
        ('30-41', ('30-41 недель')),
        ('После родов', ('После родов'))
     )
-    user_name=models.CharField(max_length=255, verbose_name='Имя пользователя')
-    email = models.EmailField(max_length=255)
+    user_name=models.CharField(max_length=255, verbose_name='Имя пользователя',blank=True)
+    email = models.EmailField(max_length=255,blank=True)
     text=models.TextField(blank=True, verbose_name='Неделя беременности',choices=STATUS)
-    personal_agree=models.BooleanField()
+    amount=models.IntegerField(verbose_name='Неделя беременности', default=100)
+    personal_agree=models.BooleanField(default=True)
 
     class Meta:
         verbose_name='Подписка'
         verbose_name_plural='Подписки'
 
     def __str__(self):
-        return self.user_name
+        return self.email
 
 class Lessons(models.Model):
     title=models.CharField(max_length=255, verbose_name='Название')

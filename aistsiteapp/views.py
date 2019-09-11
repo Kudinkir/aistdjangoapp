@@ -59,13 +59,13 @@ def pages(request, slug):
     })
 
 def subscribe(request):
+    errors = 1
     if request.method == "POST":
         form = SubscribeForm(request.POST)
         if form.is_valid():
             form.save()
-            return JsonResponse({'errors': 0})
-    else:
-        return JsonResponse({'errors': 'Use post method!'})
+            errors = 0
+    return JsonResponse({'errors': errors})
 
 def callback(request):
     if request.method == "POST":
