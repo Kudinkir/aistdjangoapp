@@ -148,17 +148,9 @@ class MenuBlocks(models.Model):
             self.items = MenuItemBlocks.objects.filter(menu_id=self.id)
             for item in self.items:
                 if item.display_video:
-                    corses = VideoCourses.objects.all()
-                    for course in corses:
-                        course.url = "video-courses/%s" % (course.slug)
-                        course.title = course.name
-                    item.childrens = corses
-                if item.display_event:
-                    events = Events.objects.all()
-                    for event in events:
-                        event.url = "events/%s" % (event.slug)
-                        event.title = event.name
-                    item.childrens = events
+                    item.childrens = VideoCourses.objects.all()
+                elif item.display_event:
+                    item.childrens = Events.objects.all()
             return self.items
 
 

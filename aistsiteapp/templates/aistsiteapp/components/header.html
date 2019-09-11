@@ -9,11 +9,13 @@
                     <li
                         class="navbar__item{% if item.childrens %} navbar__item--dropdown dropdown{% endif %}{% if item.current %} active{% endif %}"
                     >
-                        <a href="{{ item.url }}" class="navbar__link">{{ item.title }}</a>
+                        <a href="{{ item.link_url }}" class="navbar__link">{{ item.title }}</a>
                         {% if item.childrens %}
                         <div class="dropdown__menu">
                             {% for child in item.childrens %}
-                            <a class="dropdown__item" href="{{ child.url }}">{{ child.title }}</a>
+                            <a class="dropdown__item" href="
+                              {% if child.slug %}{{ item.link_url }}{% endif %}{% if child.url %}{{child.url}}{% else %}{{child.slug}}{% endif %}">
+                              {% firstof child.title child.name %}</a>
                             {% endfor %}
                         </div>
                         {% endif %}
