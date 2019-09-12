@@ -12,59 +12,55 @@
                     </div>
                 </div>
             </section>
-            {% if event %}
-                <section class="events-page__first">
-                    <div class="container">
-                        <div class="card card--invert">
-                            <div class="card__body">
-                                <div class="card__header card__header--large">{{ event.duration }}</div>
-                                <div class="card__title card__title--large">
-                                    {{ event.name }}
-                                </div>
-                                <div class="card__text">
-                                    {% autoescape off %}
-                                        {{ event.text }}
-                                    {% endautoescape %}
-                                </div>
-                                <div class="card__actions">
-                                    <button class="button button--secondary button--arrow button--small"></button>
-                                </div>
-                            </div>
-                            <div
-                                class="card__image card__image--bg card__image--hero"
-                                style="background-image: url('{{ event.image }}')"
-                            ></div>
+            <section class="events-page__first">
+                <div class="card card--invert">
+                    <a class="card__fullLink" href="{{ videocourses.0.slug }}"></a>
+                    <div class="card__body">
+                        <div class="card__header card__header--large">
+                            Урок 1: {{ videocourses.0.duration }}
+                        </div>
+                        <div class="card__title card__title--large">
+                            {{ videocourses.0.name }}
+                        </div>
+                        <div class="card__text">
+                            {% autoescape off %} {{ videocourses.0.text }} {% endautoescape %}
+                        </div>
+                        <div class="card__actions">
+                            <button class="button button--secondary button--arrow button--small"></button>
                         </div>
                     </div>
-                </section>
-            {% endif %}
+                    <div class="card__image card__image--hero">
+                        <img src="{{ videocourses.0.images.url }}" alt="" />
+                    </div>
+                </div>
+            </section>
         </div>
         <section class="events-page__section">
             <div class="container">
                 <div class="cards">
                     {% for item in videocourses %}
-                        <div class="cards__col">
-                            <div class="card card--reverse">
-                                <a class="card__fullLink" href="{{ item.slug }}"></a>
-                                <div class="card__body">
-                                    <div class="card__header">{{ item.duration }}</div>
-                                    <div class="card__title">{{ item.name }}</div>
-                                    <div class="card__text">
+                        {% if forloop.counter != 1 %}
+                            <div class="cards__col">
+                                <div class="card card--reverse">
+                                    <a class="card__fullLink" href="{{ item.slug }}"></a>
+                                    <div class="card__body">
+                                        <div class="card__header">Урок 1: {{ item.duration }}</div>
+                                        <div class="card__title">{{ item.name }}</div>
                                         {% autoescape off %}
-                                            {{ item.text }}
+                                        <div class="card__text">{{ item.text }}</div>
                                         {% endautoescape %}
+                                        <div class="card__actions">
+                                            <button type="button" class="button button--primary button--arrow"></button>
+                                        </div>
                                     </div>
-                                    <div class="card__actions">
-                                        <button type="button" class="button button--primary button--arrow"></button>
-                                    </div>
-                                </div>
-                                {% if item.images %}
+                                    {% if item.images %}
                                     <div class="card__image card__image--full-width">
-                                        <img src="{{ item.image }}" alt="" />
+                                        <img src="{{ item.images.url }}" alt="" />
                                     </div>
-                                {% endif %}
+                                    {% endif %}
+                                </div>
                             </div>
-                        </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -73,4 +69,3 @@
     {% include './components/events.html' %}
     {% include './components/subscribe.html' %}
 {% endblock %}
-

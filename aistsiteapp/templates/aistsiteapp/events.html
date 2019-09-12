@@ -3,15 +3,17 @@
 {% block page %}
     <div class="events-page">
         <div class="container">
-            <section class="events-page__hero">
-                <div class="container">
-                    <div class="events-page__hero-row">
-                        <div class="events-page__hero-text hero-text--center">
-                            <h1 class="events-page__title">{{ page.seo_title }}</h1>
+            {% if page.seo_title %}
+                <section class="events-page__hero">
+                    <div class="container">
+                        <div class="events-page__hero-row">
+                            <div class="events-page__hero-text hero-text--center">
+                                <h1 class="events-page__title">{{ page.seo_title }}</h1>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            {% endif %}
             {% if event %}
                 <section class="events-page__first">
                     <div class="container">
@@ -49,11 +51,11 @@
                                 <div class="card__body">
                                     <div class="card__header">{{ item.duration }}</div>
                                     <div class="card__title">{{ item.name }}</div>
-                                    <div class="card__text">
-                                        {% autoescape off %}
+                                    {% autoescape off %}
+                                        <div class="card__text">
                                             {{ item.text }}
-                                        {% endautoescape %}
-                                    </div>
+                                        </div>
+                                    {% endautoescape %}
                                     <div class="card__actions">
                                         <button type="button" class="button button--primary button--arrow button--small"></button>
                                     </div>
@@ -70,4 +72,5 @@
             </div>
         </section>
     </div>
+    {% include './components/subscribe.html' %}
 {% endblock %}

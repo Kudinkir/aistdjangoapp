@@ -22,11 +22,19 @@
         <aside class="course-page__sidebar">
             <div class="sidebar">
                 <ul class="sidebar__list">
-                    {% for item in videocourse.menu %}
+                    <li class="sidebar__item">
+                        <a href="#author" class="sidebar__link active">Об авторе</a>
+                    </li>
+                    {% if videocourse.students_results %}
                         <li class="sidebar__item">
-                            <a href="{{ item.url }}" class="sidebar__link active">{{ item.name }}</a>
+                            <a href="#result" class="sidebar__link">Результаты</a>
                         </li>
-                    {% endfor %}
+                    {% endif %}
+                    {% if videocourse.reviews %}
+                        <li class="sidebar__item">
+                            <a href="#feedbacks" class="sidebar__link">Отзывы</a>
+                        </li>
+                    {% endif %}
                 </ul>
                 <div class="sidebar__actions">
                     <a href="#" class="button button--arrow">купить курс</a>
@@ -70,18 +78,22 @@
                     </div>
                 </div>
             </section>
-            <section id="result" class="course-page__section">
-                <h2 class="display display--primary display--h2 course-page__section-title">Результаты участниц</h2>
-                <div class="course-page__row">
-                    {{ videocourse.students_results|safe }}
-                </div>
-            </section>
-            <section class="course-page__section course-page__section--primary">
-                <h2 class="display display--h2 display--secondary course-page__section-title">О курсе</h2>
-                <div class="course-page__row">
-                    {{ videocourse.about_course|safe }}
-                </div>
-            </section>
+            {% if videocourse.students_results %}
+                <section id="result" class="course-page__section">
+                    <h2 class="display display--primary display--h2 course-page__section-title">Результаты участниц</h2>
+                    <div class="course-page__columns rte">
+                        {{ videocourse.students_results|safe }}
+                    </div>
+                </section>
+            {% endif %}
+            {% if videocourse.about_course %}
+                <section class="course-page__section course-page__section--primary">
+                    <h2 class="display display--h2 display--secondary course-page__section-title">О курсе</h2>
+                    <div class="course-page__columns">
+                        {{ videocourse.about_course|safe }}
+                    </div>
+                </section>
+            {% endif %}
             {% if videocourse.lessons %}
                 <section id="lessons" class="course-page__section" >
                     <h2 class="display display--primary display--h2 course-page__section-title">Программа обучения</h2>
@@ -96,9 +108,7 @@
                                 </div>
                             </div>
                             <div class="accordion__content rte" data-handle="content">
-                                {% autoescape off %}
-                                    {{ item.text }}
-                                {% endautoescape %}
+                                {{ item.text|safe }}
                             </div>
                         </div>
                     {% endfor %}
@@ -107,56 +117,26 @@
                     </div>
                 </section>
             {% endif %}
-            <section id="feedback">
-                <div class="feedback">
-                    <div class="feedback__col">
-                        <img class="feedback__image" src="https://placehold.it/378x503" alt="" />
-                    </div>
-                    <div class="feedback__col">
-                        <div class="feedback__header">
-                            <h4 class="display display--h4 display--primary">Счастье быть вместе в момент появления долгожданного ребеночка</h4>
+            {% if videocourse.reviews %}
+                <section id="feedbacks">
+                    {% for item in videocourse.reviews %}
+                        <div class="feedback">
+                            <div class="feedback__col">
+                                <img class="feedback__image" src="{{ item.image }}" alt="" />
+                            </div>
+                            <div class="feedback__col">
+                                <div class="feedback__header">
+                                    <h4 class="display display--h4 display--primary">{{ item.title }}</h4>
+                                </div>
+                                <div class="feedback__text rte">
+                                    {{ item.text|safe }}
+                                </div>
+                                <div class="feedback__author">{{ item.autor }}</div>
+                            </div>
                         </div>
-                        <div class="feedback__text rte">
-                            <p>
-                                Я человек, нуждающийся в моральной помощи близкого человека, поэтому мы рожали вместе
-                                с мужем. И я уверена, что результат наших успешных родов на 50% был достигнут,
-                                благодаря помощи мужа.
-                            </p>
-                            <p>
-                                В течение родов, мы знали, что должны делать на каждой ступеньке этого процесса, но
-                                иногда боль брала свое, и, казалось бы, руки опускаются, ты слышишь голос любимого
-                                человека, его утешения, открывается второе дыхание, появляются новые силы и все
-                                получается, боль уходит.
-                            </p>
-                        </div>
-                        <div class="feedback__author">Волкова Елена</div>
-                    </div>
-                </div>
-                <div class="feedback feedback--reverse">
-                    <div class="feedback__col">
-                        <img class="feedback__image" src="https://placehold.it/378x212" alt="" />
-                    </div>
-                    <div class="feedback__col">
-                        <div class="feedback__header">
-                            <h4 class="display display--h4 display--primary">Счастье быть вместе в момент появления долгожданного ребеночка</h4>
-                        </div>
-                        <div class="feedback__text rte">
-                            <p>
-                                Я человек, нуждающийся в моральной помощи близкого человека, поэтому мы рожали вместе
-                                с мужем. И я уверена, что результат наших успешных родов на 50% был достигнут,
-                                благодаря помощи мужа.
-                            </p>
-                            <p>
-                                В течение родов, мы знали, что должны делать на каждой ступеньке этого процесса, но
-                                иногда боль брала свое, и, казалось бы, руки опускаются, ты слышишь голос любимого
-                                человека, его утешения, открывается второе дыхание, появляются новые силы и все
-                                получается, боль уходит.
-                            </p>
-                        </div>
-                        <div class="feedback__author">Волкова Елена</div>
-                    </div>
-                </div>
-            </section>
+                    {% endfor %}
+                </section>
+            {% endif %}
             <section class="course-page__section">
                 <div class="course-page__promotext">
                     Беременность длится 9 месяцев, и в ваших силах провести это время максимально полезно. Чем
@@ -187,9 +167,7 @@
                             <div class="card__header">{{ item.duration }}</div>
                             <div class="display display--h4 card__title">{{ item.name }}</div>
                             <div class="card__text">
-                                {% autoescape off %}
-                                    {{ item.text }}
-                                {% endautoescape %}
+                                {{ item.text|safe }}
                             </div>
                         </div>
                         {% if item.images %}
@@ -202,7 +180,7 @@
             {% endfor %}
         </div>
         <div class="videocourses__actions">
-            <button class="button button--arrow">все видеокурсы</button>
+            <a href="/video-courses/" class="button button--arrow">все видеокурсы</a>
         </div>
     </section>
     {% include './components/subscribe.html' %}

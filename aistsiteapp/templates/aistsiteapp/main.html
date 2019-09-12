@@ -35,6 +35,7 @@
             <div class="home-cards">
                 <div class="home-cards__first">
                     <div class="card">
+                        <a class="card__fullLink" href="{{ videocourses_main.0.slug }}"></a>
                         <div class="card__body">
                             <div class="card__header">{{ videocourses_main.0.duration }}</div>
                             <div class="card__title">{{ videocourses_main.0.name }}</div>
@@ -56,6 +57,7 @@
                         {% if forloop.counter != 1 %}
                             <div class="home-cards__item">
                                 <div class="card">
+                                    <a class="card__fullLink" href="{{ item.slug }}"></a>
                                     {% if item.images %}
                                         <div class="card__image--small">
                                             <img src="{{ item.images.url  }}" alt="">
