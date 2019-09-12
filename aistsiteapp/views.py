@@ -12,14 +12,17 @@ def home(request):
     second_block = Blocks.objects.get(id=2)
     second_block.bloks = Blocks.objects.filter(block_id=2)
     videocourses_main = VideoCourses.objects.order_by('prior').filter(on_main=True)
+    events_main = Events.objects.order_by('prior').filter(on_main=True)
     for course in videocourses_main:
+        course.slug = "video-courses/"+course.slug
         course.lessons = Lessons.objects.filter(course_id=course.id)
     return render(request, 'aistsiteapp/main.html', {
         'page_info' : page,
         'main_block' : main_block,
         'second_block' : second_block,
         'form': subscribe_form,
-        'videocourses_main': videocourses_main
+        'videocourses_main': videocourses_main,
+        'events_main': events_main
     })
 
 def videocourses(request):

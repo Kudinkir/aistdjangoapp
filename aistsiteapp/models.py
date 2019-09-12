@@ -48,6 +48,7 @@ class VideoCourses(models.Model):
     students_results  = HTMLField('students_results', blank=True, null=True)
     on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
     prior=models.IntegerField(verbose_name='Приоритет', default=100)
+    second_text = HTMLField('Second_text',blank=True, null=True)
 
     class Meta:
         verbose_name='Видеокурс'
@@ -66,7 +67,9 @@ class Events(models.Model):
     video =  models.CharField(max_length=255,  blank=True, null=True)
     slug = models.CharField(max_length=255,  blank=True, null=True)
     text=HTMLField('Text')
+    on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
     start_date=models.DateTimeField(blank=True, default=now)
+    video =  models.CharField(max_length=255,  blank=True, null=True,verbose_name='Место проведения')
 
     class Meta:
         verbose_name='Событие'
@@ -124,6 +127,7 @@ class CoursesVariants(models.Model):
     title=models.CharField(max_length=255, verbose_name='Название')
     text=HTMLField('Text')
     price=models.CharField(max_length=255, verbose_name='Цена')
+    price_link=models.CharField(max_length=255, verbose_name='Сыылка на оплату',blank=True, null=True,)
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
