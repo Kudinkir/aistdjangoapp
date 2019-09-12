@@ -27,7 +27,7 @@ SECRET_KEY = '3z59i^e8j7c87x%ao5n)0$(3w45=e)3@usa8og^_#avv+aj**('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['new.horoshierodi.ru','www.new.horoshierodi.ru', '127.0.0.1']
 
 
 # Application definition
@@ -75,8 +75,8 @@ TEMPLATES = [
 ]
 
 TINYMCE_DEFAULT_CONFIG = {
-    'height': 360,
-    'width': 1120,
+    'height': 240,
+    'width': 900,
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 20,
     'selector': 'textarea',

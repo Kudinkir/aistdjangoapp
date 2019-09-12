@@ -132,6 +132,19 @@ class CoursesVariants(models.Model):
     def __str__(self):
         return self.title
 
+class CoursesReviews(models.Model):
+    title=models.CharField(max_length=255, verbose_name='Заголовок')
+    text=HTMLField('Text')
+    autor=models.CharField(max_length=255, verbose_name='Автор')
+    image=models.ImageField(upload_to='images/', blank=True)
+    course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
+
+    class Meta:
+        verbose_name='Отзывы о курсе'
+
+    def __str__(self):
+        return self.title
+
 class MenuBlocks(models.Model):
         name = models.CharField(max_length=100)
         slug = models.TextField()

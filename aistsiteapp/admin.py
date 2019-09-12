@@ -1,16 +1,24 @@
 from django.contrib import admin
-from .models import  Blocks, Page, VideoCourses, Events, Callback, Subscribe, Lessons, CoursesVariants, MenuBlocks, MenuItemBlocks
+from .models import  Blocks, Page, VideoCourses, Events, Callback, Subscribe, Lessons, CoursesVariants,CoursesReviews, MenuBlocks, MenuItemBlocks
 from django import forms
 
 class BlocksInline(admin.StackedInline):  # instead of ModelAdmin
     model = Blocks
+    extra = 1
     fields = ('tech_name', 'prior', 'name', 'text','images')
 
 class LessonsInline(admin.StackedInline):  # instead of ModelAdmin
     model = Lessons
+    extra = 1
 
 class CoursesVariantsInline(admin.StackedInline):  # instead of ModelAdmin
     model = CoursesVariants
+    extra = 1
+
+class CoursesReviewsInline(admin.StackedInline):  # instead of ModelAdmin
+    model = CoursesReviews
+    extra = 1
+    max_num = 2
 
 class PageAdmin(admin.ModelAdmin):
 	inlines = [BlocksInline]
@@ -22,8 +30,8 @@ class BlocksAdmin(admin.ModelAdmin):
 	inlines = [BlocksInline]
 
 class VideoCoursesAdmin(admin.ModelAdmin):
-	inlines = [LessonsInline, CoursesVariantsInline]
-	# list_display = ('id', 'name', 'tech_title', 'published_date','slug')
+	inlines = [LessonsInline, CoursesVariantsInline, CoursesReviewsInline]
+	list_display = ('id', 'name', 'slug','prior','on_main')
 	# list_filter = ['published_date', 'slug']
 	# search_fields = ['name','tech_title','slug']
 

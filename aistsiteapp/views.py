@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
-from aistsiteapp.models import Blocks, Page, VideoCourses, Events, Lessons, CoursesVariants
+from aistsiteapp.models import Blocks, Page, VideoCourses, Events, Lessons, CoursesVariants,CoursesReviews
 from aistsiteapp.forms import SubscribeForm, CallbackForm
 from datetime import date
 
@@ -33,6 +33,7 @@ def videocourses_item(request, slug):
     videocourse.lessons_count = videocourse.get_lessons_count()
     videocourse.lessons = Lessons.objects.filter(course_id=videocourse.id)
     videocourse.variants = CoursesVariants.objects.filter(course_id=videocourse.id)
+    videocourse.reviews = CoursesReviews.objects.filter(course_id=videocourse.id)
     other_courses = VideoCourses.objects.exclude(id=videocourse.id)
     return render(request, 'aistsiteapp/videocourses_item.html', {
         'videocourse' : videocourse,
