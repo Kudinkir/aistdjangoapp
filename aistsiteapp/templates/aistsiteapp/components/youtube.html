@@ -2,12 +2,12 @@
     <div class="container">
         <div class="youtube__row">
             <div class="youtube__text">
-                <div class="section__title display display--h3">Youtube</div>
+                <div class="section__title display display--h3">{{ youtube_block.name }}</div>
                 <div class="section__block section__text">
-                    Хотите познакомиться ближе? Тогда подписывайтесь на мой youtube канал.
+                    {{ youtube_block.text|safe }}
                 </div>
                 <div class="section__block">
-                    <a href="#" class="button button--secondary button--arrow"></a>
+                    <a href="{{ youtube_block.link }}" class="button button--secondary button--arrow"></a>
                 </div>
             </div>
             <div

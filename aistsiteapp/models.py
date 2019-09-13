@@ -25,7 +25,7 @@ class Page(models.Model):
 class Blocks(models.Model):
     tech_name=models.CharField(max_length=255, blank=True, null=True, unique=True,verbose_name='Техническое имя')
     prior=models.IntegerField(verbose_name='Приоритет', default=100)
-    name=models.CharField(max_length=255, unique=True)
+    name=models.CharField(max_length=255)
     block_id = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, verbose_name='id Block')
     page_id = models.ForeignKey('Page', on_delete=models.CASCADE, blank=True, null=True, verbose_name='related Page')
     text=HTMLField('Text', blank=True, null=True)
@@ -100,7 +100,7 @@ class Subscribe(models.Model):
        ('После родов', ('После родов'))
     )
     user_name=models.CharField(max_length=255, verbose_name='Имя пользователя',blank=True)
-    email = models.EmailField(max_length=255,blank=True)
+    email = models.EmailField(max_length=255,unique=True,default='empty@emty.ru')
     text=models.TextField(blank=True, verbose_name='Неделя беременности',choices=STATUS)
     amount=models.IntegerField(verbose_name='Неделя беременности', default=100)
     personal_agree=models.BooleanField(default=True)

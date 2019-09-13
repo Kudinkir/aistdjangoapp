@@ -13,6 +13,8 @@ def home(request):
     second_block.bloks = Blocks.objects.filter(block_id=2)
     videocourses_main = VideoCourses.objects.order_by('prior').filter(on_main=True)
     events_main = Events.objects.order_by('prior').filter(on_main=True)
+    instagram_block = Blocks.objects.get(tech_name='insta_block')
+    youtube_block = Blocks.objects.get(tech_name='youtube_block')
     for course in videocourses_main:
         course.slug = "video-courses/"+course.slug
         course.lessons = Lessons.objects.filter(course_id=course.id)
@@ -22,7 +24,9 @@ def home(request):
         'second_block' : second_block,
         'form': subscribe_form,
         'videocourses_main': videocourses_main,
-        'events_main': events_main
+        'events_main': events_main,
+        'instagram_block' : instagram_block,
+        'youtube_block' : youtube_block,
     })
 
 def videocourses(request):

@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aistsiteapp',
-    'menu',
     'tinymce',
     'webpack_loader',
 ]
