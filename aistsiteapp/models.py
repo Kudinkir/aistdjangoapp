@@ -30,6 +30,7 @@ class Blocks(models.Model):
     page_id = models.ForeignKey('Page', on_delete=models.CASCADE, blank=True, null=True, verbose_name='related Page')
     text=HTMLField('Text', blank=True, null=True)
     images = models.ImageField(upload_to='images/', blank=True)
+    link = models.CharField(max_length=255, blank=True, null=True,verbose_name='Ссылка в блоке(youtube, insta, or other)')
 
     class Meta:
         verbose_name='Блок'

@@ -5,7 +5,7 @@ from django import forms
 class BlocksInline(admin.StackedInline):  # instead of ModelAdmin
     model = Blocks
     extra = 1
-    fields = ('tech_name', 'prior', 'name', 'text','images')
+    fields = ('tech_name', 'prior', 'name', 'text','images', 'link')
 
 class LessonsInline(admin.StackedInline):  # instead of ModelAdmin
     model = Lessons
