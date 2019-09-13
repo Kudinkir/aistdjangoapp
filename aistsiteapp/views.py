@@ -37,7 +37,6 @@ def videocourses(request):
 
 def videocourses_item(request, slug):
     videocourse = VideoCourses.objects.get(slug=slug)
-    videocourse.lessons_count = videocourse.get_lessons_count()
     videocourse.lessons = Lessons.objects.filter(course_id=videocourse.id)
     videocourse.variants = CoursesVariants.objects.filter(course_id=videocourse.id)
     videocourse.reviews = CoursesReviews.objects.filter(course_id=videocourse.id)

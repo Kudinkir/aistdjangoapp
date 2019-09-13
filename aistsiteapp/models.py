@@ -50,6 +50,7 @@ class VideoCourses(models.Model):
     on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
     prior=models.IntegerField(verbose_name='Приоритет', default=100)
     second_text = HTMLField('Second_text',blank=True, null=True)
+    lesson_text = models.CharField(max_length=255,blank=True, null=True,verbose_name='Кол-во уроков и часов')
 
     class Meta:
         verbose_name='Видеокурс'
@@ -57,10 +58,6 @@ class VideoCourses(models.Model):
 
     def __str__(self):
         return self.name
-
-    def get_lessons_count(self):
-        self.lessons = Lessons.objects.filter(course_id=self.id)
-        return len(self.lessons)
 
 class Events(models.Model):
     name=models.CharField(max_length=255)
