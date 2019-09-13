@@ -37,7 +37,7 @@
                     <div class="card">
                         <a class="card__fullLink" href="{{ videocourses_main.0.slug }}"></a>
                         <div class="card__body">
-                            <div class="card__header">{{ videocourses_main.0.duration }}</div>
+                            <div class="card__header">{{ videocourses_main.0.lesson_text }}</div>
                             <div class="card__title">{{ videocourses_main.0.name }}</div>
                             {% autoescape off %}
                                 <div class="card__text">
@@ -64,7 +64,7 @@
                                         </div>
                                     {% endif %}
                                     <div class="card__body">
-                                        <div class="card__header">{{ item.duration }}</div>
+                                        <div class="card__header">{{ item.lesson_text }}</div>
                                         <div class="card__title">{{ item.name }}</div>
                                     </div>
                                 </div>
