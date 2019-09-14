@@ -17,32 +17,32 @@ class MyAdminSite(AdminSite):
         app_dict = self._build_app_dict(request)
 
         # Sort the apps alphabetically.
-        app_dict['user_app'] = app_dict['aistsiteapp'].copy()
-        app_dict['user_app']['name'] = 'Подписки/Обратная связь'
-        app_dict['user_app']['app_label'] = 'callback'
-        app_dict['user_app']['models'] = []
-        app_dict['other_app'] = app_dict['aistsiteapp'].copy()
-        app_dict['other_app']['app_label'] = 'siteapps'
-        app_dict['other_app']['name'] = 'Технические разделы'
-        app_dict['other_app']['models'] = []
-        app_dict['course_app'] = app_dict['aistsiteapp'].copy()
-        app_dict['course_app']['app_label'] = 'courses'
-        app_dict['course_app']['name'] = 'Курсы/События'
-        app_dict['course_app']['models'] = []
-        for model in app_dict['aistsiteapp']['models']:
-            if model['object_name'] in course_app_model:
-                app_dict['course_app']['models'].append(model)
-            elif model['object_name'] in user_app_model:
-                app_dict['user_app']['models'].append(model)
-            else:
-                app_dict['other_app']['models'].append(model)
+        if app_dict:
+            app_dict['user_app'] = app_dict['aistsiteapp'].copy()
+            app_dict['user_app']['name'] = 'Подписки/Обратная связь'
+            app_dict['user_app']['app_label'] = 'callback'
+            app_dict['user_app']['models'] = []
+            app_dict['other_app'] = app_dict['aistsiteapp'].copy()
+            app_dict['other_app']['app_label'] = 'siteapps'
+            app_dict['other_app']['name'] = 'Технические разделы'
+            app_dict['other_app']['models'] = []
+            app_dict['course_app'] = app_dict['aistsiteapp'].copy()
+            app_dict['course_app']['app_label'] = 'courses'
+            app_dict['course_app']['name'] = 'Курсы/События'
+            app_dict['course_app']['models'] = []
+            for model in app_dict['aistsiteapp']['models']:
+                if model['object_name'] in course_app_model:
+                    app_dict['course_app']['models'].append(model)
+                elif model['object_name'] in user_app_model:
+                    app_dict['user_app']['models'].append(model)
+                else:
+                    app_dict['other_app']['models'].append(model)
 
-        app_list = sorted(app_dict.values(), key=lambda x: x['name'].lower())
-        # Sort the models alphabetically within each app.
-        for app in app_list:
-           app['models'].sort(key=lambda x: x['name'])
-        print (app_list)
-        return app_list
+            app_list = sorted(app_dict.values(), key=lambda x: x['name'].lower())
+            # Sort the models alphabetically within each app.
+            for app in app_list:
+               app['models'].sort(key=lambda x: x['name'])
+            return app_list
 
 class BlocksInline(admin.StackedInline):  # instead of ModelAdmin
     model = Blocks
