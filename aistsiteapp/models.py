@@ -168,7 +168,6 @@ class MenuBlocks(models.Model):
                     item.childrens = Events.objects.all()
                 childrens = MenuItemBlocks.objects.filter(menu_item_id=item.id)
                 if len(childrens):
-                    print(childrens[0].link_url)
                     item.childrens = childrens
             return self.items
 
