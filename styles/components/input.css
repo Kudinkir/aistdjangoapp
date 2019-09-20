@@ -51,5 +51,6 @@
 
     @element input {
         max-width: 56px;
+        text-align: center;
     }
 }

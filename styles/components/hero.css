@@ -2,7 +2,7 @@
     background: var(--color-primary);
     padding: 56px 0 80px;
 
-    @media (--viewport-ipad) {
+    @media (--viewport-desktop--wide) {
         position: relative;
         top: -80px;
         padding-top: 0;
@@ -23,7 +23,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: no-repeat url('~svgIcons/homepage.svg') center 95% / contain;
+                background: no-repeat url('~svgIcons/homepage.svg') center 100% / contain;
             }
         }
     }
@@ -32,6 +32,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        flex-wrap: wrap;
 
         @media (--viewport-ipad) {
             flex-direction: row;
@@ -45,17 +46,23 @@
 
         @media (--viewport-ipad) {
             display: block;
-            right: 34px;
-            top: 85px;
+            right: 62px;
+            top: 72px;
+            z-index: 1000;
         }
     }
 
     @element text {
+        display: flex;
+        flex: 0 0 100%;
+        max-width: 100%;
         text-align: center;
         font-size: 20px;
-        display: flex;
-        flex: 1;
-        align-items: flex-end;
+        align-items: center;
+
+        @media (--viewport-desktop--wide) {
+            flex: 1 1;
+        }
     }
 
     @element subtitle {
@@ -73,16 +80,24 @@
         max-width: 80%;
         margin: 0 auto 40px;
 
+        @media (--viewport-ipad) {
+            margin: auto;
+            font-size: 80px;
+        }
+
         @media (--viewport-wide) {
             margin: auto;
-            font-size: 96px;
             font-size: 96px;
         }
     }
 
     @element right {
-        flex: 1;
-        max-width: 720px;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        @media (--viewport-desktop--wide) {
+            flex: 1 1;
+        }
     }
 
     @element image-wrapper {

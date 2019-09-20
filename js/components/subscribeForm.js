@@ -1,4 +1,5 @@
 const AMOUNT_MIN = 1;
+const AMOUNT_MAX = 40;
 
 export default class SubscribeForm {
     constructor(context, componentName) {
@@ -12,6 +13,8 @@ export default class SubscribeForm {
         this.amountValue = parseInt(this.amount.value, 10);
         this.views = [...this.context.querySelectorAll('[data-handle="view"]')];
 
+        this.amount.addEventListener('input', this.handleChangeInput.bind(this));
+        this.amount.addEventListener('blur', this.handleBlurInput.bind(this));
         this.views.forEach(item => {
             const { active } = item.dataset;
             const isActive = typeof active !== 'undefined' ? true : false;
@@ -44,11 +47,11 @@ export default class SubscribeForm {
             dataset: { handle: type },
         } = event.target;
 
-        if (type === 'decrement' && this.amountValue !== AMOUNT_MIN) {
+        if (type === 'decrement' && this.amountValue > AMOUNT_MIN) {
             this.amountValue -= 1;
         }
 
-        if (type === 'increment') {
+        if (type === 'increment' && this.amountValue < AMOUNT_MAX) {
             this.amountValue += 1;
         }
 
@@ -75,6 +78,25 @@ export default class SubscribeForm {
             item.classList[index === this.activeView ? 'remove' : 'add']('hidden');
         });
     };
+
+    handleChangeInput = event => {
+        if (event.target.value.length > 2) {
+            event.target.value = event.target.value.slice(0, event.target.value.length - 1);
+        }
+        if (!parseInt(event.data) && event.data !== '0') {
+            event.target.value = event.target.value.split('').filter(letter => parseInt(letter)).join('');
+        }
+        this.amountValue = +event.target.value;
+    }
+
+    handleBlurInput = event => {
+        if (!event.target.value.length || !+event.target.value) {
+            event.target.value = this.amountValue = AMOUNT_MIN
+        }
+        if (+event.target.value > AMOUNT_MAX) {
+            event.target.value = this.amountValue = AMOUNT_MAX
+        }
+    }
 
     handleSubmit = event => {
         event.preventDefault();

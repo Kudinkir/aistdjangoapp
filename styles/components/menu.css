@@ -1,7 +1,8 @@
 @block menu {
     @element title {
         font-weight: var(--font-weight-medium);
-        font-size: 12px;
+        font-size: var(----font-size-small);
+        margin-bottom: 14px;
     }
 
     @element list {

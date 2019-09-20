@@ -2,6 +2,7 @@
 @custom-media --viewport-ipad (width >= 640px);
 @custom-media --viewport-tablet (width >= 768px);
 @custom-media --viewport-desktop (width >= 992px);
+@custom-media --viewport-desktop--wide (width >= 1024px);
 @custom-media --viewport-wide (width >= 1200px);
 
 :root {
@@ -13,6 +14,7 @@
     --font-size-small: 14px;
     --font-size-medium: 15px;
     --font-size-large: 18px;
+    --font-size-extra-large: 24px;
 
     --display-h1: 96px;
     --display-h2: 48px;

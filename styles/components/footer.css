@@ -20,6 +20,11 @@
         padding: 40px 15px;
         flex: 0 0 100%;
         background: var(--color-white);
+        display: none;
+
+        @media (--viewport-ipad) {
+            display: block;
+        }
 
         @media (--viewport-tablet) {
             padding: 80px 25px;
@@ -77,6 +82,7 @@
         background: var(--color-primary);
         color: var(--color-white);
         padding: 40px 16px 48px;
+        line-height: 25px;
 
         @media (--viewport-tablet) {
             flex: 0 0 30%;
@@ -86,12 +92,9 @@
     }
 
     @element logo {
+        font-family: var(--font-serif);
         font-size: 24px;
         margin-bottom: 9px;
-    }
-
-    @element copyright {
-        margin-bottom: 62px;
     }
 
     @element translucent {

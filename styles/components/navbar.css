@@ -19,6 +19,7 @@
     @element item {
         white-space: nowrap;
         color: var(--color-white);
+        margin-bottom: 25px;
 
         &:hover,
         &:focus {
@@ -28,10 +29,11 @@
         @media (--viewport-tablet) {
             display: flex;
             align-items: center;
+            margin-bottom: 0;
         }
 
         @modifier dropdown {
-            font-size: 20px;
+            font-size: 16px;
 
             @media (--viewport-tablet) {
                 font-size: var(--font-size-base);

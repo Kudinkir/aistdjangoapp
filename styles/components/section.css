@@ -36,6 +36,10 @@
     @element inner {
         margin-bottom: 80px;
 
+        @modifier more-space {
+            margin-bottom: 120px;
+        }
+
         &:last-child {
             margin-bottom: 0;
         }

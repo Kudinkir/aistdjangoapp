@@ -9,5 +9,6 @@
     @element item {
         color: var(--color-secondary);
         display: block;
+        line-height: 25px;
     }
 }

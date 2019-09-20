@@ -8,7 +8,7 @@
     }
 
     @element wrapper {
-        max-width: 324px;
+        max-width: 340px;
         margin: 0 auto;
         text-align: center;
     }
@@ -19,6 +19,7 @@
 
      @element title {
         margin-bottom: 12px;
+        white-space: nowrap;
 
         @modifier center {
             text-align: center;
