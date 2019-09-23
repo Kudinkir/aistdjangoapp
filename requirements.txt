@@ -2,3 +2,4 @@ Django~=2.2
 django-tinymce4-lite
 Pillow
 django-webpack-loader
+django_summernote
