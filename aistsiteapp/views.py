@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
-from aistsiteapp.models import Blocks, Page, VideoCourses, Events, Lessons, CoursesVariants,CoursesReviews, EventsVariants
+from aistsiteapp.models import Blocks, Page, VideoCourses, Events, Lessons, CoursesVariants,CoursesReviews, EventsVariants, EventsProgrammItem
 from aistsiteapp.forms import SubscribeForm, CallbackForm
 from datetime import date
 
@@ -55,8 +55,11 @@ def events(request):
 def events_item(request, slug):
     event = get_object_or_404(Events, slug=slug)
     event.variants = EventsVariants.objects.filter(course_id=event.id)
+    event.program_item = EventsProgrammItem.objects.filter(course_id=event.id)
+    other_events = Events.objects.exclude(id=event.id)
     return render(request, 'aistsiteapp/events_item.html', {
         'event' : event,
+        'other_events' : other_events,
     })
 
 def pages(request, slug):

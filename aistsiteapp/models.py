@@ -121,6 +121,18 @@ class Lessons(models.Model):
     def __str__(self):
         return self.title
 
+class EventsProgrammItem(models.Model):
+    title=models.CharField(max_length=255, verbose_name='Название')
+    text=HTMLField('Text')
+    duration=models.CharField(max_length=255, verbose_name='Длительность, 1 час',blank=True,)
+    course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
+
+    class Meta:
+        verbose_name='Части Семинара'
+
+    def __str__(self):
+        return self.title
+
 class CoursesVariants(models.Model):
     title=models.CharField(max_length=255, verbose_name='Название')
     text=HTMLField('Text')
@@ -142,7 +154,7 @@ class EventsVariants(models.Model):
     course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
 
     class Meta:
-        verbose_name='Варианты курса'
+        verbose_name='Варианты Семинара'
 
     def __str__(self):
         return self.title
