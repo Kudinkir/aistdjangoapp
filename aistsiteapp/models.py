@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.utils.timezone import now
-from tinymce import HTMLField
+from tinymce.models import HTMLField
 
 
 class Page(models.Model):
@@ -127,6 +127,19 @@ class CoursesVariants(models.Model):
     price=models.CharField(max_length=255, verbose_name='Цена')
     price_link=models.CharField(max_length=255, verbose_name='Сыылка на оплату',blank=True, null=True,)
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
+
+    class Meta:
+        verbose_name='Варианты курса'
+
+    def __str__(self):
+        return self.title
+
+class EventsVariants(models.Model):
+    title=models.CharField(max_length=255, verbose_name='Название')
+    text=HTMLField('Text')
+    price=models.CharField(max_length=255, verbose_name='Цена')
+    price_link=models.CharField(max_length=255, verbose_name='Сыылка на оплату',blank=True, null=True,)
+    course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
 
     class Meta:
         verbose_name='Варианты курса'

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  Blocks, Page, VideoCourses, Events, Callback, Subscribe, Lessons, CoursesVariants,CoursesReviews, MenuBlocks, MenuItemBlocks
+from .models import Blocks, Page, VideoCourses, Events, Callback, Subscribe, Lessons, CoursesVariants,CoursesReviews, MenuBlocks, MenuItemBlocks, EventsVariants
 from django import forms
 from django.contrib.admin import AdminSite
 from django.contrib.auth.models import Group, User
@@ -57,6 +57,10 @@ class CoursesVariantsInline(admin.StackedInline):  # instead of ModelAdmin
     model = CoursesVariants
     extra = 1
 
+class EventsVariantsInline(admin.StackedInline):  # instead of ModelAdmin
+    model = EventsVariants
+    extra = 1
+
 class CoursesReviewsInline(admin.StackedInline):  # instead of ModelAdmin
     model = CoursesReviews
     extra = 1
@@ -77,6 +81,10 @@ class VideoCoursesAdmin(admin.ModelAdmin):
 	# list_filter = ['published_date', 'slug']
 	# search_fields = ['name','tech_title','slug']
 
+class EventsAdmin(admin.ModelAdmin):
+	inlines = [EventsVariantsInline]
+	list_display = ('id', 'name', 'slug','on_main')
+
 class MenuItemInline(admin.TabularInline):
     model = MenuItemBlocks
     ordering = ('order',)
@@ -91,7 +99,7 @@ admin.site = MyAdminSite()
 admin.site.register(Blocks,BlocksAdmin)
 admin.site.register(Page,PageAdmin)
 admin.site.register(VideoCourses, VideoCoursesAdmin)
-admin.site.register(Events)
+admin.site.register(Events, EventsAdmin)
 admin.site.register(Callback)
 admin.site.register(Subscribe)
 admin.site.register(Lessons)
