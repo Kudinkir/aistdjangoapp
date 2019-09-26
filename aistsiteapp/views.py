@@ -54,7 +54,7 @@ def events(request):
 
 def events_item(request, slug):
     event = get_object_or_404(Events, slug=slug)
-    events.variants = EventsVariants.objects.filter(course_id=events.id)
+    event.variants = EventsVariants.objects.filter(course_id=event.id)
     return render(request, 'aistsiteapp/events_item.html', {
         'event' : event,
     })
