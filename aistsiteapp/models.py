@@ -68,7 +68,7 @@ class Events(models.Model):
     prior=models.IntegerField(verbose_name='Приоритет', default=100)
     on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
     start_date=models.DateTimeField(blank=True, default=now)
-    video =  models.CharField(max_length=255,  blank=True, null=True,verbose_name='Место проведения')
+    place =  models.CharField(max_length=255,  blank=True, null=True,verbose_name='Место проведения')
 
     class Meta:
         verbose_name='Событие'
