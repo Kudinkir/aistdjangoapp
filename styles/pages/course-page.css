@@ -13,8 +13,8 @@
         max-width: 100%;
 
         @media (--viewport-desktop) {
-            flex: 0 0 30%;
-            max-width: 30%;
+            flex: 0 0 31.5%;
+            max-width: 31.5%;
             border-right: 2px solid var(--color-secondary);
         }
     }

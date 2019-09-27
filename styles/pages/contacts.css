@@ -5,7 +5,7 @@
         @media (--viewport-desktop) {
             padding-top: 152px;
             padding-bottom: 112px;
-            background: no-repeat url('~svgIcons/contacts.svg') 100% 100% / 55%;
+            background: no-repeat url('~svgIcons/contacts.svg') 80% 95% / 18%;
         }
     }
 

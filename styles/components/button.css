@@ -79,4 +79,11 @@
         max-width: 324px;
         margin: 0 auto;
     }
+
+    @modifier adaptive {
+        
+        @media (--viewport-button) {
+            width: 100%;
+        }
+    }
 }
