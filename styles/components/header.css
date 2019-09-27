@@ -6,7 +6,6 @@
     &.active {
         & > .header__fixed {
             background: linear-gradient(180deg, #252e5b 0%, var(--color-primary) 100%);
-            z-index: 1001;
         }
 
         & .dropdown__menu {
@@ -14,12 +13,21 @@
         }
     }
 
-    &:not(.active).sticky > .header__fixed {
+    &.sticky .header__line {
         box-shadow: none;
     }
 
+    @element line {
+        position: fixed;
+        z-index: 2;
+        width: 100%;
+        top: 82px;
+        box-shadow: 0 0 0 1px var(--color-secondary);
+        transition: box-shadow 0.1s ease-in-out;
+    }
+
     @element fixed {
-        z-index: 999;
+        z-index: 4;
         position: fixed;
         top: 0;
         left: 0;
@@ -27,8 +35,6 @@
         color: var(--color-white);
         height: 80px;
         background: linear-gradient(180deg, #252e5b 0%, rgba(37, 46, 91, 0) 95%);
-        box-shadow: 0 0 0 2px var(--color-secondary);
-        transition: box-shadow 0.1s ease-in-out;
     }
 
     @element inner {

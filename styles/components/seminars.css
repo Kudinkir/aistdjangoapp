@@ -1,0 +1,24 @@
+@block seminars {
+
+    display: flex;
+    flex-wrap: wrap;
+    
+    @element background {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    @element info {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    @element header {
+        font-size: 32px;
+        ont-family: CSTM Xprmntl\ 02,serif;
+    }
+
+    @element description {
+        line-height: 24px;
+    }
+}
