@@ -47,4 +47,10 @@ small {
     @modifier fluid {
         padding: 0;
     }
+
+    @modifier benefits {
+        @media (--viewport-wide) {
+            max-width: 80%;
+        }
+    }
 }

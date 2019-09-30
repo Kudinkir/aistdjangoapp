@@ -113,7 +113,7 @@
                         </div>
                     {% endfor %}
                     <div class="course-page__actions course-page__actions--center">
-                        <a href="#" class="button button--arrow button--standart">купить курс</a>
+                        <a href="#" class="button button--arrow button--middle">купить курс</a>
                     </div>
                 </section>
             {% endif %}
@@ -156,7 +156,7 @@
     {% endif %}
     <section class="course-page__section">
         <div class="display display--h4 videocourses__title">Другие видеокурсы</div>
-        <div class="videocourses__row">
+        <div class="videocourses__row {% if other_courses|length < 3 %} videocourses__row--center {% endif %}">
             {% for item in other_courses %}
                 <div class="videocourses__col">
                     <div class="card">
@@ -178,7 +178,7 @@
             {% endfor %}
         </div>
         <div class="videocourses__actions">
-            <a href="/video-courses/" class="button button--arrow button--standart button--adaptive">все видеокурсы</a>
+            <a href="/video-courses/" class="button button--arrow button--standart button--adaptive button--large">все видеокурсы</a>
         </div>
     </section>
     {% include './components/subscribe.html' %}

@@ -7,17 +7,16 @@
         overflow: initial;
     }
 
-    @media (--viewport-desktop) {
+    @media (--viewport-desktop--wide) {
         overflow: initial;
     }
 
     @element item {
         flex: 1;
-        min-width: 190px;
-        padding: 0 15px;
-
-        @media (--viewport-desktop) {
-            padding: 0 40px;
+        min-width: 320px;
+        
+        @media (--viewport-desktop--wide) {
+            min-width: 0;
         }
     }
 
@@ -32,5 +31,6 @@
     @element text {
         line-height: 22px;
         opacity: 0.72;
+        max-width: 190px;
     }
 }

@@ -8,6 +8,10 @@
         display: flex;
         flex-wrap: wrap;
         margin: 0 -27px 40px;
+
+        @modifier center {
+            justify-content: center;
+        }
     }
 
     @element col {

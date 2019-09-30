@@ -23,8 +23,17 @@
     }
 
     @element text {
-        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 100%;
+        max-width: 100%;
         text-align: center;
+        font-size: 20px;
+        align-items: center;
+
+        @media (--viewport-desktop--wide) {
+            flex: 1 1;
+        }
 
         @modifier tiny {
             @media (--viewport-desktop) {
@@ -34,7 +43,12 @@
     }
 
     @element image {
-        text-align: center;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        @media (--viewport-desktop--wide) {
+            flex: 1 1;
+        }
     }
 
     @element title {

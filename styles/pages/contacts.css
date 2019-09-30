@@ -41,11 +41,13 @@
         color: var(--color-white);
         text-decoration: none;
         margin-bottom: 24px;
+        font-family: var(--font-serif);
     }
 
     @element hero-email {
         text-decoration: none;
         color: var(--color-secondary);
+        font-family: var(--font-serif);
     }
 
     @element section {
@@ -67,6 +69,14 @@
         @media (--viewport-desktop) {
             flex: 0 0 50%;
             max-width: 50%;
+        }
+
+        @modifier form {
+            max-width: 100%;
+
+            @media (--viewport-desktop) {
+                max-width: 580px;
+            }
         }
     }
 

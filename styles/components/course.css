@@ -16,7 +16,7 @@
     @element text {
         margin: 0 0 32px;
         color: rgba(255, 255, 255, 0.72);
-        line-height: 1.6;
+        line-height: 40px;
     }
 
     @element price {

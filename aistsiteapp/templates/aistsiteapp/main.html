@@ -14,8 +14,12 @@
                         <div class="hero__image-wrapper">
                             <div class="hero__circle circle">
                                 <div class="circle__inner">
-                                    20 июля<br />
-                                    <small>Казань</small>
+                                    {% if events_main.0.start_date %}
+                                        {{ events_main.0.start_date.date }}
+                                    {% endif %} <br />
+                                    {% if events_main.0.place %}
+                                        <small>{{ events_main.0.place }}</small>
+                                    {% endif %}
                                 </div>
                             </div>
                             <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" alt="" />
@@ -23,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container container--benefits">
                 <div class="hero__benefits">
                     {% include './components/benefits.html' with items=second_block.bloks %}
                 </div>
@@ -73,7 +77,7 @@
                     {% endfor %}
                     <div class="home-cards__item">
                         <a href="/video-courses/" class="button button--full-width button--arrow">
-                            Посмотреть все видеокурсы
+                            все видеокурсы
                         </a>
                     </div>
                 </div>

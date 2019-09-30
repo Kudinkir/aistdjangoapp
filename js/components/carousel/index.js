@@ -8,11 +8,11 @@ export default class Carousel {
         this.context = context;
         this.initially = false;
 
-        if (!this.initially && window.innerWidth < 768) {
+        if (!this.initially && window.innerWidth < 1024) {
             this.init();
             this.initially = true;
         } else {
-            window.matchMedia('(max-width: 768px)').addListener(event => {
+            window.matchMedia('(max-width: 1024px)').addListener(event => {
                 if (!this.initially && event.matches) {
                     this.init();
 
@@ -45,32 +45,19 @@ export default class Carousel {
         this.context.appendChild(this.renderNavigation());
     }
 
-    handleClick(event, type) {
-        console.log(event, type);
+    handleClick(event, type) {        
+        const items = document.querySelectorAll('.carousel__item');
+        const direction = type === 'left' ? -1 : 1;
+        const pos = Math.round((this.itemsWrapper.scrollLeft / items[0].offsetWidth) + direction) * items[0].offsetWidth;       
+        this.scroll(this.itemsWrapper, pos)
+    }
 
-        const { clientWidth, scrollWidth, scrollLeft } = this.itemsWrapper;
-
-        const [children] = this.childrens;
-        const { clientWidth: widthChild } = children;
-        console.dir(widthChild);
-
-        const visibleItems = Math.round(clientWidth / widthChild);
-        const allItems = Math.round(scrollWidth / widthChild);
-
-        // todo last
-
-        if (scrollWidth / scrollLeft < visibleItems) {
-            this.itemsWrapper.scrollLeft = scrollWidth;
-        }
-
-        if (type === 'left') {
-            this.itemsWrapper.scrollLeft -= widthChild;
-        } else {
-            this.itemsWrapper.scrollLeft += widthChild;
-        }
-
-        // console.info(scrollLeft, scrollWidth);
-        // console.dir(this.itemsWrapper);
+    scroll(target, pos, offset = 0) {
+        if (window.animId) cancelAnimationFrame(window.animId);
+        const newOffset = (target.scrollLeft - pos) / 8;
+        if(target.scrollLeft === pos || newOffset === offset) return;
+        target.scrollLeft -= newOffset;
+        window.animId = requestAnimationFrame(() => this.scroll(target, pos, newOffset));
     }
 
     renderNavigation() {

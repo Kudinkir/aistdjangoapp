@@ -62,6 +62,16 @@
         padding-right: 60px;
     }
 
+    @modifier middle {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    @modifier large {
+        width: 100%;
+        width: 460px;
+    }
+
     @modifier small {
         padding: 12px 5px;
     }
@@ -71,12 +81,7 @@
         color: var(--color-primary);
     }
 
-    @modifier opacity {
-        opacity: 0.5;
-    }
-
     @modifier instagram {
-        max-width: 324px;
         margin: 0 auto;
     }
 
@@ -84,6 +89,7 @@
         
         @media (--viewport-button) {
             width: 100%;
+            max-width: 100%;
         }
     }
 }

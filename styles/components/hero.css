@@ -109,10 +109,10 @@
 
     @element benefits {
         color: var(--color-white);
-        padding-top: 38px;
+        padding-top: 70px;
 
         @media (--viewport-wide) {
-            padding-top: 80px;
+            padding-top: 100px;
         }
     }
 }
