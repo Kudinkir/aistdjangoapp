@@ -173,6 +173,20 @@ class CoursesReviews(models.Model):
     def __str__(self):
         return self.title
 
+class EventsReviews(models.Model):
+    title=models.CharField(max_length=255, verbose_name='Заголовок')
+    text=HTMLField('Text')
+    autor=models.CharField(max_length=255, verbose_name='Автор')
+    image=models.ImageField(upload_to='images/', blank=True)
+    video=models.CharField(max_length=255, verbose_name='Ссылка на видео')
+    course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
+
+    class Meta:
+        verbose_name='Отзывы о семинаре'
+
+    def __str__(self):
+        return self.title
+
 class MenuBlocks(models.Model):
         name = models.CharField(max_length=100)
         slug = models.TextField()

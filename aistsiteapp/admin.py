@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Blocks, Page, VideoCourses, Events, Callback, Subscribe, Lessons, CoursesVariants,CoursesReviews, MenuBlocks, MenuItemBlocks, EventsVariants
-from .models import EventsProgrammItem
+from .models import EventsProgrammItem, EventsReviews
 from django import forms
 from django.contrib.admin import AdminSite
 from django.contrib.auth.models import Group, User
@@ -58,6 +58,10 @@ class EventsProgrammItemInline(admin.StackedInline):  # instead of ModelAdmin
     model = EventsProgrammItem
     extra = 1
 
+class EventsReviewsInline(admin.StackedInline):  # instead of ModelAdmin
+    model = EventsReviews
+    extra = 1
+
 class CoursesVariantsInline(admin.StackedInline):  # instead of ModelAdmin
     model = CoursesVariants
     extra = 1
@@ -87,7 +91,7 @@ class VideoCoursesAdmin(admin.ModelAdmin):
 	# search_fields = ['name','tech_title','slug']
 
 class EventsAdmin(admin.ModelAdmin):
-	inlines = [EventsVariantsInline, EventsProgrammItemInline]
+	inlines = [EventsVariantsInline, EventsProgrammItemInline, EventsReviewsInline]
 	list_display = ('id', 'name', 'slug','on_main')
 
 class MenuItemInline(admin.TabularInline):
