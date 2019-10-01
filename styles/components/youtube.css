@@ -27,13 +27,9 @@
 
     @element image {
         padding: 0 27px;
-        flex: none;
+        /* flex: none;
         display: flex;
-        justify-content: center;
-        
-        & img {
-            vertical-align: baseline;
-        }
+        justify-content: center; */
 
     }
 }
