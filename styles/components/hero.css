@@ -76,7 +76,7 @@
         text-align: center;
         color: var(--color-secondary);
         font-size: 40px;
-        max-width: 80%;
+        max-width: 76%;
         margin: 0 auto 40px;
 
         @media (--viewport-ipad) {
@@ -110,9 +110,11 @@
     @element benefits {
         color: var(--color-white);
         padding-top: 70px;
+        padding-bottom: 30px;
 
         @media (--viewport-wide) {
             padding-top: 100px;
+            padding-bottom: 0;
         }
     }
 }

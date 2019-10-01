@@ -27,14 +27,10 @@
         color: var(--color-font);
         background: var(--color-white);
         width: 100%;
-        padding: 0 16px;
+        padding: 80px 26px 60px;
 
         &:not(:first-child) {
             border-top: 2px solid var(--color-secondary);
-        }
-
-        @media (--viewport-desktop) {
-            padding: 80px 110px;
         }
 
         @modifier primary {
