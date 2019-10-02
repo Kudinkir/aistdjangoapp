@@ -10,8 +10,14 @@
                     </div>
                     {% for item in events_main %}
                         <div class="section__block">
-                            <a href="{{ item.slug }}" class="button button--full-width button--extra-large">20 июля, Казань</a>
-                            <a href="{{ item.slug }}" class="button button--full-width button--extra-large">20 июля, Казань</a>
+                            <a href="{{ item.slug }}" class="button button--full-width button--extra-large">
+                                {% if events_main.0.start_date %}
+                                    {{ events_main.0.start_date.date }} <br />
+                                {% endif %}
+                                {% if events_main.0.place %}
+                                    <small>{{ events_main.0.place }}</small>
+                                {% endif %}
+                            </a>
                         </div>
                     {% endfor %}
                 </div>
