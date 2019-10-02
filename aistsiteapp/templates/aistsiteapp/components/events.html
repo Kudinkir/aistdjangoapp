@@ -12,10 +12,10 @@
                         <div class="section__block">
                             <a href="{{ item.slug }}" class="button button--full-width button--extra-large">
                                 {% if events_main.0.start_date %}
-                                    {{ events_main.0.start_date.date }} <br />
+                                    {{ events_main.0.start_date.date }}
                                 {% endif %}
                                 {% if events_main.0.place %}
-                                    <small>{{ events_main.0.place }}</small>
+                                    {{ events_main.0.place }}
                                 {% endif %}
                             </a>
                         </div>
