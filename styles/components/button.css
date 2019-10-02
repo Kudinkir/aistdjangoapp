@@ -77,10 +77,7 @@
 
     @modifier extra-large {
         width: 100%;
-        max-width: 650px;
-        margin: 0 auto;
-        display: block;
-        text-align: center;
+        margin-bottom: 25px;
     }
 
     @modifier large {
@@ -103,8 +100,7 @@
         display: block;
     }
 
-    @modifier adaptive {
-        
+    @modifier adaptive {        
         @media (--viewport-button) {
             width: 100%;
             max-width: 100%;
