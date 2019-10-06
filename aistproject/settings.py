@@ -104,7 +104,7 @@ TINYMCE_DEFAULT_CONFIG = {
 
 WEBPACK_LOADER = {
     'DEFAULT': {
-        'CACHE': True,
+        'CACHE': False,
         'BUNDLE_DIR_NAME': 'build/',  # must end with slash
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
         'POLL_INTERVAL': 0.1,
