@@ -74,6 +74,7 @@ export default class SubscribeForm {
         }
 
         this.activeView = isNext ? this.activeView + 1 : this.activeView - 1;
+        this.activeView = this.activeView > this.views.length - 1 ? 0 : this.activeView;
         this.views.forEach((item, index) => {
             item.classList[index === this.activeView ? 'remove' : 'add']('hidden');
         });
@@ -98,13 +99,30 @@ export default class SubscribeForm {
         }
     }
 
+    getNext = () => {
+        this.handleShow({ target: { dataset: { type: 'next' } } });
+        setTimeout(() => {
+            this.handleShow({ target: { dataset: { type: 'next' } } });
+            this.submitButton.disabled = false;
+            this.email.value = '';
+        }, 10000);
+    }
+
     handleSubmit = event => {
         event.preventDefault();
 
         const body = new FormData(this.context);
+        const result = this.context.querySelector('.result');
+        this.submitButton.disabled = true;
 
-        fetch('/subscribe', { method: 'POST', body }).then(r => r.json()).then(resp => {
-            console.log(resp);
-        });
+        fetch('/subscribe', { method: 'POST', body })
+            .finally(this.getNext)
+            .then(r => r.json())
+            .then(() => {
+                result.innerText = 'Спасибо, мы расскажем вам о ближайших событиях';
+            })
+            .catch(() => {
+                result.innerText = 'Произошла ошибка, попробуйте еще раз'
+            })
     };
 }

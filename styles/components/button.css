@@ -62,14 +62,27 @@
         padding-right: 60px;
     }
 
+    @modifier courses {
+        display: none;
+
+        @media (--viewport-desktop--wide) {
+            display: inline-flex;
+        }
+    }
+
     @modifier middle {
         width: 100%;
         max-width: 220px;
     }
 
+    @modifier extra-large {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
     @modifier large {
         width: 100%;
-        width: 460px;
+        max-width: 460px;
     }
 
     @modifier small {
@@ -83,10 +96,11 @@
 
     @modifier instagram {
         margin: 0 auto;
+        max-width: 324px;
+        display: block;
     }
 
-    @modifier adaptive {
-        
+    @modifier adaptive {        
         @media (--viewport-button) {
             width: 100%;
             max-width: 100%;

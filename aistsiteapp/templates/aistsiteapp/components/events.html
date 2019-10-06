@@ -1,20 +1,26 @@
-{% if event_block %}
+{% if events_main %}
     <section class="section section--white section--bg section--bt">
         <div class="container">
             <div class="section__row">
                 <div class="section__col section__col--align-right">
                     <div class="display display--h3 section__title">Семинар «Готовимся к родам — рожаем хорошо»</div>
-                    <div class="section__block">
+                    <div class="section__block section__block--text">
                         Большой практический семинар построен с учетом запросов будущих мам и акушерской практики.
                         Понятным, простым языком о сложном процессе родов с примерами и практикой.
                     </div>
-                    {% for item in event_block %}
+                    {% for item in events_main %}
                         <div class="section__block">
-                            <a href="{{ item.slug }}" class="button button--full-width">{{ item.name }}</a>
+                            <a href="{{ item.slug }}" class="button button--full-width button--extra-large">
+                                {% if events_main.0.start_date %}
+                                    {{ events_main.0.start_date.date }}
+                                {% endif %}
+                                {% if events_main.0.place %}
+                                    {{ events_main.0.place }}
+                                {% endif %}
+                            </a>
                         </div>
                     {% endfor %}
                 </div>
             </div>
-        </div>
     </section>
 {% endif %}

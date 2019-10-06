@@ -37,14 +37,13 @@
 
         @modifier tiny {
             @media (--viewport-desktop) {
-                max-width: 45%;
+                max-width: 55%;
             }
         }
     }
 
     @element image {
-        flex: 0 0 100%;
-        max-width: 100%;
+        display: flex;
 
         @media (--viewport-desktop--wide) {
             flex: 1 1;

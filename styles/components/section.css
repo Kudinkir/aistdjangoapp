@@ -9,11 +9,11 @@
             &::after {
                 content: '';
                 position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: no-repeat url('~svgIcons/Group4.svg') center 90% / contain;
+                top: 50px;
+                bottom: 20px;
+                left: 30px;
+                right: 50%;
+                background: no-repeat url('~svgIcons/Group4.svg') center / contain;
                 pointer-events: none;
             }
         }
@@ -75,6 +75,10 @@
         &:not(:last-child) {
             margin-bottom: 24px;
         }
+
+        @modifier text {
+            max-width: 430px;
+        }
     }
 
     @element row {
@@ -101,6 +105,10 @@
 
         @modifier align-right {
             margin-left: auto;
+
+            @media (--viewport-desktop) {
+                padding-right: 110px;
+            }
         }
     }
 }

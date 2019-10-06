@@ -15,6 +15,14 @@
                             </li>
                             {% endfor %}
                         </ul>
+                        {% if item.title == "События" %}
+                            <div class="menu__item--space">
+                                <a class="menu__title" href="/about">Об авторе</a>
+                            </div>
+                            <div class="menu__item--space">
+                                <a class="menu__title" href="/contacts">Контакты</a>
+                            </div>
+                        {% endif %}
                         {% endif %}
                     </div>
                     {% endfor %}

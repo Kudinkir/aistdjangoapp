@@ -27,7 +27,7 @@ SECRET_KEY = '3z59i^e8j7c87x%ao5n)0$(3w45=e)3@usa8og^_#avv+aj**('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['new.horoshierodi.ru','www.new.horoshierodi.ru', '127.0.0.1']
+ALLOWED_HOSTS = ['new.horoshierodi.ru','www.new.horoshierodi.ru', '127.0.0.1', 'localhost']
 
 
 # Application definition

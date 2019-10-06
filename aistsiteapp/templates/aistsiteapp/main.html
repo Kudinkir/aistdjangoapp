@@ -7,20 +7,20 @@
                 <div class="hero__row">
                     <div class="hero__text">
                         <h1 class="hero__title">
-                            Подготовка к родам от Марины Аист
+                            Подготовка к&nbsp;родам от&nbsp;Марины Аист
                         </h1>
                     </div>
                     <div class="hero__right">
                         <div class="hero__image-wrapper">
                             <div class="hero__circle circle">
-                                <div class="circle__inner">
+                                <a href="/events/test-event" class="circle__inner">
                                     {% if events_main.0.start_date %}
-                                        {{ events_main.0.start_date.date }}
-                                    {% endif %} <br />
+                                        {{ events_main.0.start_date.date }} <br />
+                                    {% endif %}
                                     {% if events_main.0.place %}
                                         <small>{{ events_main.0.place }}</small>
                                     {% endif %}
-                                </div>
+                                </a>
                             </div>
                             <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" alt="" />
                         </div>
@@ -76,7 +76,7 @@
                         {% endif %}
                     {% endfor %}
                     <div class="home-cards__item">
-                        <a href="/video-courses/" class="button button--full-width button--arrow">
+                        <a href="/video-courses/" class="button button--arrow button--full-width">
                             все видеокурсы
                         </a>
                     </div>
