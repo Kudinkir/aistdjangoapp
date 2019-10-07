@@ -27,7 +27,7 @@
         color: var(--color-font);
         background: var(--color-white);
         width: 100%;
-        padding: 80px 26px 60px;
+        padding: 80px 127px 60px 100px;
 
         &:not(:first-child) {
             border-top: 2px solid var(--color-secondary);
@@ -36,6 +36,10 @@
         @modifier primary {
             color: var(--color-white);
             background: var(--color-primary);
+        }
+
+        @modifier more-space {
+            padding: 80px 100px 60px 127px
         }
     }
 
@@ -56,7 +60,7 @@
     }
 
     @element columns {
-        column-count: 2;
+        
     }
 
     @element row {
@@ -116,6 +120,10 @@
     @element promotext {
         max-width: 540px;
         margin: 0 auto;
+        
+        & span, & p {
+            font-family: var(--font-serif) !important;
+        }
 
         @media (--viewport-ipad) {
             font-size: var(--font-size-large);

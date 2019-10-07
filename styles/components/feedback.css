@@ -34,8 +34,7 @@
         }
 
         @media (--viewport-wide) {
-            padding-left: 55px;
-            padding-right: 55px;
+            padding: 80px 53px 80px 110px;
         }
     }
 
