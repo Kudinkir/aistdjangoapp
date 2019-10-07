@@ -3,6 +3,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.timezone import now
 from tinymce.models import HTMLField
+from django.utils.text import slugify
+from pytils.translit import slugify
 
 
 class Page(models.Model):
@@ -44,7 +46,7 @@ class VideoCourses(models.Model):
     text=HTMLField('Text')
     images = models.ImageField(upload_to='images/', blank=True)
     video =  models.CharField(max_length=255,  blank=True, null=True)
-    slug = models.CharField(max_length=255,  blank=True, null=True)
+    slug = models.CharField(max_length=255,  blank=True, null=True, verbose_name='URL')
     about_course  = HTMLField('about_course', blank=True, null=True)
     students_results  = HTMLField('students_results', blank=True, null=True)
     on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
@@ -60,8 +62,9 @@ class VideoCourses(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        slug=slugify(self.name, 'ru')
-        self.slug = slug
+        if(not self.slug):
+            slug=slugify(self.name)
+            self.slug = slug
         super(VideoCourses, self).save(*args, **kwargs)
 
 class Events(models.Model):
@@ -142,7 +145,7 @@ class EventsProgrammItem(models.Model):
         return self.title
 
 class CoursesVariants(models.Model):
-    title=models.CharField(max_length=255, verbose_name='Название')
+    title=models.CharField(max_length=255, blank=True, null=True, verbose_name='Название')
     text=HTMLField('Text')
     price=models.CharField(max_length=255, verbose_name='Цена')
     price_link=models.CharField(max_length=255, verbose_name='Сыылка на оплату',blank=True, null=True,)
