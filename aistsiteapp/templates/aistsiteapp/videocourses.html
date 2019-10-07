@@ -30,7 +30,9 @@
                         </div>
                     </div>
                     <div class="card__image card__image--hero">
+                      {% if item.images %}
                         <img src="{{ videocourses.0.images.url }}" alt="" />
+                      {% endif %}
                     </div>
                 </div>
             </section>
