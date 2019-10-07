@@ -44,6 +44,7 @@
 
     @element image {
         display: flex;
+        justify-content: center;
 
         @media (--viewport-desktop--wide) {
             flex: 1 1;

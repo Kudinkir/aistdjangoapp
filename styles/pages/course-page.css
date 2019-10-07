@@ -27,7 +27,7 @@
         color: var(--color-font);
         background: var(--color-white);
         width: 100%;
-        padding: 80px 127px 60px 100px;
+        padding: 80px 16px 100px;
 
         &:not(:first-child) {
             border-top: 2px solid var(--color-secondary);
@@ -40,6 +40,10 @@
 
         @modifier more-space {
             padding: 80px 100px 60px 127px
+        }
+
+        @media (--viewport-desktop) {
+            padding: 80px 127px 60px 100px;
         }
     }
 
@@ -60,14 +64,15 @@
     }
 
     @element columns {
-        
+        padding-left: 25px;
     }
 
     @element row {
         display: flex;
         flex-wrap: wrap;
+        margin: 0;
 
-        @media (--viewport-ipad) {
+        @media (--viewport-desktop) {
             margin: 0 -27px;
         }
     }
