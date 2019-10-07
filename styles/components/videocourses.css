@@ -7,7 +7,11 @@
     @element row {
         display: flex;
         flex-wrap: wrap;
-        margin: 0 -27px 20px;
+        margin: 0 0 20px 0;
+
+        @media (--viewport-desktop) {
+            margin: 0 -27px 20px;
+        }
 
         @modifier center {
             justify-content: center;
