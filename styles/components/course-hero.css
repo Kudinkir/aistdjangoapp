@@ -37,7 +37,7 @@
 
         @modifier tiny {
             @media (--viewport-desktop) {
-                max-width: 55%;
+                max-width: 50%;
             }
         }
     }

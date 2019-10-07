@@ -8,6 +8,7 @@ export default class SubscribeForm {
         this.prevButton = this.context.querySelector('[data-type="prev"]');
         this.email = this.context.querySelector('input[name="email"]');
         this.submitButton = this.context.querySelector('[data-handle="submit"]');
+        this.header = document.querySelector('[data-action="hide"]');
 
         this.amount = this.context.querySelector('[data-handle="amount"]');
         this.amountValue = parseInt(this.amount.value, 10);
@@ -100,11 +101,13 @@ export default class SubscribeForm {
     }
 
     getNext = () => {
+        this.header.style.display = 'none';
         this.handleShow({ target: { dataset: { type: 'next' } } });
         setTimeout(() => {
             this.handleShow({ target: { dataset: { type: 'next' } } });
             this.submitButton.disabled = false;
             this.email.value = '';
+            this.header.style.display = 'block';
         }, 10000);
     }
 

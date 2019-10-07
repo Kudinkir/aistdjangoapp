@@ -4,6 +4,10 @@
     border-top: 2px solid var(--color-secondary);
     border-bottom: 2px solid var(--color-secondary);
 
+    @modifier no-border {
+        border-bottom: none;
+    }
+
     @element sidebar {
         background: var(--color-white);
         display: flex;
@@ -43,7 +47,7 @@
         }
 
         @media (--viewport-desktop) {
-            padding: 80px 127px 60px 100px;
+            padding: 80px 110px 60px 110px;
         }
     }
 
