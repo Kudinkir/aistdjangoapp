@@ -59,6 +59,11 @@ class VideoCourses(models.Model):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        slug=slugify(self.name, 'ru')
+        self.slug = slug
+        super(VideoCourses, self).save(*args, **kwargs)
+
 class Events(models.Model):
     name=models.CharField(max_length=255)
     images = models.ImageField(upload_to='images/', blank=True)
@@ -117,7 +122,8 @@ class Lessons(models.Model):
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
-        verbose_name='Уроки'
+        verbose_name='Урок'
+        verbose_name_plural='Уроки'
 
     def __str__(self):
         return self.title
@@ -129,7 +135,8 @@ class EventsProgrammItem(models.Model):
     course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
 
     class Meta:
-        verbose_name='Части Семинара'
+        verbose_name='Часть Семинара'
+        verbose_name_plural='Части Семинара'
 
     def __str__(self):
         return self.title
@@ -142,7 +149,8 @@ class CoursesVariants(models.Model):
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
-        verbose_name='Варианты курса'
+        verbose_name='Вариант курса'
+        verbose_name_plural='Варианты курса'
 
     def __str__(self):
         return self.title
@@ -155,7 +163,8 @@ class EventsVariants(models.Model):
     course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
 
     class Meta:
-        verbose_name='Варианты Семинара'
+        verbose_name='Вариант Семинара'
+        verbose_name_plural='Варианты Семинара'
 
     def __str__(self):
         return self.title
@@ -168,7 +177,8 @@ class CoursesReviews(models.Model):
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
-        verbose_name='Отзывы о курсе'
+        verbose_name='Отзыв о курсе'
+        verbose_name_plural='Отзывы о курсе'
 
     def __str__(self):
         return self.title
@@ -182,7 +192,8 @@ class EventsReviews(models.Model):
     course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
 
     class Meta:
-        verbose_name='Отзывы о семинаре'
+        verbose_name='Отзыв о семинаре'
+        verbose_name_plural='Отзывы о семинаре'
 
     def __str__(self):
         return self.title
