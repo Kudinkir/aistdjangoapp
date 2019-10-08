@@ -19,6 +19,10 @@
         }
     }
 
+    @modifier subscribe {
+        min-height: 490px;
+    }
+
     @modifier bt {
         border-top: 2px solid var(--color-secondary);
     }

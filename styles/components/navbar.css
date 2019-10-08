@@ -13,7 +13,8 @@
 
     @media (--viewport-tablet) {
         flex-direction: row;
-        padding: 22px 0;
+        height: 100%;
+        margin: 0 -20px;
     }
 
     @element item {
@@ -29,6 +30,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 0;
+            padding: 0 20px;
         }
 
         @modifier dropdown {
@@ -63,6 +65,7 @@
         text-decoration: none;
         padding: 8px 0;
         transition: color 0.2s ease;
+        white-space: nowrap;
 
         @media (--viewport-tablet) {
             font-weight: 400;
