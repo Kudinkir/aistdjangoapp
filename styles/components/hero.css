@@ -26,16 +26,24 @@
                 background: no-repeat url('~svgIcons/homepage.svg') center 100% / contain;
             }
         }
+
+        @media (--viewport-desktop--wide) {
+            height: 100vh;
+        }
     }
 
     @element row {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        flex-wrap: wrap;
-
+        
         @media (--viewport-ipad) {
             flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        @media (--viewport-desktop--wide) {
+            height: 100%;
         }
     }
 
@@ -93,6 +101,8 @@
     @element right {
         flex: 0 0 100%;
         max-width: 100%;
+        width: 100%;
+        background: no-repeat center center / cover;
 
         @media (--viewport-desktop--wide) {
             flex: 1 1;
@@ -101,10 +111,20 @@
 
     @element image-wrapper {
         position: relative;
+        background: none;
+
+        @media (--viewport-desktop--wide) {
+            height: 100%;
+            background: no-repeat center / cover;
+        }
     }
 
     @element image {
         width: 100%;
+
+        @media (--viewport-desktop--wide) {
+            display: none;
+        }
     }
 
     @element benefits {

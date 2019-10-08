@@ -11,7 +11,7 @@
                         </h1>
                     </div>
                     <div class="hero__right">
-                        <div class="hero__image-wrapper">
+                        <div class="hero__image-wrapper" style="background-image: url({{ MEDIA_URL }}{{ main_block.images.url }})">
                             <div class="hero__circle circle">
                                 <a href="/events/test-event" class="circle__inner">
                                     {% if events_main.0.start_date %}
