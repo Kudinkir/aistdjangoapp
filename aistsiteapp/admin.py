@@ -86,13 +86,13 @@ class BlocksAdmin(admin.ModelAdmin):
 
 class VideoCoursesAdmin(admin.ModelAdmin):
 	inlines = [LessonsInline, CoursesReviewsInline, CoursesVariantsInline]
-	list_display = ('id', 'name', 'slug','prior','on_main')
+	list_display = ('name', 'slug','prior','on_main')
 	# list_filter = ['published_date', 'slug']
 	# search_fields = ['name','tech_title','slug']
 
 class EventsAdmin(admin.ModelAdmin):
 	inlines = [EventsVariantsInline, EventsProgrammItemInline, EventsReviewsInline]
-	list_display = ('id', 'name', 'slug','on_main')
+	list_display = ('name', 'slug','on_main')
 
 class MenuItemInline(admin.TabularInline):
     model = MenuItemBlocks
