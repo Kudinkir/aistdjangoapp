@@ -42,17 +42,18 @@ class Blocks(models.Model):
         return self.name
 
 class VideoCourses(models.Model):
-    name=models.CharField(max_length=255)
-    text=HTMLField('Text')
-    images = models.ImageField(upload_to='images/', blank=True)
-    video =  models.CharField(max_length=255,  blank=True, null=True)
-    slug = models.CharField(max_length=255,  blank=True, null=True, verbose_name='URL')
-    about_course  = HTMLField('about_course', blank=True, null=True)
-    students_results  = HTMLField('students_results', blank=True, null=True)
     on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
     prior=models.IntegerField(verbose_name='Приоритет', default=100)
-    second_text = HTMLField('Second_text',blank=True, null=True)
+    name=models.CharField(max_length=255)
     lesson_text = models.CharField(max_length=255,blank=True, null=True,verbose_name='Кол-во уроков и часов')
+    video =  models.CharField(max_length=255,  blank=True, null=True)
+    slug = models.CharField(max_length=255,  blank=True, null=True, verbose_name='URL')
+    images = models.ImageField(upload_to='images/', blank=True)
+    text=HTMLField('Текст')
+    students_results  = HTMLField('Результаты студентов', blank=True, null=True)
+    about_course  = HTMLField('О курсе', blank=True, null=True)
+    second_text = HTMLField('Дополнительный текст',blank=True, null=True)
+
 
     class Meta:
         verbose_name='Видеокурс'
@@ -93,6 +94,7 @@ class Callback(models.Model):
 
     class Meta:
         verbose_name='Обратная связь'
+        verbose_name_plural='Обратная связь'
 
     def __str__(self):
         return self.user_name

@@ -85,7 +85,7 @@ class BlocksAdmin(admin.ModelAdmin):
 	inlines = [BlocksInline]
 
 class VideoCoursesAdmin(admin.ModelAdmin):
-	inlines = [LessonsInline, CoursesVariantsInline, CoursesReviewsInline]
+	inlines = [LessonsInline, CoursesReviewsInline, CoursesVariantsInline]
 	list_display = ('id', 'name', 'slug','prior','on_main')
 	# list_filter = ['published_date', 'slug']
 	# search_fields = ['name','tech_title','slug']
