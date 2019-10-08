@@ -41,9 +41,11 @@ def videocourses_item(request, slug):
     videocourse.lessons = Lessons.objects.filter(course_id=videocourse.id)
     videocourse.variants = CoursesVariants.objects.filter(course_id=videocourse.id)
     videocourse.reviews = CoursesReviews.objects.filter(course_id=videocourse.id)
+    about_block = Blocks.objects.get(id=15)
     other_courses = VideoCourses.objects.exclude(id=videocourse.id)[:3]
     return render(request, 'aistsiteapp/videocourses_item.html', {
         'videocourse' : videocourse,
+        'about_block' : about_block,
         'other_courses' : other_courses,
     })
 
@@ -58,9 +60,11 @@ def events_item(request, slug):
     event.variants = EventsVariants.objects.filter(course_id=event.id)
     event.program_item = EventsProgrammItem.objects.filter(course_id=event.id)
     event.reviews = EventsReviews.objects.filter(course_id=event.id)
+    about_block = Blocks.objects.get(id=15)
     other_events = Events.objects.exclude(id=event.id)[:3]
     return render(request, 'aistsiteapp/events_item.html', {
         'event' : event,
+        'about_block' : about_block,
         'other_events' : other_events,
     })
 
