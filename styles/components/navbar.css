@@ -13,7 +13,7 @@
 
     @media (--viewport-tablet) {
         flex-direction: row;
-        height: 100%;
+        padding: 22px 0;
     }
 
     @element item {

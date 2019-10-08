@@ -44,6 +44,8 @@
         display: none;
         margin-bottom: 40px;
         color: rgba(0, 0, 0, 0.72);
+        max-width: 540px;
+        line-height: 30px;
 
         &.active {
             display: block;
