@@ -127,8 +127,8 @@ class Subscribe(models.Model):
                 text = '12-19'
             elif(self.amount > 19 & self.amount <=29):
                 text = '20-29'
-            elif(self.amount > 29 & self.amount <=41):
-                '30-41'
+            if(self.amount > 29 & self.amount <=41):
+                text = '30-41'
             else:
                 text = 'После родов'
             self.text = text

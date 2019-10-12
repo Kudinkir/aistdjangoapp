@@ -103,6 +103,8 @@ class MenuAdmin(admin.ModelAdmin):
     #list_display = ['name', 'slug', 'description']
     inlines = [MenuItemInline,]
 
+class SubscribeAdmin(admin.ModelAdmin):
+	list_display = ('email', 'text','amount')
 
 admin.site = MyAdminSite()
 admin.site.register(Blocks,BlocksAdmin)
@@ -110,7 +112,7 @@ admin.site.register(Page,PageAdmin)
 admin.site.register(VideoCourses, VideoCoursesAdmin)
 admin.site.register(Events, EventsAdmin)
 admin.site.register(Callback)
-admin.site.register(Subscribe)
+admin.site.register(Subscribe, SubscribeAdmin)
 admin.site.register(Lessons)
 admin.site.register(MenuBlocks, MenuAdmin)
 admin.site.register(MenuItemBlocks, MenuAdmin)
