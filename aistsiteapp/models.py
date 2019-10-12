@@ -120,6 +120,20 @@ class Subscribe(models.Model):
     def __str__(self):
         return self.email
 
+    def save(self, *args, **kwargs):
+        if(not self.text):
+            text = '1-11';
+            if(self.amount > 11 & self.amount <=19):
+                text = '12-19'
+            elif(self.amount > 19 & self.amount <=29):
+                text = '20-29'
+            elif(self.amount > 29 & self.amount <=41):
+                '30-41'
+            else:
+                text = 'После родов'
+            self.text = text
+        super(Subscribe, self).save(*args, **kwargs)
+
 class Lessons(models.Model):
     title=models.CharField(max_length=255, verbose_name='Название')
     text=HTMLField('Text')
