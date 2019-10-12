@@ -123,13 +123,13 @@ class Subscribe(models.Model):
     def save(self, *args, **kwargs):
         if(not self.text):
             text = '1-11';
-            if(self.amount > 11 & self.amount <=19):
+            if(self.amount > 11 and self.amount <=19):
                 text = '12-19'
-            elif(self.amount > 19 & self.amount <=29):
+            if(self.amount > 19 and self.amount <=29):
                 text = '20-29'
-            if(self.amount > 29 & self.amount <=41):
+            if(self.amount > 29 and self.amount <=41):
                 text = '30-41'
-            else:
+            if(self.amount > 41):
                 text = 'После родов'
             self.text = text
         super(Subscribe, self).save(*args, **kwargs)
