@@ -3,7 +3,7 @@ const COUNT = 8;
 
 export default class Photos {
     constructor(context) {
-        this.photos = context.querySelectorAll('.instagram__grid div');
+        this.photos = context.querySelectorAll('.instagram__item');
         this.getPhotos();
     }
 
@@ -11,7 +11,8 @@ export default class Photos {
         fetch(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}&count=${COUNT}`)
             .then(resp => resp.json())
             .then(resp => resp.data.forEach((item, index) => {
-                this.photos[index].style.backgroundImage = `url("${item.images.standard_resolution.url}")`
+                this.photos[index].style.backgroundImage = `url("${item.images.standard_resolution.url}")`;
+                this.photos[index].classList.add('instagram__item--loaded')
             }))
             .catch(console.log)
     }
