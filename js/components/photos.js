@@ -13,5 +13,6 @@ export default class Photos {
             .then(resp => resp.data.forEach((item, index) => {
                 this.photos[index].style.backgroundImage = `url("${item.images.standard_resolution.url}")`
             }))
+            .catch(console.log)
     }
 }
