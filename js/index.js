@@ -6,6 +6,7 @@ import Carousel from './components/carousel/index';
 import Tabs from './components/tabs';
 import SubscribeForm from './components/subscribeForm';
 import ContactForm from './components/contactForm';
+import Photos from './components/photos';
 
 const importedComponents = {
     MobileMenu,
@@ -14,6 +15,7 @@ const importedComponents = {
     Tabs,
     SubscribeForm,
     ContactForm,
+    Photos
 };
 
 const initComponents = (rootNode = document, COMPONENT_IDENTIFIER) => {
