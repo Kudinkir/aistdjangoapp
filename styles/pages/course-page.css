@@ -68,7 +68,35 @@
     }
 
     @element columns {
-        padding-left: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 30px;
+
+        @media (--viewport-desktop) {
+            flex-wrap: nowrap;
+            padding-left: 0;
+        }
+
+        & ul {
+            flex: 0 0 100%;
+            
+            @media (--viewport-desktop) {
+                flex: 0 1 377px;
+                margin-right: 50px;
+                margin-left: 0;
+            }
+        }
+
+        & p {
+            flex: 0 0 100%;
+            margin-top: 24px;
+            margin-left: -30px;
+
+            @media (--viewport-desktop) {
+                flex: 0 1 377px;
+                margin-top: 0;
+            }
+        }
     }
 
     @element row {
@@ -115,15 +143,44 @@
         }
     }
 
+    @element benefits-container {
+        position: relative;
+    }
+
     @element benefits {
-        /*display: flex;*/
-        overflow-x: auto;
-        margin-top: 64px;
+        overflow: auto;
+        display: flex;
+        margin: 40px 0 0 0;
+
+        @media (--viewport-widee) {
+            margin: 64px -15px 0;
+            flex-wrap: wrap;
+        }
+    }
+
+    @element carousel {
+        position: absolute;
+        bottom: -80px;
+        right: 0;
+        z-index: 11;
+
+        @media (--viewport-desktop) {
+            bottom: -50px;
+        }
+
+        @media (--viewport-widee) {
+            display: none;
+        }
     }
 
     @element benefit {
-        flex: 1;
-        padding: 0 27px;
+        flex: 0 0 270px;
+
+        @media (--viewport-widee) {
+            flex: 0 0 40%;
+            margin: 0 0 40px 0;
+            padding: 0 15px;
+        }
     }
 
     @element promotext {
