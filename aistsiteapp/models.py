@@ -137,7 +137,7 @@ class Subscribe(models.Model):
 class Lessons(models.Model):
     title=models.CharField(max_length=255, verbose_name='Название')
     text=HTMLField('Text')
-    duration=models.CharField(max_length=255, verbose_name='Длительность',blank=True,)
+    #duration=models.CharField(max_length=255, verbose_name='Длительность',blank=True,)
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
