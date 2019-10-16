@@ -83,6 +83,7 @@ class PageAdmin(admin.ModelAdmin):
 
 class BlocksAdmin(admin.ModelAdmin):
 	inlines = [BlocksInline]
+	list_display = ('tech_name','name')
 
 class VideoCoursesAdmin(admin.ModelAdmin):
 	inlines = [LessonsInline, CoursesReviewsInline, CoursesVariantsInline]
