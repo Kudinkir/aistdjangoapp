@@ -43,6 +43,7 @@ class Blocks(models.Model):
 
 class VideoCourses(models.Model):
     on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
+    visible = models.BooleanField(blank=True,default=False,verbose_name='Видимость')
     prior=models.IntegerField(verbose_name='Приоритет', default=100)
     name=models.CharField(max_length=255)
     lesson_text = models.CharField(max_length=255,blank=True, null=True,verbose_name='Кол-во уроков и часов')
@@ -69,13 +70,14 @@ class VideoCourses(models.Model):
         super(VideoCourses, self).save(*args, **kwargs)
 
 class Events(models.Model):
+    on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
+    visible = models.BooleanField(blank=True,default=False,verbose_name='Видимость')
     name=models.CharField(max_length=255)
     images = models.ImageField(upload_to='images/', blank=True)
     video =  models.CharField(max_length=255,  blank=True, null=True)
     slug = models.CharField(max_length=255,  blank=True, null=True)
     text=HTMLField('Text')
     prior=models.IntegerField(verbose_name='Приоритет', default=100)
-    on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
     start_date=models.DateTimeField(blank=True, default=now)
     place =  models.CharField(max_length=255,  blank=True, null=True,verbose_name='Место проведения')
 
@@ -137,7 +139,7 @@ class Subscribe(models.Model):
 class Lessons(models.Model):
     title=models.CharField(max_length=255, verbose_name='Название')
     text=HTMLField('Text')
-    duration=models.CharField(max_length=255, verbose_name='Длительность, 1 час',blank=True,)
+    #duration=models.CharField(max_length=255, verbose_name='Длительность',blank=True,)
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
@@ -233,9 +235,9 @@ class MenuBlocks(models.Model):
             self.items = MenuItemBlocks.objects.filter(menu_id=self.id)
             for item in self.items:
                 if item.display_video:
-                    item.childrens = VideoCourses.objects.all()
+                    item.childrens = VideoCourses.objects.filter(visible=True)
                 elif item.display_event:
-                    item.childrens = Events.objects.all()
+                    item.childrens = Events.objects.filter(visible=True)
                 childrens = MenuItemBlocks.objects.filter(menu_item_id=item.id)
                 if len(childrens):
                     item.childrens = childrens
