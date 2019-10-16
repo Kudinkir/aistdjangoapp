@@ -31,13 +31,13 @@ def home(request):
     })
 
 def videocourses(request):
-    videocourses = VideoCourses.objects.all()
+    videocourses = VideoCourses.objects.filter(visible=True)
     return render(request, 'aistsiteapp/videocourses.html', {
         'videocourses' : videocourses,
     })
 
 def videocourses_item(request, slug):
-    videocourse = VideoCourses.objects.get(slug=slug)
+    videocourse = get_object_or_404(VideoCourses, slug=slug, visible=True)
     videocourse.lessons = Lessons.objects.filter(course_id=videocourse.id)
     videocourse.variants = CoursesVariants.objects.filter(course_id=videocourse.id)
     videocourse.reviews = CoursesReviews.objects.filter(course_id=videocourse.id)
@@ -50,13 +50,13 @@ def videocourses_item(request, slug):
     })
 
 def events(request):
-    events = Events.objects.all()
+    events = Events.objects.filter(visible=True)
     return render(request, 'aistsiteapp/events.html', {
         'events' : events,
     })
 
 def events_item(request, slug):
-    event = get_object_or_404(Events, slug=slug)
+    event = get_object_or_404(Events, slug=slug, visible=True)
     event.variants = EventsVariants.objects.filter(course_id=event.id)
     event.program_item = EventsProgrammItem.objects.filter(course_id=event.id)
     event.reviews = EventsReviews.objects.filter(course_id=event.id)
