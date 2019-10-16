@@ -53,6 +53,7 @@
                             Я акушер с 10-летним стажем, перинатальный психолог, сертифицированный консультант
                             по грудном вскармливанию.
                         </div>
+                        {{ videocourse.bloks }}
                         <div class="course-page__benefits-container" data-component="CarouselItems">
                             <div class="course-page__benefits">
                                 <div class="course-page__benefit">
@@ -118,11 +119,11 @@
             {% if videocourse.reviews %}
                 <section id="feedbacks">
                     {% for item in videocourse.reviews %}
-                        <div class="feedback">
-                            <div class="feedback__col">
+                        <div class="feedback {% cycle '' 'feedback--reverse' %}">
+                            <div class="feedback__col {% cycle '' 'feedback__col--left-border' %}">
                                 <img class="feedback__image" src="{{ item.image }}" alt="" />
                             </div>
-                            <div class="feedback__col">
+                            <div class="feedback__col {% cycle 'feedback__col--left-border' '' %}">
                                 <div class="feedback__header">
                                     <h4 class="display display--h4 display--primary">{{ item.title }}</h4>
                                 </div>
