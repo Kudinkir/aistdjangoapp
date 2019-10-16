@@ -12,8 +12,8 @@ def home(request):
     main_block = Blocks.objects.get(id=1)
     second_block = Blocks.objects.get(id=2)
     second_block.bloks = Blocks.objects.filter(block_id=2)
-    videocourses_main = VideoCourses.objects.order_by('prior').filter(on_main=True)
-    events_main = Events.objects.order_by('prior').filter(on_main=True)
+    videocourses_main = VideoCourses.objects.order_by('prior').filter(on_main=True,visible=True)
+    events_main = Events.objects.order_by('prior').filter(on_main=True,visible=True)
     instagram_block = Blocks.objects.get(tech_name='insta_block')
     youtube_block = Blocks.objects.get(tech_name='youtube_block')
     for course in videocourses_main:
