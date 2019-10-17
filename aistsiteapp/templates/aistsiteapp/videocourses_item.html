@@ -120,7 +120,7 @@
                     {% for item in videocourse.reviews %}
                         <div class="feedback {% cycle '' 'feedback--reverse' %}">
                             <div class="feedback__col {% cycle '' 'feedback__col--left-border' %}">
-                                <img class="feedback__image" src="{{ item.image }}" alt="" />
+                                <img class="feedback__image" src="{{ item.image.url }}" alt="" />
                             </div>
                             <div class="feedback__col {% cycle 'feedback__col--left-border' '' %}">
                                 <div class="feedback__header">
