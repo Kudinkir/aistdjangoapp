@@ -30,9 +30,24 @@
                             <a href="#result" class="sidebar__link">Результаты</a>
                         </li>
                     {% endif %}
+                    {% if videocourse.about_course %}
+                        <li class="sidebar__item">
+                            <a href="#about_course" class="sidebar__link">О курсе</a>
+                        </li>
+                    {% endif %}
+                    {% if videocourse.lessons %}
+                        <li class="sidebar__item">
+                            <a href="#lessons" class="sidebar__link">Программа обучения</a>
+                        </li>
+                    {% endif %}
                     {% if videocourse.reviews %}
                         <li class="sidebar__item">
                             <a href="#feedbacks" class="sidebar__link">Отзывы</a>
+                        </li>
+                    {% endif %}
+                    {% if videocourse.variants %}
+                        <li class="sidebar__item">
+                            <a href="#courses" class="sidebar__link">Варианты курса</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -85,7 +100,7 @@
                 </section>
             {% endif %}
             {% if videocourse.about_course %}
-                <section class="course-page__section course-page__section--primary">
+                <section id="about_course" class="course-page__section course-page__section--primary">
                     <h2 class="display display--h2 display--secondary course-page__section-title">О курсе</h2>
                     <div class="course-page__section-about">
                         {{ videocourse.about_course|safe }}
