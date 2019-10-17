@@ -168,7 +168,7 @@
                         </div>
                         {% if item.images %}
                             <div class="card__image card__image--full-width">
-                                <img src="{{ item.images.url }}" alt="" />
+                                <img src="{{ MEDIA_URL }}{{ item.images.url }}" alt="" />
                             </div>
                         {% endif %}
                     </div>
