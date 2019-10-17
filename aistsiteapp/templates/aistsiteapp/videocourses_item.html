@@ -120,7 +120,7 @@
                     {% for item in videocourse.reviews %}
                         <div class="feedback {% cycle '' 'feedback--reverse' %}">
                             <div class="feedback__col {% cycle '' 'feedback__col--left-border' %}">
-                                <img class="feedback__image" src="{{ item.image }}" alt="" />
+                                <img class="feedback__image" src="{{ MEDIA_URL }}{{ item.image }}" alt="" />
                             </div>
                             <div class="feedback__col {% cycle 'feedback__col--left-border' '' %}">
                                 <div class="feedback__header">
@@ -168,7 +168,7 @@
                         </div>
                         {% if item.images %}
                             <div class="card__image card__image--full-width">
-                                <img src="{{ MEDIA_URL }}{{ item.images.url }}" alt="" />
+                                <img src="{{ item.images.url }}" alt="" />
                             </div>
                         {% endif %}
                     </div>
