@@ -135,7 +135,9 @@
                     {% for item in videocourse.reviews %}
                         <div class="feedback {% cycle '' 'feedback--reverse' %}">
                             <div class="feedback__col {% cycle '' 'feedback__col--left-border' %}">
+                              {% if item.image %}
                                 <img class="feedback__image" src="{{ item.image.url }}" alt="" />
+                              {% endif %}
                             </div>
                             <div class="feedback__col {% cycle 'feedback__col--left-border' '' %}">
                                 <div class="feedback__header">
