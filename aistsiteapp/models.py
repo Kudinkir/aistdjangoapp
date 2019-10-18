@@ -167,7 +167,7 @@ class CoursesVariants(models.Model):
     title=models.CharField(max_length=255, blank=True, null=True, verbose_name='Название')
     text=HTMLField('Text')
     price=models.CharField(max_length=255, verbose_name='Цена')
-    price_link=models.CharField(max_length=255, verbose_name='Сыылка на оплату',blank=True, null=True,)
+    price_link=models.TextField(verbose_name='Сыылка на оплату',blank=True, null=True,)
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
