@@ -73,7 +73,6 @@ class EventsVariantsInline(admin.StackedInline):  # instead of ModelAdmin
 class CoursesReviewsInline(admin.StackedInline):  # instead of ModelAdmin
     model = CoursesReviews
     extra = 1
-    max_num = 2
 
 class PageAdmin(admin.ModelAdmin):
 	inlines = [BlocksInline]

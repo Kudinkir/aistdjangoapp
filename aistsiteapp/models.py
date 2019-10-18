@@ -17,8 +17,8 @@ class Page(models.Model):
     slug = models.CharField(max_length=255,  blank=True, null=True)
 
     class Meta:
-        verbose_name='Страница'
-        verbose_name_plural='Страницы'
+        verbose_name='Page'
+        verbose_name_plural='Pages'
 
     def __str__(self):
         return self.name
@@ -73,7 +73,7 @@ class VideoCourses(models.Model):
 class Events(models.Model):
     on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
     visible = models.BooleanField(blank=True,default=False,verbose_name='Видимость')
-    name=models.CharField(max_length=255)
+    name=models.CharField(max_length=255, blank=True)
     images = models.ImageField(upload_to='images/', blank=True)
     video =  models.CharField(max_length=255,  blank=True, null=True)
     slug = models.CharField(max_length=255,  blank=True, null=True)
@@ -90,10 +90,10 @@ class Events(models.Model):
         return self.name
 
 class Callback(models.Model):
-    user_name=models.CharField(max_length=255, verbose_name='Имя пользователя')
-    email = models.EmailField(max_length=255)
+    user_name=models.CharField(max_length=255, blank=True, verbose_name='Имя пользователя')
+    email = models.EmailField(max_length=255, unique=True,)
     text=HTMLField('Text')
-    personal_agree=models.BooleanField()
+    personal_agree=models.BooleanField(default=True)
 
     class Meta:
         verbose_name='Обратная связь'
@@ -138,7 +138,7 @@ class Subscribe(models.Model):
         super(Subscribe, self).save(*args, **kwargs)
 
 class Lessons(models.Model):
-    title=models.CharField(max_length=255, verbose_name='Название')
+    title=models.CharField(max_length=255, blank=True, verbose_name='Название')
     text=HTMLField('Text')
     #duration=models.CharField(max_length=255, verbose_name='Длительность',blank=True,)
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
@@ -151,7 +151,7 @@ class Lessons(models.Model):
         return self.title
 
 class EventsProgrammItem(models.Model):
-    title=models.CharField(max_length=255, verbose_name='Название')
+    title=models.CharField(max_length=255,blank=True, verbose_name='Название')
     text=HTMLField('Text')
     duration=models.CharField(max_length=255, verbose_name='Длительность, 1 час',blank=True,)
     course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
@@ -166,8 +166,8 @@ class EventsProgrammItem(models.Model):
 class CoursesVariants(models.Model):
     title=models.CharField(max_length=255, blank=True, null=True, verbose_name='Название')
     text=HTMLField('Text')
-    price=models.CharField(max_length=255, verbose_name='Цена')
-    price_link=models.CharField(max_length=255, verbose_name='Сыылка на оплату',blank=True, null=True,)
+    price=models.CharField(max_length=255, blank=True, verbose_name='Цена')
+    price_link=models.TextField(verbose_name='Ссылка на оплату',blank=True, null=True,)
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
@@ -178,10 +178,10 @@ class CoursesVariants(models.Model):
         return self.title
 
 class EventsVariants(models.Model):
-    title=models.CharField(max_length=255, verbose_name='Название')
+    title=models.CharField(max_length=255, verbose_name='Название', blank=True)
     text=HTMLField('Text')
-    price=models.CharField(max_length=255, verbose_name='Цена')
-    price_link=models.CharField(max_length=255, verbose_name='Сыылка на оплату',blank=True, null=True,)
+    price=models.CharField(max_length=255, blank=True, verbose_name='Цена')
+    price_link=models.CharField(max_length=255, verbose_name='Ссылка на оплату',blank=True, null=True,)
     course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
 
     class Meta:
@@ -192,9 +192,9 @@ class EventsVariants(models.Model):
         return self.title
 
 class CoursesReviews(models.Model):
-    title=models.CharField(max_length=255, verbose_name='Заголовок')
+    title=models.CharField(max_length=255, blank=True,verbose_name='Заголовок')
     text=HTMLField('Text')
-    autor=models.CharField(max_length=255, verbose_name='Автор')
+    autor=models.CharField(max_length=255, blank=True,verbose_name='Автор')
     image=models.ImageField(upload_to='images/', blank=True)
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
@@ -206,11 +206,11 @@ class CoursesReviews(models.Model):
         return self.title
 
 class EventsReviews(models.Model):
-    title=models.CharField(max_length=255, verbose_name='Заголовок')
+    title=models.CharField(max_length=255, verbose_name='Заголовок', blank=True)
     text=HTMLField('Text')
-    autor=models.CharField(max_length=255, verbose_name='Автор')
+    autor=models.CharField(max_length=255, verbose_name='Автор', blank=True)
     image=models.ImageField(upload_to='images/', blank=True)
-    video=models.CharField(max_length=255, verbose_name='Ссылка на видео')
+    video=models.CharField(max_length=255, blank=True, verbose_name='Ссылка на видео')
     course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
 
     class Meta:
