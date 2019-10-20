@@ -7,6 +7,10 @@
         @media (--viewport-desktop) {
             margin: 0 -27px;
         }
+
+        @modifier {
+            justify-content: center;
+        }
     }
 
     @element col {
