@@ -13,14 +13,16 @@
                     <div class="hero__right">
                         <div class="hero__image-wrapper" style="background-image: url({{ MEDIA_URL }}{{ main_block.images.url }})">
                             <div class="hero__circle circle">
-                                <a href="/events/test-event" class="circle__inner">
-                                    {% if events_main.0.start_date %}
-                                        {{ events_main.0.start_date.date }} <br />
-                                    {% endif %}
-                                    {% if events_main.0.place %}
-                                        <small>{{ events_main.0.place }}</small>
-                                    {% endif %}
-                                </a>
+                                {% if events_main.0 %}
+                                    <a href="{{ events_main.0.slug }}" class="circle__inner">
+                                        {% if events_main.0.start_date %}
+                                            {{ events_main.0.start_date.date }} <br />
+                                        {% endif %}
+                                        {% if events_main.0.place %}
+                                            <span class="hero__city">{{ events_main.0.place }}</span>
+                                        {% endif %}
+                                    </a>
+                                {% endif %}
                             </div>
                             <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" alt="" />
                         </div>

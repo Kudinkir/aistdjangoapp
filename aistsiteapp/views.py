@@ -12,8 +12,8 @@ def home(request):
     main_block = Blocks.objects.get(id=1)
     second_block = Blocks.objects.get(id=2)
     second_block.bloks = Blocks.objects.filter(block_id=2)
-    videocourses_main = VideoCourses.objects.order_by('prior').filter(on_main=True)
-    events_main = Events.objects.order_by('prior').filter(on_main=True)
+    videocourses_main = VideoCourses.objects.order_by('prior').filter(on_main=True,visible=True)
+    events_main = Events.objects.order_by('prior').filter(on_main=True,visible=True)
     instagram_block = Blocks.objects.get(tech_name='insta_block')
     youtube_block = Blocks.objects.get(tech_name='youtube_block')
     for course in videocourses_main:
@@ -31,13 +31,13 @@ def home(request):
     })
 
 def videocourses(request):
-    videocourses = VideoCourses.objects.all()
+    videocourses = VideoCourses.objects.filter(visible=True)
     return render(request, 'aistsiteapp/videocourses.html', {
         'videocourses' : videocourses,
     })
 
 def videocourses_item(request, slug):
-    videocourse = VideoCourses.objects.get(slug=slug)
+    videocourse = get_object_or_404(VideoCourses, slug=slug, visible=True)
     videocourse.lessons = Lessons.objects.filter(course_id=videocourse.id)
     videocourse.variants = CoursesVariants.objects.filter(course_id=videocourse.id)
     videocourse.reviews = CoursesReviews.objects.filter(course_id=videocourse.id)
@@ -50,13 +50,13 @@ def videocourses_item(request, slug):
     })
 
 def events(request):
-    events = Events.objects.all()
+    events = Events.objects.filter(visible=True)
     return render(request, 'aistsiteapp/events.html', {
         'events' : events,
     })
 
 def events_item(request, slug):
-    event = get_object_or_404(Events, slug=slug)
+    event = get_object_or_404(Events, slug=slug, visible=True)
     event.variants = EventsVariants.objects.filter(course_id=event.id)
     event.program_item = EventsProgrammItem.objects.filter(course_id=event.id)
     event.reviews = EventsReviews.objects.filter(course_id=event.id)
@@ -86,10 +86,10 @@ def subscribe(request):
     return JsonResponse({'errors': errors})
 
 def callback(request):
+    errors = 1
     if request.method == "POST":
         form = CallbackForm(request.POST)
         if form.is_valid():
             form.save()
-            return JsonResponse({'errors': 0})
-    else:
-        return JsonResponse({'errors': 'Use post method!'})
+            errors = 0
+    return JsonResponse({'errors': errors})

@@ -9,8 +9,8 @@
             &::after {
                 content: '';
                 position: absolute;
-                top: 50px;
-                bottom: 20px;
+                top: 10px;
+                bottom: 10px;
                 left: 30px;
                 right: 50%;
                 background: no-repeat url('~svgIcons/Group4.svg') center / contain;

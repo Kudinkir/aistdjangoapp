@@ -30,6 +30,7 @@ urlpatterns = [
     path('events/', views.events, name='events'),
     path('events/<str:slug>', views.events_item, name='events_item'),
     path('subscribe', views.subscribe, name='subscribe'),
+    path('callback', views.subscribe, name='callback'),
     path('<str:slug>', views.pages, name='pages'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

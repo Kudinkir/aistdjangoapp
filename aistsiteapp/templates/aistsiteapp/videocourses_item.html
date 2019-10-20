@@ -30,9 +30,24 @@
                             <a href="#result" class="sidebar__link">Результаты</a>
                         </li>
                     {% endif %}
+                    {% if videocourse.about_course %}
+                        <li class="sidebar__item">
+                            <a href="#about_course" class="sidebar__link">О курсе</a>
+                        </li>
+                    {% endif %}
+                    {% if videocourse.lessons %}
+                        <li class="sidebar__item">
+                            <a href="#lessons" class="sidebar__link">Программа обучения</a>
+                        </li>
+                    {% endif %}
                     {% if videocourse.reviews %}
                         <li class="sidebar__item">
                             <a href="#feedbacks" class="sidebar__link">Отзывы</a>
+                        </li>
+                    {% endif %}
+                    {% if videocourse.variants %}
+                        <li class="sidebar__item">
+                            <a href="#courses" class="sidebar__link">Варианты курса</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -48,31 +63,29 @@
                         <img src="https://placehold.it/324x432" alt="" />
                     </div>
                     <div class="course-page__col course-page__col--text">
-                        <h2 class="display display--primary display--h2 course-page__section-title">Меня зовут Марина Аист</h2>
+                        <h2 class="display display--primary display--h2 course-page__section-title">{{ about_block }}</h2>
                         <div class="course-page__text">
                             Я акушер с 10-летним стажем, перинатальный психолог, сертифицированный консультант
                             по грудном вскармливанию.
                         </div>
-                        <div class="course-page__benefits" data-component="Carousel" hidden>
-                            <div class="course-page__benefit">
-                                <h2 class="benefits__title">10 лет</h2>
-                                <div class="benefits__text">
-                                    стаж работы акушером и перинатальным психологом
+                        <div class="course-page__benefits-container" data-component="CarouselItems">
+                            <div class="course-page__benefits">
+                                <div class="course-page__benefit">
+                                    <h2 class="benefits__title">10 лет</h2>
+                                    <div class="benefits__text">
+                                        стаж работы акушером и перинатальным психологом
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="course-page__benefit">
-                                <h2 class="benefits__title">3097 родов</h2>
-                                <div class="benefits__text">приняла за время работы в роддоме</div>
-                            </div>
-                            <div class="course-page__benefit">
-                                <h2 class="benefits__title">17 лет</h2>
-                                <div class="benefits__text">
-                                    работаю над методикой подготовки к родам, веду курсы и мастер-классы
+                                <div class="course-page__benefit">
+                                    <h2 class="benefits__title">3097 родов</h2>
+                                    <div class="benefits__text">приняла за время работы в роддоме</div>
                                 </div>
-                            </div>
-                            <div class="course-page__benefit">
-                                <h2 class="benefits__title">6730</h2>
-                                <div class="benefits__text">женщин родили по моей методике</div>
+                                <div class="course-page__benefit">
+                                    <h2 class="benefits__title">17 лет</h2>
+                                    <div class="benefits__text">
+                                        работаю над методикой подготовки к родам, веду курсы и мастер-классы
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,9 +100,9 @@
                 </section>
             {% endif %}
             {% if videocourse.about_course %}
-                <section class="course-page__section course-page__section--primary">
+                <section id="about_course" class="course-page__section course-page__section--primary">
                     <h2 class="display display--h2 display--secondary course-page__section-title">О курсе</h2>
-                    <div>
+                    <div class="course-page__section-about">
                         {{ videocourse.about_course|safe }}
                     </div>
                 </section>
@@ -120,11 +133,13 @@
             {% if videocourse.reviews %}
                 <section id="feedbacks">
                     {% for item in videocourse.reviews %}
-                        <div class="feedback">
-                            <div class="feedback__col">
-                                <img class="feedback__image" src="{{ item.image }}" alt="" />
+                        <div class="feedback {% cycle '' 'feedback--reverse' %}">
+                            <div class="feedback__col {% cycle '' 'feedback__col--left-border' %}">
+                              {% if item.image %}
+                                <img class="feedback__image" src="{{ item.image.url }}" alt="" />
+                              {% endif %}
                             </div>
-                            <div class="feedback__col">
+                            <div class="feedback__col {% cycle 'feedback__col--left-border' '' %}">
                                 <div class="feedback__header">
                                     <h4 class="display display--h4 display--primary">{{ item.title }}</h4>
                                 </div>

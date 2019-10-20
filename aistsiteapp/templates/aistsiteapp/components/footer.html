@@ -29,6 +29,13 @@
                 </div>
             </div>
             <div class="footer__info">
+              {% if footer_info %}
+                <div class="footer__logo">{{ footer_info.name }}</div>
+                <div class="footer__copyright footer__translucent">© {% now "Y" %}, horoshierodi.ru</div>
+                <div class="footer__translucent">
+                    {{ footer_info.text|safe }}
+                </div>
+              {% else %}
                 <div class="footer__logo">Марина Аист</div>
                 <div class="footer__copyright footer__translucent">© 2019, horoshierodi.ru</div>
                 <div class="footer__translucent">
@@ -42,6 +49,7 @@
                         ИНН/КПП 120302030543
                     </div>
                 </div>
+              {% endif %}
                 <ul class="list">
                     <li class="list__item">
                         <a href="/media/docs/oferta.txt" class="link link--secondary">Договор Оферты</a>
