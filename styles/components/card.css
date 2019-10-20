@@ -87,7 +87,7 @@
         overflow: hidden;
         position: relative;
         max-height: 240px;
-        text-align: center;
+        text-align: right;
 
         & img {
             max-height: 100%;
@@ -101,6 +101,8 @@
         @modifier bg {
             flex: 0 0 60%;
             max-width: 60%;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         @modifier hero {
@@ -109,6 +111,8 @@
 
         @modifier small {
             display: none;
+            background-repeat: no-repeat;
+            background-size: cover;
 
             @media (--viewport-tablet) {
                 display: inline-block;

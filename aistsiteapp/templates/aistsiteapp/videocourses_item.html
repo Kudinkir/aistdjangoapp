@@ -137,12 +137,14 @@
                     {% endfor %}
                 </section>
             {% endif %}
-            <section class="course-page__section">
-                <div class="course-page__promotext">
-                    {{ videocourse.second_text|safe}}
-                </div>
-            </section>
-        </div>
+            {% if videocourse.second_text %}
+                <section class="course-page__section">
+                    <div class="course-page__promotext">
+                        {{ videocourse.second_text|safe}}
+                    </div>
+                </section>
+            {% end %}
+        </div>  
     </div>
     {% if videocourse.variants %}
         <section id="courses" class="section">
