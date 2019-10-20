@@ -86,7 +86,6 @@
     @element image {
         overflow: hidden;
         position: relative;
-        max-height: 240px;
         text-align: right;
 
         & img {
