@@ -218,10 +218,11 @@
         
         & span, & p {
             font-family: var(--font-serif) !important;
+            line-height: 40px !important;
         }
 
         @media (--viewport-ipad) {
-            font-size: var(--font-size-large);
+            font-size: 24px;
         }
     }
 

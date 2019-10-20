@@ -108,6 +108,10 @@
             max-height: 477px;
         }
 
+        @modifier fixed {
+            max-height: 383px;
+        }
+
         @modifier small {
             display: none;
             background-repeat: no-repeat;
