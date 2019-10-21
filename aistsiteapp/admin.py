@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Blocks, Page, VideoCourses, Events, Callback, Subscribe, Lessons, CoursesVariants,CoursesReviews, MenuBlocks, MenuItemBlocks, EventsVariants
-from .models import EventsProgrammItem, EventsReviews
+from .models import EventsProgrammItem, EventsReviews,EventsPlaces
 from django import forms
 from django.contrib.admin import AdminSite
 from django.contrib.auth.models import Group, User
@@ -62,6 +62,10 @@ class EventsReviewsInline(admin.StackedInline):  # instead of ModelAdmin
     model = EventsReviews
     extra = 1
 
+class EventsPlacesInline(admin.StackedInline):  # instead of ModelAdmin
+    model = EventsPlaces
+    extra = 1
+
 class CoursesVariantsInline(admin.StackedInline):  # instead of ModelAdmin
     model = CoursesVariants
     extra = 1
@@ -86,13 +90,13 @@ class BlocksAdmin(admin.ModelAdmin):
 
 class VideoCoursesAdmin(admin.ModelAdmin):
 	inlines = [LessonsInline, CoursesReviewsInline, CoursesVariantsInline]
-	list_display = ('name', 'slug','prior','on_main')
+	list_display = ('name', 'slug','prior','on_main','visible')
 	# list_filter = ['published_date', 'slug']
 	# search_fields = ['name','tech_title','slug']
 
 class EventsAdmin(admin.ModelAdmin):
-	inlines = [EventsVariantsInline, EventsProgrammItemInline, EventsReviewsInline]
-	list_display = ('name', 'slug','on_main')
+	inlines = [EventsPlacesInline,EventsVariantsInline, EventsProgrammItemInline, EventsReviewsInline]
+	list_display = ('name', 'slug','prior','on_main','visible')
 
 class MenuItemInline(admin.TabularInline):
     model = MenuItemBlocks

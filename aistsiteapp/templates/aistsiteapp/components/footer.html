@@ -11,7 +11,7 @@
                             {% for child in item.childrens %}
                             <li class="menu__item">
                                 <a href="{% if child.slug %}{{ item.link_url }}{{child.slug}}{% else %}{% firstof child.url child.link_url %}{% endif %}"
-                                class="link">{% firstof child.title child.name %}</a>
+                                class="link">{% firstof child.title child.name %}{% if child.start_date %}{{child.start_date.date}}{% endif %}</a>
                             </li>
                             {% endfor %}
                         </ul>
