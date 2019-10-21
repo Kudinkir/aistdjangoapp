@@ -220,6 +220,20 @@ class EventsReviews(models.Model):
     def __str__(self):
         return self.title
 
+class EventsPlaces(models.Model):
+    on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной в кружочке')
+    city=models.CharField(max_length=255, verbose_name='Место проведения', blank=True)
+    visible = models.BooleanField(blank=True,default=False,verbose_name='Видимость')
+    start_date=models.DateTimeField(blank=True, default=now)
+    course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
+
+    class Meta:
+        verbose_name='Место проведения'
+        verbose_name_plural='Места проведения'
+
+    # def __str__(self):
+    #     return self.city + self.start_date
+
 class MenuBlocks(models.Model):
         name = models.CharField(max_length=100)
         slug = models.TextField()

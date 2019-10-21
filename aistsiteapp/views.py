@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from aistsiteapp.models import Blocks, Page, VideoCourses, Events, Lessons
-from aistsiteapp.models import EventsReviews, CoursesVariants,CoursesReviews, EventsVariants, EventsProgrammItem
+from aistsiteapp.models import EventsReviews, CoursesVariants,CoursesReviews, EventsVariants, EventsProgrammItem,EventsPlaces
 from aistsiteapp.forms import SubscribeForm, CallbackForm
 from datetime import date
 
@@ -14,6 +14,8 @@ def home(request):
     second_block.bloks = Blocks.objects.filter(block_id=2)
     videocourses_main = VideoCourses.objects.order_by('prior').filter(on_main=True,visible=True)
     events_main = Events.objects.order_by('prior').filter(on_main=True,visible=True)
+    for event in events_main:
+        event.places =EventsPlaces.objects.filter(course_id=event.id)
     instagram_block = Blocks.objects.get(tech_name='insta_block')
     youtube_block = Blocks.objects.get(tech_name='youtube_block')
     for course in videocourses_main:
