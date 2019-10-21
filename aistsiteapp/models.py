@@ -5,6 +5,7 @@ from django.utils.timezone import now
 from tinymce.models import HTMLField
 from django.utils.text import slugify
 from pytils.translit import slugify
+from datetime import date
 
 
 class Page(models.Model):
@@ -252,7 +253,10 @@ class MenuBlocks(models.Model):
                 if item.display_video:
                     item.childrens = VideoCourses.objects.filter(visible=True)
                 elif item.display_event:
-                    item.childrens = Events.objects.filter(visible=True)
+                    item.childrens = EventsPlaces.objects.filter(visible=True,start_date__gte=date.today())
+                    for place in item.childrens:
+                        place.title = place.city + ' '
+                        place.start_date = place.start_date
                 childrens = MenuItemBlocks.objects.filter(menu_item_id=item.id)
                 if len(childrens):
                     item.childrens = childrens

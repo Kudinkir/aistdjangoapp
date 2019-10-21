@@ -15,7 +15,7 @@
                             {% for child in item.childrens %}
                             <a class="dropdown__item" href="
                               {% if child.slug %}{{ item.link_url }}{{child.slug}}{% else %}{{child.url}}{% endif %}">
-                              {% firstof child.title child.name %}</a>
+                              {% firstof child.title child.name %}{% if child.start_date %}{{child.start_date.date}}{% endif %}</a>
                             {% endfor %}
                         </div>
                         {% endif %}
