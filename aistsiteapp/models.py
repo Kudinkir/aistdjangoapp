@@ -232,8 +232,8 @@ class EventsPlaces(models.Model):
         verbose_name='Место проведения'
         verbose_name_plural='Места проведения'
 
-    def __str__(self):
-        return self.course_id
+    # def __str__(self):
+    #     return self.course_id
 
 class MenuBlocks(models.Model):
         name = models.CharField(max_length=100)
