@@ -18,8 +18,8 @@ class Page(models.Model):
     slug = models.CharField(max_length=255,  blank=True, null=True)
 
     class Meta:
-        verbose_name='Page'
-        verbose_name_plural='Pages'
+        verbose_name='Страницы'
+        verbose_name_plural='Страницы'
 
     def __str__(self):
         return self.name
@@ -232,8 +232,8 @@ class EventsPlaces(models.Model):
         verbose_name='Место проведения'
         verbose_name_plural='Места проведения'
 
-    # def __str__(self):
-    #     return self.city + self.start_date
+    def __str__(self):
+        return self.course_id
 
 class MenuBlocks(models.Model):
         name = models.CharField(max_length=100)
@@ -257,6 +257,7 @@ class MenuBlocks(models.Model):
                     for place in item.childrens:
                         place.title = place.city + ' '
                         place.start_date = place.start_date
+                        place.slug = place.course_id.slug
                 childrens = MenuItemBlocks.objects.filter(menu_item_id=item.id)
                 if len(childrens):
                     item.childrens = childrens
