@@ -218,11 +218,7 @@
         
         & span, & p {
             font-family: var(--font-serif) !important;
-<<<<<<< Updated upstream
             line-height: 40px !important;
-=======
-            line-height: 40px;
->>>>>>> Stashed changes
         }
 
         @media (--viewport-ipad) {
