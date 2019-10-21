@@ -8,7 +8,7 @@
             margin: 0 -27px;
         }
 
-        @modifier {
+        @modifier center {
             justify-content: center;
         }
     }
