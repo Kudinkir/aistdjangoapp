@@ -30,9 +30,24 @@
                             <a href="#result" class="sidebar__link">Результаты</a>
                         </li>
                     {% endif %}
+                    {% if videocourse.about_course %}
+                        <li class="sidebar__item">
+                            <a href="#about_course" class="sidebar__link">О курсе</a>
+                        </li>
+                    {% endif %}
+                    {% if videocourse.lessons %}
+                        <li class="sidebar__item">
+                            <a href="#lessons" class="sidebar__link">Программа обучения</a>
+                        </li>
+                    {% endif %}
                     {% if videocourse.reviews %}
                         <li class="sidebar__item">
                             <a href="#feedbacks" class="sidebar__link">Отзывы</a>
+                        </li>
+                    {% endif %}
+                    {% if videocourse.variants %}
+                        <li class="sidebar__item">
+                            <a href="#courses" class="sidebar__link">Варианты курса</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -85,9 +100,9 @@
                 </section>
             {% endif %}
             {% if videocourse.about_course %}
-                <section class="course-page__section course-page__section--primary">
+                <section id="about_course" class="course-page__section course-page__section--primary">
                     <h2 class="display display--h2 display--secondary course-page__section-title">О курсе</h2>
-                    <div>
+                    <div class="course-page__section-about">
                         {{ videocourse.about_course|safe }}
                     </div>
                 </section>
@@ -118,11 +133,13 @@
             {% if videocourse.reviews %}
                 <section id="feedbacks">
                     {% for item in videocourse.reviews %}
-                        <div class="feedback">
-                            <div class="feedback__col">
-                                <img class="feedback__image" src="{{ item.image }}" alt="" />
+                        <div class="feedback {% cycle '' 'feedback--reverse' %}">
+                            <div class="feedback__col {% cycle '' 'feedback__col--left-border' %}">
+                              {% if item.image %}
+                                <img class="feedback__image" src="{{ item.image.url }}" alt="" />
+                              {% endif %}
                             </div>
-                            <div class="feedback__col">
+                            <div class="feedback__col {% cycle 'feedback__col--left-border' '' %}">
                                 <div class="feedback__header">
                                     <h4 class="display display--h4 display--primary">{{ item.title }}</h4>
                                 </div>
@@ -135,12 +152,14 @@
                     {% endfor %}
                 </section>
             {% endif %}
-            <section class="course-page__section">
-                <div class="course-page__promotext">
-                    {{ videocourse.second_text|safe}}
-                </div>
-            </section>
-        </div>
+            {% if videocourse.second_text %}
+                <section class="course-page__section">
+                    <div class="course-page__promotext">
+                        {{ videocourse.second_text|safe}}
+                    </div>
+                </section>
+            {% endif %}
+        </div>  
     </div>
     {% if videocourse.variants %}
         <section id="courses" class="section">
@@ -160,11 +179,8 @@
                     <div class="card">
                         <a class="card__fullLink" href="{{ item.slug }}"></a>
                         <div class="card__body">
-                            <div class="card__header">{{ item.duration }}</div>
+                            <div class="card__header">1 урок: {{ item.duration }}</div>
                             <div class="display display--h4 card__title">{{ item.name }}</div>
-                            <div class="card__text">
-                                {{ item.text|safe }}
-                            </div>
                         </div>
                         {% if item.images %}
                             <div class="card__image card__image--full-width">

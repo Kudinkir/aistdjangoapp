@@ -1,5 +1,5 @@
 <div class="courses">
-    <div class="courses__row">
+    <div class="courses__row {% if videocourse.variants|length < 3 %} courses__row--center {% endif %}">
         {% for item in videocourse.variants %}
             <div class="courses__col">
                 <div class="course">

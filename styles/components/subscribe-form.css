@@ -6,6 +6,10 @@
 
     @element title {
         margin-bottom: 32px;
+
+        &.result {
+            margin-top: 30%;
+        }
     }
 
     @element field {

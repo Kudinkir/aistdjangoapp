@@ -11,7 +11,7 @@
                             {% for child in item.childrens %}
                             <li class="menu__item">
                                 <a href="{% if child.slug %}{{ item.link_url }}{{child.slug}}{% else %}{% firstof child.url child.link_url %}{% endif %}"
-                                class="link">{% firstof child.title child.name %}</a>
+                                class="link">{% firstof child.title child.name %}{% if child.start_date %}{{child.start_date.date}}{% endif %}</a>
                             </li>
                             {% endfor %}
                         </ul>
@@ -29,6 +29,13 @@
                 </div>
             </div>
             <div class="footer__info">
+              {% if footer_info %}
+                <div class="footer__logo">{{ footer_info.name }}</div>
+                <div class="footer__copyright footer__translucent">© {% now "Y" %}, horoshierodi.ru</div>
+                <div class="footer__translucent">
+                    {{ footer_info.text|safe }}
+                </div>
+              {% else %}
                 <div class="footer__logo">Марина Аист</div>
                 <div class="footer__copyright footer__translucent">© 2019, horoshierodi.ru</div>
                 <div class="footer__translucent">
@@ -42,6 +49,7 @@
                         ИНН/КПП 120302030543
                     </div>
                 </div>
+              {% endif %}
                 <ul class="list">
                     <li class="list__item">
                         <a href="/media/docs/oferta.txt" class="link link--secondary">Договор Оферты</a>

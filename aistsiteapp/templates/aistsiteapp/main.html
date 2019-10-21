@@ -13,14 +13,18 @@
                     <div class="hero__right">
                         <div class="hero__image-wrapper" style="background-image: url({{ MEDIA_URL }}{{ main_block.images.url }})">
                             <div class="hero__circle circle">
-                                <a href="/events/test-event" class="circle__inner">
-                                    {% if events_main.0.start_date %}
-                                        {{ events_main.0.start_date.date }} <br />
-                                    {% endif %}
-                                    {% if events_main.0.place %}
-                                        <small>{{ events_main.0.place }}</small>
-                                    {% endif %}
-                                </a>
+                                {% if events_main.0 %}
+                                    <a href="events/{{ events_main.0.slug }}" class="circle__inner">
+                                        {% if events_main.0.places %}
+                                            {% for place in events_main.0.places %}
+                                            {% if place.on_main %}
+                                              {{ place.start_date.date }} <br />
+                                              <span class="hero__city">{{ place.place }}</span>
+                                              {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </a>
+                                {% endif %}
                             </div>
                             <img class="hero__image" src="{{ MEDIA_URL }}{{ main_block.images.url }}" alt="" />
                         </div>
@@ -50,8 +54,10 @@
                             {% endautoescape %}
                         </div>
                         {% if videocourses_main.0.images %}
-                            <div class="card__image card__image--bg">
-                                <img src="{{ videocourses_main.0.images.url }}" alt="">
+                            <div
+                                style="background-image: url('{{  videocourses_main.0.images.url }}')"
+                                class="card__image card__image--bg"
+                            >
                             </div>
                         {% endif %}
                     </div>
@@ -63,8 +69,10 @@
                                 <div class="card">
                                     <a class="card__fullLink" href="{{ item.slug }}"></a>
                                     {% if item.images %}
-                                        <div class="card__image--small">
-                                            <img src="{{ item.images.url  }}" alt="">
+                                        <div
+                                            class="card__image--small"
+                                            style="background-image: url('{{  item.images.url }}')"
+                                        >
                                         </div>
                                     {% endif %}
                                     <div class="card__body">
