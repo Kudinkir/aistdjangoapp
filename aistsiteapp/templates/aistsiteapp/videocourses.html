@@ -29,10 +29,10 @@
                             <button class="button button--secondary button--arrow button--empty"></button>
                         </div>
                     </div>
-                    <div class="card__image card__image--hero">
-                      {% if videocourses.0.images %}
-                        <img src="{{ videocourses.0.images.url }}" alt="" />
-                      {% endif %}
+                    <div 
+                        class="card__image card__image--hero"
+                        style="background-image: url('{{ videocourses.0.images.url }}')"
+                    >
                     </div>
                 </div>
             </section>

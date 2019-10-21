@@ -179,11 +179,8 @@
                     <div class="card">
                         <a class="card__fullLink" href="{{ item.slug }}"></a>
                         <div class="card__body">
-                            <div class="card__header">{{ item.duration }}</div>
+                            <div class="card__header">1 урок: {{ item.duration }}</div>
                             <div class="display display--h4 card__title">{{ item.name }}</div>
-                            <div class="card__text">
-                                {{ item.text|safe }}
-                            </div>
                         </div>
                         {% if item.images %}
                             <div class="card__image card__image--full-width">

@@ -18,6 +18,9 @@
 
     @modifier invert {
         color: var(--color-white);
+        height: 477px;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     @element fullLink {
@@ -93,8 +96,8 @@
         }
 
         @media (--viewport-tablet) {
-            flex: 0 0 60%;
-            max-width: 60%;
+            flex: 0 0 50%;
+            max-width: 50%;
         }
 
         @modifier bg {
@@ -105,7 +108,7 @@
         }
 
         @modifier hero {
-            max-height: 477px;
+            height: 477px;
         }
 
         @modifier fixed {
