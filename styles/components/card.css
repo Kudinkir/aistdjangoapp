@@ -111,9 +111,13 @@
         }
 
         @modifier fixed {
-            min-height: 383px;
+            min-height: 205px;
             background-repeat: no-repeat;
             background-size: cover;
+
+            @media (--viewport-tablet) {
+                min-height: 383px;
+            }
         }
 
         @modifier small {
