@@ -12,9 +12,9 @@
                       {% if events_main.0.places %}
                           {% for place in events_main.0.places %}
                           <div class="section__block">
-                              <a href="{{ item.slug }}" class="button button--full-width button--extra-large">
+                              <a href="/events/{{ item.slug }}" class="button button--full-width button--extra-large">
                                     {{ place.start_date.date }} <br />
-                                    <span class="hero__city">{{ place.place }}</span>
+                                    <span class="hero__city">{{ place.city }}</span>
                               </a>
                           </div>
                           {% endfor %}
