@@ -111,7 +111,9 @@
         }
 
         @modifier fixed {
-            max-height: 383px;
+            min-height: 383px;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         @modifier small {

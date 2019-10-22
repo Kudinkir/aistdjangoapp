@@ -14,12 +14,14 @@
                         купить курс
                     </a>
                 </div>
+                {% if forloop.counter == 1 %}
+                    <div class="courses__text">
+                        Если у вас возникли проблемы с оформлением заказа, вы не нашли подходящий способ оплаты, или у
+                        вас появились вопросы, напишите нам
+                        <a class="link link--secondary" href="mailto:m.aist@yandex.ru">m.aist@yandex.ru</a>
+                    </div>
+                {% endif %}
             </div>
         {% endfor %}
-    </div>
-    <div class="courses__text">
-        Если у вас возникли проблемы с оформлением заказа, вы не нашли подходящий способ оплаты, или у
-        вас появились вопросы, напишите нам
-        <a class="link link--secondary" href="mailto:m.aist@yandex.ru">m.aist@yandex.ru</a>
     </div>
 </div>

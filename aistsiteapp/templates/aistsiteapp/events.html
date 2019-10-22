@@ -49,7 +49,7 @@
                             <div class="card card--reverse">
                                 <a class="card__fullLink" href="{{ item.slug }}"></a>
                                 <div class="card__body">
-                                    <div class="card__header">{{ item.duration }}</div>
+                                    <div class="card__header">Урок 1: {{ item.duration }}</div>
                                     <div class="card__title">{{ item.name }}</div>
                                     {% autoescape off %}
                                         <div class="card__text">
@@ -61,8 +61,7 @@
                                     </div>
                                 </div>
                                 {% if item.images %}
-                                    <div class="card__image card__image--full-width card__image--fixed">
-                                        <img src="{{ item.images.url }}" alt="" />
+                                    <div class="card__image card__image--full-width card__image--fixed" style="background-image: url('{{ item.images.url }}')">
                                     </div>
                                 {% endif %}
                             </div>

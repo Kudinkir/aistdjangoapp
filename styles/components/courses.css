@@ -29,5 +29,9 @@
     @element text {
         margin-top: 34px;
         max-width: 540px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 200px;
     }
 }
