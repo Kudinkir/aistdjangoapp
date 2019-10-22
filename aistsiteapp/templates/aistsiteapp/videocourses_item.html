@@ -12,7 +12,9 @@
                 </div>
                 {% if videocourse.images %}
                     <div class="course-hero__image">
-                        <img src="{{ videocourse.images.url }}" alt="" />
+                        {% if videocourse.video %}
+                            {{ videocourse.video|safe }}
+                        {% endif %}
                     </div>
                 {% endif %}
             </div>

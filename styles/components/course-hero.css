@@ -19,6 +19,7 @@
 
         @media (--viewport-desktop) {
             flex-direction: row;
+            align-items: center;
         }
     }
 
@@ -30,6 +31,7 @@
         text-align: center;
         font-size: 20px;
         align-items: center;
+        padding: 0 50px;
 
         @media (--viewport-desktop--wide) {
             flex: 1 1;
@@ -45,8 +47,9 @@
     @element image {
         display: flex;
         justify-content: center;
+        height: 370px;
 
-        @media (--viewport-desktop--wide) {
+        @media (--viewport-desktop) {
             flex: 1 1;
         }
     }
@@ -67,6 +70,7 @@
     @element subtitle {
         color: rgba(var(--color-white), 0.7);
         margin-bottom: 32px;
+        max-width: 432px;
 
         @media (--viewport-desktop) {
             font-size: 20px;
