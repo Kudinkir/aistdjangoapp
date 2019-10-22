@@ -10,9 +10,11 @@
                         <div class="course-hero__subtitle">{{ event.text }}</div>
                     {% endautoescape %}
                 </div>
-                {% if event.images %}
+                {% if videocourse.images %}
                     <div class="course-hero__image">
-                        <img src="{{ event.images.url }}" alt="" />
+                        {% if videocourse.video %}
+                            {{ videocourse.video|safe }}
+                        {% endif %}
                     </div>
                 {% endif %}
             </div>
