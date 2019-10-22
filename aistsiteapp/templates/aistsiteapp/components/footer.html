@@ -51,10 +51,12 @@
                 </div>
               {% endif %}
                 <ul class="list">
+                  {% for item in footer_text_menu.items %}
                     <li class="list__item">
-                        <a href="/media/docs/oferta.txt" class="link link--secondary">Договор Оферты</a>
+                        <a href="{{ item.link_url }}" class="link link--secondary">{{ item.title }}</a>
                     </li>
-                    <li class="list__item">
+                  {% endfor %}
+                    <!-- <li class="list__item">
                         <a href="#" class="link link--secondary">Политика конфиденциальности</a>
                     </li>
                     <li class="list__item">
@@ -65,7 +67,7 @@
                     </li>
                     <li class="list__item">
                         <a href="#" class="link link--secondary">Техническая поддержка</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
