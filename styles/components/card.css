@@ -87,6 +87,7 @@
         overflow: hidden;
         position: relative;
         text-align: right;
+        flex: 0 0 100%;
 
         & img {
             max-height: 100%;
@@ -105,9 +106,13 @@
         }
 
         @modifier hero {
-            height: 477px;
+            height: 205px;
             background-size: cover;
             background-repeat: no-repeat;
+
+            @media (--viewport-tablet) {
+                height: 477px;
+            }
         }
 
         @modifier fixed {

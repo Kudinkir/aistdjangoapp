@@ -1,9 +1,11 @@
 <form data-component="ContactForm">
+    {% csrf_token %}
     <div class="field-group">
         <label class="input">
             <span class="input__label">Эл. почта</span>
             <input
                 type="email"
+                name="email"
                 class="input__field"
                 placeholder="yourmail@pochta.ru"
                 required
@@ -15,6 +17,7 @@
             <span class="input__label">Сообщение</span>
             <textarea
                 class="input__field"
+                name="text"
                 placeholder="Здравствуйте, хочу узнать..."
                 required
                 rows="5"
