@@ -47,7 +47,7 @@
         }
 
         @modifier less-space {
-            padding: 80px 16px 45px;
+            padding: 80px 110px 45px 110px;
         }
 
         @media (--viewport-desktop) {
