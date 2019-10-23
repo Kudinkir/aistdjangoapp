@@ -46,6 +46,10 @@
             padding: 80px 100px 60px 127px
         }
 
+        @modifier less-space {
+            padding: 80px 16px 45px;
+        }
+
         @media (--viewport-desktop) {
             padding: 80px 110px 60px 110px;
         }
@@ -234,5 +238,10 @@
     @element actions {
         margin-top: 64px;
         text-align: center;
+        display: none;
+
+        @media (--viewport-desktop--wide) {
+            display: block;
+        }
     }
 }
