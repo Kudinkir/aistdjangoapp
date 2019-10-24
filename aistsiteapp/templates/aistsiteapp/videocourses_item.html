@@ -27,6 +27,13 @@
                     <li class="sidebar__item">
                         <a href="#author" class="sidebar__link active">Об авторе</a>
                     </li>
+                    {% if videocourse.blocks %}
+                        {% for block in videocourse.blocks %}
+                          <li class="sidebar__item">
+                              <a href="#{{ block.tech_name }}" class="sidebar__link">{{ block.name }}</a>
+                          </li>
+                        {% endfor %}
+                    {% endif %}
                     {% if videocourse.students_results %}
                         <li class="sidebar__item">
                             <a href="#result" class="sidebar__link">Результаты</a>
@@ -93,6 +100,16 @@
                     </div>
                 </div>
             </section>
+            {% if videocourse.blocks %}
+                {% for block in videocourse.blocks %}
+                  <section id="{{ block.tech_name }}" class="course-page__section">
+                      <h2 class="display display--primary display--h2 course-page__section-title">{{ block.name }}</h2>
+                      <div class="course-page__columns rte">
+                          {{ block.text|safe }}
+                      </div>
+                  </section>
+                {% endfor %}
+            {% endif %}
             {% if videocourse.students_results %}
                 <section id="result" class="course-page__section">
                     <h2 class="display display--primary display--h2 course-page__section-title">Результаты участниц</h2>
@@ -161,7 +178,7 @@
                     </div>
                 </section>
             {% endif %}
-        </div>  
+        </div>
     </div>
     {% if videocourse.variants %}
         <section id="courses" class="section">

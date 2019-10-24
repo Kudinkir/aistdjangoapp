@@ -71,6 +71,28 @@ class VideoCourses(models.Model):
             self.slug = slug
         super(VideoCourses, self).save(*args, **kwargs)
 
+class VideoBlocks(models.Model):
+    tech_name=models.CharField(max_length=255, blank=True, null=True, unique=True,verbose_name='Техническое имя')
+    prior=models.IntegerField(verbose_name='Приоритет', default=100)
+    name=models.CharField(max_length=255)
+    videocourse_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='id Видеокурса')
+    text=HTMLField('Text', blank=True, null=True)
+    images = models.ImageField(upload_to='images/', blank=True)
+    link = models.CharField(max_length=255, blank=True, null=True,verbose_name='Ссылка в блоке')
+
+    class Meta:
+        verbose_name='Блок Видеокурса'
+        verbose_name_plural='Блоки Видеокурсов'
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if(not self.tech_name):
+            tech_name=slugify(self.name)
+            self.tech_name = tech_name
+        super(VideoBlocks, self).save(*args, **kwargs)
+
 class Events(models.Model):
     on_main = models.BooleanField(blank=True,default=False,verbose_name='Выводить на главной')
     visible = models.BooleanField(blank=True,default=False,verbose_name='Видимость')

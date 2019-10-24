@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
-from aistsiteapp.models import Blocks, Page, VideoCourses, Events, Lessons
+from aistsiteapp.models import Blocks, Page, VideoCourses, Events, Lessons,VideoBlocks
 from aistsiteapp.models import EventsReviews, CoursesVariants,CoursesReviews, EventsVariants, EventsProgrammItem,EventsPlaces
 from aistsiteapp.forms import SubscribeForm, CallbackForm
 from datetime import date
@@ -17,7 +17,7 @@ def home(request):
     for event in events_main:
         event.places =EventsPlaces.objects.filter(course_id=event.id)
     instagram_block = Blocks.objects.get(tech_name='insta_block')
-    youtube_block = Blocks.objects.get(tech_name='youtube_block')
+    #youtube_block = Blocks.objects.get(tech_name='youtube_block')
     for course in videocourses_main:
         course.slug = "video-courses/"+course.slug
         course.lessons = Lessons.objects.filter(course_id=course.id)
@@ -29,7 +29,7 @@ def home(request):
         'videocourses_main': videocourses_main,
         'events_main': events_main,
         'instagram_block' : instagram_block,
-        'youtube_block' : youtube_block,
+        #'youtube_block' : youtube_block,
     })
 
 def videocourses(request):
@@ -43,6 +43,7 @@ def videocourses_item(request, slug):
     videocourse.lessons = Lessons.objects.filter(course_id=videocourse.id)
     videocourse.variants = CoursesVariants.objects.filter(course_id=videocourse.id)
     videocourse.reviews = CoursesReviews.objects.filter(course_id=videocourse.id)
+    videocourse.blocks = VideoBlocks.objects.filter(videocourse_id=videocourse.id)
     about_block = Blocks.objects.get(id=15)
     other_courses = VideoCourses.objects.exclude(id=videocourse.id)[:3]
     return render(request, 'aistsiteapp/videocourses_item.html', {
