@@ -12,8 +12,8 @@ class CallbackForm(forms.ModelForm):
     # user_name = forms.CharField(max_length=100, required=True)
     # email = forms.CharField(widget=forms.PasswordInput)
     class Meta:
-        model = Subscribe
-        fields = ('user_name', 'email', 'text', 'personal_agree')
+        model = Callback
+        fields = ( 'email', 'text')
 
 # class UserFormFormEdit(forms.ModelForm):
 #     email = forms.CharField(max_length=100, required=True)

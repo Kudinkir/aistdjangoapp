@@ -115,12 +115,15 @@ class MenuAdmin(admin.ModelAdmin):
 class SubscribeAdmin(admin.ModelAdmin):
 	list_display = ('email', 'text','amount')
 
+class CallbackAdmin(admin.ModelAdmin):
+	list_display = ('email', 'text')
+
 admin.site = MyAdminSite()
 admin.site.register(Blocks,BlocksAdmin)
 admin.site.register(Page,PageAdmin)
 admin.site.register(VideoCourses, VideoCoursesAdmin)
 admin.site.register(Events, EventsAdmin)
-admin.site.register(Callback)
+admin.site.register(Callback, CallbackAdmin)
 admin.site.register(Subscribe, SubscribeAdmin)
 admin.site.register(Lessons)
 admin.site.register(MenuBlocks, MenuAdmin)
