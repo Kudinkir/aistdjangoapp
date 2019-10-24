@@ -2,7 +2,7 @@
     width: 100%;
     position: sticky;
     top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 250px;
 
     @media (--viewport-desktop) {
         width: auto;

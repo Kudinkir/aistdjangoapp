@@ -1,6 +1,6 @@
 <div class="courses">
-    <div class="courses__row {% if videocourse.variants|length < 3 %} courses__row--center {% endif %}">
-        {% for item in videocourse.variants %}
+    <div class="courses__row {% if target.variants|length < 3 %} courses__row--center {% endif %}">
+        {% for item in target.variants %}
             <div class="courses__col">
                 <div class="course">
                     <div class="course__inner">
@@ -14,14 +14,12 @@
                         купить курс
                     </a>
                 </div>
-                {% if forloop.counter == 1 %}
-                    <div class="courses__text">
-                        Если у вас возникли проблемы с оформлением заказа, вы не нашли подходящий способ оплаты, или у
-                        вас появились вопросы, напишите нам
-                        <a class="link link--secondary" href="mailto:m.aist@yandex.ru">m.aist@yandex.ru</a>
-                    </div>
-                {% endif %}
             </div>
         {% endfor %}
+    </div>
+    <div class="courses__text">
+        Если у вас возникли проблемы с оформлением заказа, вы не нашли подходящий способ оплаты, или у
+        вас появились вопросы, напишите нам
+        <a class="link link--secondary" href="mailto:m.aist@yandex.ru">m.aist@yandex.ru</a>
     </div>
 </div>

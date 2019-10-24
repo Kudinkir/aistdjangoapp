@@ -1,4 +1,6 @@
 @block courses {
+    text-align: center;
+
     @element row {
         display: flex;
         flex-wrap: wrap;
@@ -27,11 +29,10 @@
     }
 
     @element text {
+        margin-left: 50%;
+        transform: translateX(-50%);
         margin-top: 34px;
         max-width: 540px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        min-height: 200px;
+        text-align: center;
     }
 }

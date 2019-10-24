@@ -46,8 +46,12 @@
             padding: 80px 100px 60px 127px
         }
 
+        @modifier less-space {
+            padding: 80px 16px 45px;
+        }
+
         @media (--viewport-desktop) {
-            padding: 80px 110px 60px 110px;
+            padding: 80px 110px 60px 110px !important;
         }
     }
 
@@ -218,16 +222,26 @@
         
         & span, & p {
             font-family: var(--font-serif) !important;
-            line-height: 40px !important;
+            line-height: 32px !important;
+            font-size: 16px;
         }
 
         @media (--viewport-ipad) {
-            font-size: 24px;
+
+            & span, & p {
+                line-height: 40px !important;
+                font-size: 24px;
+            }
         }
     }
 
     @element actions {
         margin-top: 64px;
         text-align: center;
+        display: none;
+
+        @media (--viewport-desktop--wide) {
+            display: block;
+        }
     }
 }

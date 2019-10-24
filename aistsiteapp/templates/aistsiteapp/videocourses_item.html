@@ -72,7 +72,7 @@
                         <img src="https://placehold.it/324x432" alt="" />
                     </div>
                     <div class="course-page__col course-page__col--text">
-                        <h2 class="display display--primary display--h2 course-page__section-title">{{ about_block }}</h2>
+                        <h2 class="display display--primary display--h2 course-page__section-title">Меня зовут Марина Аист</h2>
                         <div class="course-page__text">
                             Я акушер с 10-летним стажем, перинатальный психолог, сертифицированный консультант
                             по грудном вскармливанию.
@@ -127,7 +127,7 @@
                 </section>
             {% endif %}
             {% if videocourse.lessons %}
-                <section id="lessons" class="course-page__section" >
+                <section id="lessons" class="course-page__section course-page__section--less-space" >
                     <h2 class="display display--primary display--h2 course-page__section-title">Программа обучения</h2>
                     {% for item in videocourse.lessons %}
                         <div class="accordion" data-component="Tabs" active>
@@ -186,7 +186,7 @@
                 <div class="section__header">
                     <h2 class="display display--h3 section__title section__title--center">Варианты курса</h2>
                 </div>
-                {% include './components/courses.html' %}
+                {% include './components/courses.html' with target=videocourse %}
             </div>
         </section>
     {% endif %}

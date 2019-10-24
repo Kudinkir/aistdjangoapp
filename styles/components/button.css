@@ -63,11 +63,7 @@
     }
 
     @modifier courses {
-        display: none;
-
-        @media (--viewport-desktop--wide) {
-            display: inline-flex;
-        }
+        display: inline-flex;
     }
 
     @modifier middle {
