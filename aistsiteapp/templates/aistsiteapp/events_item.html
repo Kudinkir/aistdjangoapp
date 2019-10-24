@@ -10,62 +10,192 @@
                         <div class="course-hero__subtitle">{{ event.text }}</div>
                     {% endautoescape %}
                 </div>
-                {% if videocourse.images %}
+                {% if event.images %}
                     <div class="course-hero__image">
-                        {% if videocourse.video %}
-                            {{ videocourse.video|safe }}
+                        {% if event.video %}
+                            {{ event.video|safe }}
                         {% endif %}
                     </div>
                 {% endif %}
             </div>
         </div>
     </section>
-    <div class="course-page">
+    <div class="course-page course-page--no-border">
         <aside class="course-page__sidebar">
             <div class="sidebar">
                 <ul class="sidebar__list">
-                    <li class="sidebar__item"><a href="#" class="sidebar__link active">Об авторе</a></li>
-                    <li class="sidebar__item"><a href="#" class="sidebar__link">Результаты участниц</a></li>
-                    <li class="sidebar__item"><a href="#" class="sidebar__link">О курсе</a></li>
+                    <li class="sidebar__item">
+                        <a href="#author" class="sidebar__link active">Об авторе</a>
+                    </li>
+                    {% if event.students_results %}
+                        <li class="sidebar__item">
+                            <a href="#result" class="sidebar__link">Результаты</a>
+                        </li>
+                    {% endif %}
+                    {% if event.about_course %}
+                        <li class="sidebar__item">
+                            <a href="#about_course" class="sidebar__link">О событии</a>
+                        </li>
+                    {% endif %}
+                    {% if event.program_item %}
+                        <li class="sidebar__item">
+                            <a href="#lessons" class="sidebar__link">Программа обучения</a>
+                        </li>
+                    {% endif %}
+                    {% if event.reviews %}
+                        <li class="sidebar__item">
+                            <a href="#feedbacks" class="sidebar__link">Отзывы</a>
+                        </li>
+                    {% endif %}
+                    {% if event.variants %}
+                        <li class="sidebar__item">
+                            <a href="#courses" class="sidebar__link">Варианты курса</a>
+                        </li>
+                    {% endif %}
                 </ul>
                 <div class="sidebar__actions">
-                    <a href="#" class="button button--arrow button--full-width">купить курс</a>
+                    <a href="#courses" class="button button--arrow button--full-width">купить курс</a>
                 </div>
             </div>
         </aside>
         <div class="course-page__main">
-            <section class="course-page__section">
+            <section id="author" class="course-page__section">
                 <div class="course-page__row">
                     <div class="course-page__col course-page__col--image">
                         <img src="https://placehold.it/324x432" alt="" />
                     </div>
                     <div class="course-page__col course-page__col--text">
-                        <h2 class="display display--h2">{{ about_block }}</h2>
+                        <h2 class="display display--primary display--h2 course-page__section-title">Меня зовут Марина Аист</h2>
                         <div class="course-page__text">
                             Я акушер с 10-летним стажем, перинатальный психолог, сертифицированный консультант
                             по грудном вскармливанию.
                         </div>
-                        <div class="course-page__benefits">
-                            <div class="course-page__benefit">
-                                <h2 class="benefits__title">10 лет</h2>
-                                <div class="benefits__text">
-                                    стаж работы акушером и перинатальным психологом
+                        <div class="course-page__benefits-container" data-component="CarouselItems">
+                            <div class="course-page__benefits">
+                                <div class="course-page__benefit">
+                                    <h2 class="benefits__title">10 лет</h2>
+                                    <div class="benefits__text">
+                                        стаж работы акушером и перинатальным психологом
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="course-page__benefit">
-                                <h2 class="benefits__title">3097 родов</h2>
-                                <div class="benefits__text">приняла за время работы в роддоме</div>
-                            </div>
-                            <div class="course-page__benefit">
-                                <h2 class="benefits__title">17 лет</h2>
-                                <div class="benefits__text">
-                                    работаю над методикой подготовки к родам, веду курсы и мастер-классы
+                                <div class="course-page__benefit">
+                                    <h2 class="benefits__title">3097 родов</h2>
+                                    <div class="benefits__text">приняла за время работы в роддоме</div>
+                                </div>
+                                <div class="course-page__benefit">
+                                    <h2 class="benefits__title">17 лет</h2>
+                                    <div class="benefits__text">
+                                        работаю над методикой подготовки к родам, веду курсы и мастер-классы
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
+            {% if event.students_results %}
+                <section id="result" class="course-page__section">
+                    <h2 class="display display--primary display--h2 course-page__section-title">Результаты участниц</h2>
+                    <div class="course-page__columns rte">
+                        {{ event.students_results|safe }}
+                    </div>
+                </section>
+            {% endif %}
+            {% if event.about_course %}
+                <section id="about_course" class="course-page__section course-page__section--primary">
+                    <h2 class="display display--h2 display--secondary course-page__section-title">О курсе</h2>
+                    <div class="course-page__section-about">
+                        {{ event.about_course|safe }}
+                    </div>
+                </section>
+            {% endif %}
+            {% if event.program_item %}
+                <section id="lessons" class="course-page__section course-page__section--less-space" >
+                    <h2 class="display display--primary display--h2 course-page__section-title">Программа обучения</h2>
+                    {% for item in event.program_item %}
+                        <div class="accordion" data-component="Tabs" active>
+                            <div class="accordion__trigger" data-handle="trigger">
+                                <div class="accordion__subtitle">Урок {{ forloop.counter }}</div>
+                                <div class="accordion__header">
+                                    <h3 class="display display--h3 accordion__title">
+                                        {{ item.title }}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="accordion__content rte" data-handle="content">
+                                {{ item.text|safe }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="course-page__actions course-page__actions--center">
+                        <a href="#courses" class="button button--arrow button--middle button--courses">купить курс</a>
+                    </div>
+                </section>
+            {% endif %}
+            {% if event.reviews %}
+                <section id="feedbacks">
+                    {% for item in event.reviews %}
+                        <div class="feedback {% cycle '' 'feedback--reverse' %}">
+                            <div class="feedback__col {% cycle '' 'feedback__col--left-border' %}">
+                              {% if item.image %}
+                                <img class="feedback__image" src="{{ item.image.url }}" alt="" />
+                              {% endif %}
+                            </div>
+                            <div class="feedback__col {% cycle 'feedback__col--left-border' '' %}">
+                                <div class="feedback__header">
+                                    <h4 class="display display--h4 display--primary">{{ item.title }}</h4>
+                                </div>
+                                <div class="feedback__text rte">
+                                    {{ item.text|safe }}
+                                </div>
+                                <div class="feedback__author">{{ item.autor }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </section>
+            {% endif %}
+            {% if event.second_text %}
+                <section class="course-page__section">
+                    <div class="course-page__promotext">
+                        {{ event.second_text|safe}}
+                    </div>
+                </section>
+            {% endif %}
+        </div>  
     </div>
+    {% if event.variants %}
+        <section id="courses" class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="display display--h3 section__title section__title--center">Варианты события</h2>
+                </div>
+                {% include './components/courses.html' with target=event %}
+            </div>
+        </section>
+    {% endif %}
+    <section class="course-page__section">
+        <div class="display display--h4 videocourses__title">Другие события</div>
+        <div class="videocourses__row {% if other_courses|length < 3 %} videocourses__row--center {% endif %}">
+            {% for item in other_events %}
+                <div class="videocourses__col">
+                    <div class="card">
+                        <a class="card__fullLink" href="{{ item.slug }}"></a>
+                        <div class="card__body">
+                            <div class="card__header">1 урок: {{ item.duration }}</div>
+                            <div class="display display--h4 card__title">{{ item.name }}</div>
+                        </div>
+                        {% if item.images %}
+                            <div class="card__image card__image--full-width">
+                                <img src="{{ item.images.url }}" alt="" />
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="videocourses__actions">
+            <a href="/events/" class="button button--arrow button--standart button--large button--adaptive">все события</a>
+        </div>
+    </section>
+    {% include './components/subscribe.html' %}
 {% endblock %}

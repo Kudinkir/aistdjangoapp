@@ -29,11 +29,10 @@
     }
 
     @element text {
+        margin-left: 50%;
+        transform: translateX(-50%);
         margin-top: 34px;
         max-width: 540px;
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: flex-end;
         text-align: center;
     }
 }
