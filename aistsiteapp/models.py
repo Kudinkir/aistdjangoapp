@@ -9,11 +9,11 @@ from datetime import date
 
 
 class Page(models.Model):
-    name =models.CharField(max_length=255)
-    seo_title = models.CharField(max_length=255)
+    name =models.CharField(max_length=255, blank=True, null=True)
+    seo_title = models.CharField(max_length=255, blank=True, null=True)
     tech_title = models.CharField(max_length=255, blank=True, null=True, verbose_name='Техническое название')
-    seo_description = models.CharField(max_length=255)
-    seo_keywords = models.CharField(max_length=255)
+    seo_description = models.CharField(max_length=255, blank=True, null=True)
+    seo_keywords = models.CharField(max_length=255, blank=True, null=True)
     published_date = models.DateTimeField(auto_now=True)
     slug = models.CharField(max_length=255,  blank=True, null=True)
 
@@ -114,9 +114,10 @@ class Events(models.Model):
 
 class Callback(models.Model):
     user_name=models.CharField(max_length=255, blank=True, verbose_name='Имя пользователя')
-    email = models.EmailField(max_length=255, unique=True,)
+    email = models.EmailField(max_length=255)
     text=HTMLField('Text')
     personal_agree=models.BooleanField(default=True)
+    published_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name='Обратная связь'
@@ -138,6 +139,7 @@ class Subscribe(models.Model):
     text=models.TextField(blank=True, verbose_name='Неделя беременности',choices=STATUS)
     amount=models.IntegerField(verbose_name='Неделя беременности', default=100)
     personal_agree=models.BooleanField(default=True)
+    published_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name='Подписка'
