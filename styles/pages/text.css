@@ -4,22 +4,22 @@
     padding-top: 130px;
 
     @element header {
-        flex: 100%;
-        max-width: 100%;
+        flex: 0 0 50%;
+        max-width: 50%;
 
         @media (--viewport-desktop) {
-            flex: 0 0 50%;
-            max-width: 50%;
+            flex: 100%;
+            max-width: 100%;
         }
     }
 
     @element content {
-        flex: 0 0 100%;
-        max-width: 100%;
+        flex: 0 1 510px;
         padding-top: 24px;
 
         @media (--viewport-desktop) {
-            flex: 0 1 510px;
+            flex: 0 0 100%;
+            max-width: 100%;
         }
 
         & ol li, & ul li {
