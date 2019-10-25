@@ -1,7 +1,7 @@
 @block display {
     font-family: var(--font-serif);
     line-height: var(--headings-line-height);
-    word-wrap: break-word
+    word-wrap: break-word;
 
     @modifier primary {
         color: var(--color-primary);
