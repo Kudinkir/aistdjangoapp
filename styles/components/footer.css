@@ -1,5 +1,6 @@
 @block footer {
     position: relative;
+    border-top: 2px solid var(--color-secondary);
 
     @media (--viewport-tablet) {
         background: var(--color-primary);
@@ -42,6 +43,7 @@
                 bottom: 0;
                 background: #fff;
                 z-index: 1;
+                border-left: 2px solid var(--color-secondary);
             }
         }
 

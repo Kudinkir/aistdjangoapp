@@ -39,6 +39,7 @@
 @import url('./pages/contacts');
 @import url('./pages/content');
 @import url('./pages/events-page');
+@import url('./pages/text.css');
 
 /* JS */
 @import url('./components/carousel');

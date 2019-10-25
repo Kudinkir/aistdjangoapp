@@ -1,0 +1,48 @@
+@block text-page {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 130px;
+
+    @element header {
+        flex: 100%;
+        max-width: 100%;
+
+        @media (--viewport-desktop) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    @element content {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-top: 24px;
+
+        @media (--viewport-desktop) {
+            flex: 0 1 510px;
+        }
+
+        & ol li, & ul li {
+            margin-top: 20px;
+        }
+
+        & ol {
+            list-style-type: decimal !important;
+            list-style-position: inside !important;
+        }
+
+        & ul {
+            padding-left: 50px;
+        
+            & li {
+                position: relative;
+
+                &:before {
+                    content: "—";
+                    position: absolute;
+                    left: -28px;
+                }
+            }
+        }
+    }
+}
