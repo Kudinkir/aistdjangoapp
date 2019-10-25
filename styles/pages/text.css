@@ -32,11 +32,11 @@
 
         & ol {
             list-style-type: decimal !important;
-            list-style-position: inside !important;
+            padding-left: 17px;
         }
 
         & ul {
-            padding-left: 50px;
+            padding-left: 30px;
         
             & li {
                 position: relative;
