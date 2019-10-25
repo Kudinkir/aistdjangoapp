@@ -116,7 +116,7 @@ class SubscribeAdmin(admin.ModelAdmin):
 	list_display = ('email', 'text','amount')
 
 class CallbackAdmin(admin.ModelAdmin):
-	list_display = ('email', 'text')
+	list_display = ('email', 'text', 'published_date')
 
 admin.site = MyAdminSite()
 admin.site.register(Blocks,BlocksAdmin)
