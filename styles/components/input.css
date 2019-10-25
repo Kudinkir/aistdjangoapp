@@ -22,6 +22,10 @@
         font-size: var(--font-size-base);
         color: var(--color-font);
         margin-bottom: 11px;
+
+        @modifier white {
+            color: white;
+        }
     }
 
     @element field {

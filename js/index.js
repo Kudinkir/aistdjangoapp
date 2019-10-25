@@ -8,6 +8,7 @@ import SubscribeForm from './components/subscribeForm';
 import ContactForm from './components/contactForm';
 import Photos from './components/photos';
 import CarouselItems from './components/carouselItems';
+import Payment from './components/payment';
 
 const importedComponents = {
     MobileMenu,
@@ -17,7 +18,8 @@ const importedComponents = {
     SubscribeForm,
     ContactForm,
     Photos,
-    CarouselItems
+    CarouselItems,
+    Payment
 };
 
 const initComponents = (rootNode = document, COMPONENT_IDENTIFIER) => {

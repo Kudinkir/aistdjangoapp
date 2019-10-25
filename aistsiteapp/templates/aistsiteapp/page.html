@@ -42,6 +42,96 @@
                 </div>
             </section>
         {% endfor %}
+    {% elif page.slug == "payment" %}
+        {% for block in blocks %}
+            <section class="section">
+                <div class="container">
+                    <div class="text-page">
+                        <div class="text-page__header">
+                            <div class="display display--h3 section__title hero__title">{{ block.name|safe }}</div>
+                        </div>
+                        <div class="text-page__content">
+                            <div class="text__content section__block">
+                                <form action="https://aist.e-autopay.com/buy/save_order_data.php" method="post" data-component="Payment">
+                                    <div class="field-group">
+                                        <label class="input">
+                                            <span class="input__label input__label--white">Фамилия *</span>
+                                            <input
+                                                type="text"
+                                                name="fam"
+                                                class="input__field"
+                                                placeholder="Фамилия"
+                                                required
+                                            />
+                                        </label>
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="input">
+                                            <span class="input__label input__label--white">Имя *</span>
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                class="input__field"
+                                                placeholder="Имя"
+                                                required
+                                            />
+                                        </label>
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="input">
+                                            <span class="input__label input__label--white">Отчество</span>
+                                            <input
+                                                type="text"
+                                                name="otch"
+                                                class="input__field"
+                                                placeholder="Отчество"
+                                            />
+                                        </label>
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="input">
+                                            <span class="input__label input__label--white">Email *</span>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                class="input__field"
+                                                placeholder="yourmail@pochta.ru"
+                                                required
+                                            />
+                                        </label>
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="input">
+                                            <span class="input__label input__label--white">Телефон *</span>
+                                            <input
+                                                type="text"
+                                                name="phone"
+                                                class="input__field"
+                                                placeholder="+79515251144"
+                                                required
+                                            />
+                                        </label>
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="input">
+                                            <span class="input__label input__label--white">Ваш ПДР *</span>
+                                            <input
+                                                type="text"
+                                                name="additional_field1"
+                                                class="input__field"
+                                                placeholder="22.09.2020"
+                                                required
+                                            />
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="button button--middle button--adaptive button--secondary">отправить</button>
+                                </form>                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
     {% else %}
         {% for block in blocks %}
             <section class="section">
@@ -53,7 +143,6 @@
                         <div class="text-page__content">
                             <div class="text__content section__block">
                                 {{ block.text|safe }}
-                                </ol>
                             </div>
                         </div>
                     </div>
