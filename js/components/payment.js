@@ -3,6 +3,10 @@ export default class {
         context.addEventListener('submit', this.onSubmit.bind(this));
         this.email = context.querySelector('input[name="email"]');
         this.phone = context.querySelector('input[name="phone"]');
+        this.product = context.querySelector('input[name="tovar_id"]');
+        
+        this.id = new URLSearchParams(window.location.search).get('id');
+        this.product.value = this.id;
     }
 
     reset() {
@@ -26,6 +30,7 @@ export default class {
 
     onSubmit = e => {
         e.preventDefault();
+        if (!this.id) return;
         this.reset();
         if (this.validate()) {
             e.target.submit();
