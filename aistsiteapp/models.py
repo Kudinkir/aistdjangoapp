@@ -136,10 +136,11 @@ class Subscribe(models.Model):
     )
     user_name=models.CharField(max_length=255, verbose_name='Имя пользователя',blank=True)
     email = models.EmailField(max_length=255,unique=True,default='empty@emty.ru')
-    text=models.TextField(blank=True, verbose_name='Неделя беременности',choices=STATUS)
+    text=models.TextField(blank=True, verbose_name='Срок беременности',choices=STATUS)
     amount=models.IntegerField(verbose_name='Неделя беременности', default=100)
     personal_agree=models.BooleanField(default=True)
-    published_date = models.DateTimeField(auto_now=True)
+    published_date = models.DateTimeField(blank=True,null=True, verbose_name='Дата регистрации')
+    update_date = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
 
     class Meta:
         verbose_name='Подписка'
@@ -149,17 +150,19 @@ class Subscribe(models.Model):
         return self.email
 
     def save(self, *args, **kwargs):
-        if(not self.text):
-            text = '1-11';
-            if(self.amount > 11 and self.amount <=19):
-                text = '12-19'
-            if(self.amount > 19 and self.amount <=29):
-                text = '20-29'
-            if(self.amount > 29 and self.amount <=41):
-                text = '30-41'
-            if(self.amount > 41):
-                text = 'После родов'
-            self.text = text
+        # if(not self.text):
+        text = '1-11';
+        if(self.amount > 11 and self.amount <=19):
+            text = '12-19'
+        if(self.amount > 19 and self.amount <=29):
+            text = '20-29'
+        if(self.amount > 29 and self.amount <=41):
+            text = '30-41'
+        if(self.amount > 41):
+            text = 'После родов'
+        self.text = text
+        if(not self.published_date):
+            self.published_date = now()
         super(Subscribe, self).save(*args, **kwargs)
 
 class Lessons(models.Model):
