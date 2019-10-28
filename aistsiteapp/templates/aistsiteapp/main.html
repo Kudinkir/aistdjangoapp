@@ -18,7 +18,7 @@
                                         {% if events_main.0.places %}
                                             {% for place in events_main.0.places %}
                                             {% if place.on_main %}
-                                              {{ place.start_date.date }} <br />
+                                              {{ place.start_date.date|date:"F j" }} <br />
                                               <span class="hero__city">{{ place.city }}</span>
                                               {% endif %}
                                             {% endfor %}

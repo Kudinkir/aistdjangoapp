@@ -60,7 +60,6 @@
             right: 0;
             bottom: 0;
             background: var(--color-primary);
-            height: calc(100vh - 80px);
             padding: 40px 15px;
             overflow-x: hidden;
         }
