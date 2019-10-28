@@ -13,10 +13,10 @@ export default class MobileMenu {
             this.toggleMenu();
         });
 
-        // window.addEventListener('resize', () => {
-        //     this.active = false;
-        //     this.toggleMenu();
-        // });
+        window.addEventListener('resize', () => {
+            this.active = false;
+            this.toggleMenu();
+        });
 
         console.log(componentName, 'loaded');
     }
