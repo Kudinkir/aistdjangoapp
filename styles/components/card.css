@@ -105,6 +105,15 @@
             background-size: cover;
         }
 
+        @modifier main {
+            height: 225px;
+            background-size: cover;
+
+            @media (--viewport-tablet) {
+                height: 100%;
+            }
+        }
+
         @modifier hero {
             height: 205px;
             background-size: cover;
