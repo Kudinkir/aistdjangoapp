@@ -65,6 +65,11 @@
                 </div>
             </div>
         </aside>
+        {% for block in about_block.childrens %}
+            <li class="sidebar__item">
+                <a href="#{{ block.tech_name }}" class="sidebar__link">{{ block.text }}</a>
+            </li>
+        {% endfor %}
         <div class="course-page__main">
             <section id="author" class="course-page__section">
                 <div class="course-page__row">

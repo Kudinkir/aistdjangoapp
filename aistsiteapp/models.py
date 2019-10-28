@@ -192,7 +192,7 @@ class CoursesVariants(models.Model):
     title=models.CharField(max_length=255, blank=True, null=True, verbose_name='Название')
     text=HTMLField('Text')
     price=models.CharField(max_length=255, blank=True, verbose_name='Цена')
-    price_link=models.TextField(verbose_name='Ссылка на оплату',blank=True, null=True,)
+    price_link=models.TextField(verbose_name='id товара',blank=True, null=True,)
     course_id = models.ForeignKey('VideoCourses', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Видеокурс')
 
     class Meta:
@@ -206,7 +206,7 @@ class EventsVariants(models.Model):
     title=models.CharField(max_length=255, verbose_name='Название', blank=True)
     text=HTMLField('Text')
     price=models.CharField(max_length=255, blank=True, verbose_name='Цена')
-    price_link=models.CharField(max_length=255, verbose_name='Ссылка на оплату',blank=True, null=True,)
+    price_link=models.CharField(max_length=255, verbose_name='id товара',blank=True, null=True,)
     course_id = models.ForeignKey('Events', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Семинар')
 
     class Meta:
