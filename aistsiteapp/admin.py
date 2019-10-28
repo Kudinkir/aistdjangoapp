@@ -96,7 +96,7 @@ class BlocksAdmin(admin.ModelAdmin):
 class VideoCoursesAdmin(admin.ModelAdmin):
 	inlines = [VideoBlocksInline,LessonsInline, CoursesReviewsInline, CoursesVariantsInline]
 	list_display = ('name', 'slug','prior','on_main','visible')
-	# list_filter = ['published_date', 'slug']
+	list_filter = ['name', 'slug']
 	# search_fields = ['name','tech_title','slug']
 
 class EventsAdmin(admin.ModelAdmin):
@@ -113,7 +113,14 @@ class MenuAdmin(admin.ModelAdmin):
     inlines = [MenuItemInline,]
 
 class SubscribeAdmin(admin.ModelAdmin):
-	list_display = ('email', 'text','amount')
+	#inlines = [VideoBlocksInline,LessonsInline, CoursesReviewsInline, CoursesVariantsInline]
+	list_display = ('email', 'text','amount','published_date', 'update_date')
+	list_filter = ['text','amount',]
+	# search_fields = ['name','tech_title','slug']
+
+# class SubscribeAdmin(admin.ModelAdmin):
+# 	list_display = ('email', 'text','amount','published_date', 'update_date')
+#     search_fields = ['email','amount','text']
 
 class CallbackAdmin(admin.ModelAdmin):
 	list_display = ('email', 'text', 'published_date')
