@@ -26,6 +26,10 @@
             flex: 0 1 510px;
         }
 
+        & p {
+            hyphens: auto;
+        }
+
         & ol li, & ul li {
             margin-top: 20px;
         }
