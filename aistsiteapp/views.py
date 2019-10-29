@@ -18,6 +18,7 @@ def home(request):
         event.places =EventsPlaces.objects.filter(course_id=event.id)
     instagram_block = Blocks.objects.get(tech_name='insta_block')
     youtube_block = Blocks.objects.get(tech_name='youtube_block')
+    youtube_block.bloks = Blocks.objects.filter(block_id=youtube_block.id)
     for course in videocourses_main:
         course.slug = "video-courses/"+course.slug
         course.lessons = Lessons.objects.filter(course_id=course.id)
