@@ -24,7 +24,16 @@
         margin-bottom: 20px;
 
         & .card {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap !important;
             height: 100%;
+        }
+
+        & .card__image {
+            flex: 0 0 260px;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
         @media (--viewport-ipad) {
