@@ -21,10 +21,10 @@
     @element col {
         flex: 0 0 100%;
         max-width: 100%;
-        margin-bottom: 0;
+        margin-bottom: 20px;
 
-        &:not(:last-child) {
-            margin-bottom: 35px;
+        & .card {
+            height: 100%;
         }
 
         @media (--viewport-ipad) {

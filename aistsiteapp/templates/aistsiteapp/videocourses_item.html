@@ -202,8 +202,7 @@
                             <div class="display display--h4 card__title">{{ item.name }}</div>
                         </div>
                         {% if item.images %}
-                            <div class="card__image card__image--full-width">
-                                <img src="{{ item.images.url }}" alt="" />
+                            <div class="card__image card__image--full-width" style="background-image: url('{{ item.images.url }}')">
                             </div>
                         {% endif %}
                     </div>
