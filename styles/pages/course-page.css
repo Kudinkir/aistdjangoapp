@@ -37,6 +37,10 @@
             border-top: 2px solid var(--color-secondary);
         }
 
+        @modifier no-space {
+            padding-top: 0;
+        }
+
         @modifier primary {
             color: var(--color-white);
             background: var(--color-primary);

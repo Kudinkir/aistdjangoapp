@@ -2,10 +2,10 @@
     width: 100%;
     position: sticky;
     top: 0;
-    margin-bottom: 250px;
 
     @media (--viewport-desktop) {
         width: auto;
+        margin-bottom: 250px;
     }
 
     @element list {
