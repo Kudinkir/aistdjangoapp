@@ -26,6 +26,8 @@
         max-width: 100%;
         flex: 0 0 100%;
         padding: 0 16px;
+        display: flex;
+        flex-direction: column;
 
         @media (--viewport-desktop) {
             flex: 0 0 40%;
@@ -35,10 +37,10 @@
     }
 
     @element item {
-        flex: 1;
-
         &:not(:last-child) {
             margin-bottom: 16px;
+            flex: 0 0 190px;
+            display: flex;
         }
 
         @media (--viewport-desktop) {
