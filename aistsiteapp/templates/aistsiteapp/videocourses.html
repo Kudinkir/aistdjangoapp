@@ -46,7 +46,9 @@
                                 <div class="card card--reverse">
                                     <a class="card__fullLink" href="{{ item.slug }}"></a>
                                     <div class="card__body">
-                                        <div class="card__header">Урок 1: {{ item.duration }}</div>
+                                        {% if item.lessons_number and item.duration_number %}
+                                            <div class="card__header">{{ item.lessons_number }} урок(а): {{ item.duration_number }} часа(ов)</div>
+                                        {% endif %}
                                         <div class="card__title">{{ item.name }}</div>
                                         {% autoescape off %}
                                         <div class="card__text">{{ item.text }}</div>
