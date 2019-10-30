@@ -15,21 +15,21 @@ export default class MobileMenu {
         });
 
         window.addEventListener('resize', () => {
-            this.active = false;
-            this.toggleMenu();
+            this.toggleMenu(true);
         });
 
         console.log(componentName, 'loaded');
     }
 
-    toggleMenu() {
-        this.button.classList[this.active ? 'add' : 'remove']('active');
-        this.menu.classList[this.active ? 'add' : 'remove']('active');
-        this.context.classList[this.active ? 'add' : 'remove']('active');
-        this.main.style.display = this.active ? 'none' : 'block';
-        document.body.style.overflow = this.active ? 'hidden' : '';
-        document.body.style.paddingRight = this.active ? '15px' : '';
+    toggleMenu(isClose) {
+        if (isClose) this.active = true;
 
+        this.button.classList[!this.active ? 'add' : 'remove']('active');
+        this.menu.classList[!this.active ? 'add' : 'remove']('active');
+        this.context.classList[!this.active ? 'add' : 'remove']('active');
+        this.main.style.display = !this.active ? 'none' : 'block';
+        document.body.style.overflow = !this.active ? 'hidden' : '';
+        document.body.style.paddingRight = !this.active ? '15px' : '';
 
         this.active = !this.active;
     }
