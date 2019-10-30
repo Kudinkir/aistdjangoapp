@@ -6,6 +6,7 @@ export default class MobileMenu {
 
         this.button = this.context.querySelector('[data-trigger="menu"]');
         this.menu = this.context.querySelector('[data-content="menu"]');
+        this.main = document.querySelector('main');
 
         this.button.addEventListener('click', event => {
             event.preventDefault();
@@ -18,7 +19,7 @@ export default class MobileMenu {
             this.toggleMenu();
         });
 
-        console.log(componentName, 'loaded');
+        console.log(componentName, 'loadedd');
     }
 
     toggleMenu() {
@@ -27,6 +28,7 @@ export default class MobileMenu {
         this.context.classList[this.active ? 'add' : 'remove']('active');
         document.body.style.overflow = this.active ? 'hidden' : '';
         document.body.style.paddingRight = this.active ? '15px' : '';
+        this.main.style.overflow = this.active ? 'hidden' : '';        
 
         this.active = !this.active;
     }
