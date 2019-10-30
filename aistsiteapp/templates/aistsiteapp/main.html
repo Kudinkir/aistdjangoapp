@@ -45,7 +45,9 @@
                     <div class="card">
                         <a class="card__fullLink" href="{{ videocourses_main.0.slug }}"></a>
                         <div class="card__body">
-                            <div class="card__header">{{ videocourses_main.0.lesson_text }}</div>
+                            {% if videocourses_main.0.lessons_number and videocourses_main.0.duration_number %}
+                                <div class="home-cards__header">{{ videocourses_main.0.lessons_number }} урок(а): {{ videocourses_main.0.duration_number }} часа(ов)</div>
+                            {% endif %}
                             <div class="card__title">{{ videocourses_main.0.name }}</div>
                             {% autoescape off %}
                                 <div class="card__text">
@@ -76,7 +78,9 @@
                                         </div>
                                     {% endif %}
                                     <div class="card__body">
-                                        <div class="card__header">{{ item.lesson_text }}</div>
+                                        {% if item.lessons_number and item.duration_number %}
+                                            <div class="home-cards__header">{{ item.lessons_number }} урок(а): {{ item.duration_number }} часа(ов)</div>
+                                        {% endif %}
                                         <div class="card__title">{{ item.name }}</div>
                                     </div>
                                 </div>

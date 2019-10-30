@@ -16,9 +16,9 @@
                 <div class="card card--invert">
                     <a class="card__fullLink" href="{{ videocourses.0.slug }}"></a>
                     <div class="card__body">
-                        <div class="card__header card__header--large">
-                            Урок 1: {{ videocourses.0.duration }}
-                        </div>
+                        {% if videocourses.0.lessons_number and videocourses.0.duration_number %}
+                            <div class="card__header card__header--large">{{ videocourses.0.lessons_number }} урок(а): {{ videocourses.0.duration_number }} часа(ов)</div>
+                        {% endif %}
                         <div class="card__title card__title--large">
                             {{ videocourses.0.name }}
                         </div>

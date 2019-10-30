@@ -49,4 +49,9 @@
             }
         }
     }
+
+    @element header {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
 }

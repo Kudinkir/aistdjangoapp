@@ -19,7 +19,9 @@
                     <div class="container">
                         <div class="card card--invert">
                             <div class="card__body">
-                                <div class="card__header card__header--large">{{ event.duration }}</div>
+                                {% if videocourses.0.lessons_number and videocourses.0.duration_number %}
+                                    <div class="card__header card__header--large">{{ videocourses.0.lessons_number }} урок(а): {{ videocourses.0.duration_number }} часа(ов)</div>
+                                {% endif %}
                                 <div class="card__title card__title--large">
                                     {{ event.name }}
                                 </div>
