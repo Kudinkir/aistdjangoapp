@@ -27,7 +27,6 @@
     }
 
     @element image {
-        padding: 0 27px;
         flex: 0 1 756px;
         min-height: 280px;
 
