@@ -19,16 +19,17 @@ export default class MobileMenu {
             this.toggleMenu();
         });
 
-        console.log(componentName, 'loadedd');
+        console.log(componentName, 'loaded');
     }
 
     toggleMenu() {
         this.button.classList[this.active ? 'add' : 'remove']('active');
         this.menu.classList[this.active ? 'add' : 'remove']('active');
         this.context.classList[this.active ? 'add' : 'remove']('active');
+        this.main.style.display = this.active ? 'none' : 'block';
         document.body.style.overflow = this.active ? 'hidden' : '';
         document.body.style.paddingRight = this.active ? '15px' : '';
-        this.main.style.display = this.active ? 'none' : 'block';        
+
 
         this.active = !this.active;
     }
