@@ -29,12 +29,15 @@
     @element image {
         flex: 0 1 756px;
         min-height: 280px;
+        display: flex;
+        flex-direction: column;
+
+        & iframe {
+            flex: 1 1;
+        }
 
         @media (--viewport-desktop) {
             min-height: 410px;
         }
-        /* flex: none;
-        display: flex;
-        justify-content: center; */
     }
 }
