@@ -28,7 +28,7 @@ export default class MobileMenu {
         this.context.classList[this.active ? 'add' : 'remove']('active');
         document.body.style.overflow = this.active ? 'hidden' : '';
         document.body.style.paddingRight = this.active ? '15px' : '';
-        this.main.style.overflow = this.active ? 'hidden' : '';        
+        this.main.style.display = this.active ? 'none' : 'block';        
 
         this.active = !this.active;
     }
