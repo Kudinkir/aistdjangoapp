@@ -1,4 +1,4 @@
-<header class="header" data-component="MobileMenu,AddClassOnScroll">
+<header class="header" data-component="MobileMenu,AddClassOnScroll" data-url="{{ request.path }}">
     <div class="header__fixed">
         <div class="container header__inner">
             <a href="/" class="header__logo">Марина Аист</a>
@@ -7,9 +7,9 @@
                 <ul class="navbar">
                     {% for item in main_menu.items %}
                     <li
-                        class="navbar__item{% if item.childrens %} navbar__item--dropdown dropdown{% endif %}{% if item.current %} active{% endif %}"
+                        class="navbar__item{% if item.childrens %} navbar__item--dropdown dropdown{% endif %}{% if item.current %} active {% endif %}"
                     >
-                        <a href="{{ item.link_url }}" class="navbar__link">{{ item.title }}</a>
+                        <a href="{{ item.link_url }}" class="navbar__link {% if item.link_url == {{ request.path }} %} navbar__link--active {% endif %}">{{ item.title }}</a>
                         {% if item.childrens %}
                         <div class="dropdown__menu">
                             {% for child in item.childrens %}
