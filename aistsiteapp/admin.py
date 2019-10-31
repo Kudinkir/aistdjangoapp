@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import Blocks, Page, VideoCourses, Events, Callback, Subscribe, Lessons, CoursesVariants,CoursesReviews, MenuBlocks, MenuItemBlocks, EventsVariants
-from .models import EventsProgrammItem, EventsReviews,EventsPlaces, VideoBlocks
+from .models import Blocks, Page, VideoCourses, Events, Callback, Subscribe, Lessons, CoursesVariants,CoursesReviews
+from .models import EventsProgrammItem, EventsReviews,EventsPlaces, VideoBlocks, MenuBlocks, MenuItemBlocks, EventsVariants
 from django import forms
 from django.contrib.admin import AdminSite
 from django.contrib.auth.models import Group, User
 from django.contrib.auth.admin import GroupAdmin, UserAdmin
+from django.http.request import HttpRequest
 
 class MyAdminSite(AdminSite):
 
@@ -114,13 +115,12 @@ class MenuAdmin(admin.ModelAdmin):
 
 class SubscribeAdmin(admin.ModelAdmin):
 	#inlines = [VideoBlocksInline,LessonsInline, CoursesReviewsInline, CoursesVariantsInline]
-	list_display = ('email', 'text','amount','published_date', 'update_date')
+	list_display = ('email', 'text','amount','published_date', 'update_date', 'delta_days')
 	list_filter = ['text','amount',]
-	# search_fields = ['name','tech_title','slug']
+	def delta_days(self, obj):
+           obj.save()
+           return abs(obj.published_date - obj.update_date).days
 
-# class SubscribeAdmin(admin.ModelAdmin):
-# 	list_display = ('email', 'text','amount','published_date', 'update_date')
-#     search_fields = ['email','amount','text']
 
 class CallbackAdmin(admin.ModelAdmin):
 	list_display = ('email', 'text', 'published_date')

@@ -151,6 +151,11 @@ class Subscribe(models.Model):
 
     def save(self, *args, **kwargs):
         # if(not self.text):
+        # d1 = self.update_date
+        # d2 = self.published_date
+        delta = abs(self.published_date - self.update_date).days
+        self.amount = self.amount + delta // 7
+        print(self.amount)
         text = '1-11';
         if(self.amount > 11 and self.amount <=19):
             text = '12-19'
