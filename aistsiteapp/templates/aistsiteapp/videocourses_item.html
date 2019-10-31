@@ -69,23 +69,24 @@
             <section id="author" class="course-page__section course-page__section--no-space">
                 <div class="course-page__row">
                     <div class="course-page__col course-page__col--image">
-                        <img src="https://placehold.it/324x432" alt="" />
+                        <img src="{{ about_block.images.url }}" alt="" />
                     </div>
                     <div class="course-page__col course-page__col--text">
-                        <h2 class="display display--primary display--h2 course-page__section-title">Меня зовут Марина Аист</h2>
+                        <h2 class="display display--primary display--h2 course-page__section-title">{{ about_block.name}}</h2>
                         <div class="course-page__text">
-                            Я акушер с 10-летним стажем, перинатальный психолог, сертифицированный консультант
-                            по грудном вскармливанию.
+                          {{ about_block.text|safe}}
                         </div>
                         <div class="course-page__benefits-container" data-component="CarouselItems">
                             <div class="course-page__benefits">
+                              {% for block in about_block.bloks %}
                                 <div class="course-page__benefit">
-                                    <h2 class="benefits__title">10 лет</h2>
+                                    <h2 class="benefits__title">{{ block.name }}</h2>
                                     <div class="benefits__text">
-                                        стаж работы акушером и перинатальным психологом
+                                        {{ block.text|safe }}
                                     </div>
                                 </div>
-                                <div class="course-page__benefit">
+                                {% endfor %}
+                                <!-- <div class="course-page__benefit">
                                     <h2 class="benefits__title">3097 родов</h2>
                                     <div class="benefits__text">приняла за время работы в роддоме</div>
                                 </div>
@@ -94,7 +95,7 @@
                                     <div class="benefits__text">
                                         работаю над методикой подготовки к родам, веду курсы и мастер-классы
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
