@@ -70,5 +70,9 @@
         @media (--viewport-tablet) {
             font-weight: 400;
         }
+
+        @modifier active {
+            color: var(--color-secondary);
+        }
     }
 }
