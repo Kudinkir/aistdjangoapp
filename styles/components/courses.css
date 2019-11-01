@@ -32,7 +32,12 @@
         margin-left: 50%;
         transform: translateX(-50%);
         margin-top: 34px;
-        max-width: 540px;
+        max-width: 100%;
         text-align: center;
+        width: 100%;
+
+        @media (--viewport-desktop) {
+            max-width: 540px;
+        }        
     }
 }
