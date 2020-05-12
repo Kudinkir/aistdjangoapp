@@ -22,7 +22,7 @@ from django.urls import include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('adminl/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
     path('', views.home, name='home'),
     path('video-courses/', views.videocourses, name='videocourses'),
